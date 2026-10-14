@@ -16,19 +16,29 @@ def gait_metrics(animation: dict) -> dict:
     hands = []  # 左手相对肩的实际前后位置
     faults = 0  # 同侧手脚在同一前后方向的有效样本数
     flight = 0  # 双脚均明显离地的帧数
+    visible_flight = 0  # 双脚离地超过8骨架像素的可读腾空帧
+    knee_flexions = []  # 一侧小腿相对大腿的屈曲幅度
+    running = animation['id'].endswith('_run')  # 跑步收腿时不能用身后的脚踝判断摆臂相位
     for frame in animation['frames']:  # 已保存的一帧正式数据
         joints = frame['world']  # 本帧世界关节坐标
         flight += min(451-joints['foot_l'][1], 451-joints['foot_r'][1]) > 2
+        visible_flight += min(451-joints['foot_l'][1], 451-joints['foot_r'][1]) > 8
+        knee_flexions.append(abs(frame['pose']['angles']['shin_l']))
         for side in ('l', 'r'):  # 左右身体侧
             forearm = joints['forearm_' + side]  # 前臂的根和世界角
             foot = joints['foot_' + side][0] - joints['thigh_' + side][0]  # 脚相对髋的位置
             hand = forearm[0] - math.sin(forearm[2])*68.4 - joints['upper_arm_' + side][0]  # 可见手端相对肩的位置
-            faults += abs(foot) > 6 and foot * hand > 0
+            other = 'r' if side == 'l' else 'l'  # 对侧腿
+            coordination = (joints['shin_' + side][0] - joints['thigh_' + side][0]
+                            - joints['shin_' + other][0] + joints['thigh_' + other][0]) if running else foot  # 跑步比较双大腿相位，走和冲刺比较伸展的同侧脚
+            faults += abs(coordination) > (12 if running else 6) and coordination * hand > 0
             if side == 'l':
                 feet.append(foot)
                 hands.append(hand)
     return {'same_side_faults': faults, 'foot_span': max(feet)-min(feet),
-            'hand_span': max(hands)-min(hands), 'flight_frames': flight}
+            'hand_span': max(hands)-min(hands), 'flight_frames': flight,
+            'visible_flight_frames': visible_flight, 'max_knee_flexion_degrees': math.degrees(max(knee_flexions)),
+            'coordination_basis': 'relative_thigh' if running else 'ankle'}
 
 
 def posture_metrics(animation: dict) -> dict:
@@ -115,6 +125,16 @@ def verify() -> dict:
             if clip['action'] != 'dash':
                 assert metrics['foot_span'] > (80 if clip['action'] == 'slow_walk' else 132)
                 assert metrics['hand_span'] > (90 if clip['action'] == 'slow_walk' else 130)
+            if clip['action'] == 'run':
+                assert metrics['visible_flight_frames'] >= 14, ('跑步仍像快走，缺乏清楚腾空', clip_id)
+                assert metrics['max_knee_flexion_degrees'] > 125, ('缺乏折叠回收', clip_id)
+                for index, side in ((0, 'l'), (30, 'r')):  # 左右脚触地时应靠髋下，不能前伸过度
+                    joints = animation['frames'][index]['world']  # 正式落脚帧关节
+                    assert abs(joints['foot_' + side][0] - joints['thigh_' + side][0]) < 35, ('落脚太远', index)
+            if clip['action'] == 'dash':
+                middle = animation['frames'][30]  # 冲刺爆发段正式姿势
+                assert -middle['pose']['angles']['torso'] > math.radians(48)
+                assert middle['world']['foot_r'][0] - middle['world']['foot_l'][0] > 220
             previous_path = (OUTPUT / clip['previous']['path']).parents[2] / f'animations/{clip_id}.json'  # 和预览一致的本轮修正前正式姿势
             before = gait_metrics(json.loads(previous_path.read_text(encoding='utf-8'))) if previous_path.exists() else None  # 相同算法度量旧版，避免只给新版结论
             gait_records.append({'id': clip_id, 'before': before, 'after': metrics})

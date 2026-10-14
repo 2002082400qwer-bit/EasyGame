@@ -118,7 +118,7 @@ class RigTests(unittest.TestCase):
                                (1 - side["foot_l"]["pivot"][1] / 100), 20, delta=2)
 
     def test_every_action_starts_and_ends_on_same_ankle_baseline(self):
-        """非循环动作首尾双脚回地，循环步态的周期边界至少一脚接地。"""
+        """非循环首尾双脚回地，跑步从接地起、下次接地前允许仍在下降但不穿地。"""
         # self：当前测试实例。
         for view in ("front", "side", "back"):  # view：当前视角。
             rig = build_rig(view, {name: (64, 64) for name in PART_ORDER})  # rig：当前视角骨架。
@@ -126,6 +126,9 @@ class RigTests(unittest.TestCase):
                 for frame in (0, 59):  # frame：动作首帧或末帧。
                     joints = world_transforms(rig, sample_pose(action, frame, view))  # joints：当前关节位置。
                     if action in ("slow_walk", "run"):
+                        if action == 'run' and frame == 59:
+                            self.assertLessEqual(max(joints['foot_l'][1], joints['foot_r'][1]), 451.01)
+                            continue
                         self.assertLess(min(abs(joints["foot_l"][1] - 451), abs(joints["foot_r"][1] - 451)), 1)
                         continue
                     for side in ("l", "r"):  # side：待检查的脚。
@@ -205,10 +208,10 @@ class RigTests(unittest.TestCase):
             self.assertGreater(abs(p0["angles"]["thigh_l"] - p0["angles"]["thigh_r"]), 0.08)
             self.assertAlmostEqual(p0["angles"]["thigh_l"], p1["angles"]["thigh_r"], delta=0.11)
         rig = build_rig("side", {name: (64, 64) for name in PART_ORDER})  # rig：用于比较脚踝距离的侧面骨架。
-        walk_joints = world_transforms(rig, sample_pose("slow_walk", 0, "side"))  # walk_joints：慢走首帧关节。
-        run_joints = world_transforms(rig, sample_pose("run", 0, "side"))  # run_joints：跑步首帧关节。
-        walk_span = abs(walk_joints["foot_l"][0] - walk_joints["foot_r"][0])  # walk_span：慢走脚踝间距。
-        run_span = abs(run_joints["foot_l"][0] - run_joints["foot_r"][0])  # run_span：跑步脚踝间距。
+        walk_feet = [world_transforms(rig, sample_pose('slow_walk', frame, 'side'))['foot_l'][0] for frame in range(60)]  # 慢走完整足迹
+        run_feet = [world_transforms(rig, sample_pose('run', frame, 'side'))['foot_l'][0] for frame in range(60)]  # 跑步完整足迹，落脚靠髋不代表整周期幅度小
+        walk_span = max(walk_feet) - min(walk_feet)  # 慢走全周期脚部跨度
+        run_span = max(run_feet) - min(run_feet)  # 跑步全周期脚部跨度
         self.assertGreater(run_span, walk_span + 10)
 
     def test_ik_reaches_hand_computed_left_foot_target(self):

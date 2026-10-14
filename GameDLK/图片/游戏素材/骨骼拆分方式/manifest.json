@@ -23,11 +23,11 @@
       "old_frame": 7,
       "old_sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c",
       "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/front_idle.png",
+        "path": "comparison/before-run-fix/atlases/256/front_idle.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "10c13212a0ec331fd3e85e6db06c929ddd1ac37cf79aba5946b6a02f37b27e22"
+        "sha256": "8c12c37198629277d770d0b0a6ff4d28066f050f765058b3dd2cf1930ad1211f"
       },
       "redrawn": {
         "path": "comparison/redrawn60/front_idle.png",
@@ -59,11 +59,11 @@
       "old_frame": null,
       "old_sha256": "b47c00d644a6ece5b216140bf46af12567e4dfa03449e6029aeeee80a7850d33",
       "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/front_slow_walk.png",
+        "path": "comparison/before-run-fix/atlases/256/front_slow_walk.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "6c73518cab5093aa3b037d57f328857eb70bfbe77e88ee89e322b15807c4ee37"
+        "sha256": "a5d3f11a01a6754f897139659c32a043b38dc6eda1122c8ba53dc27b2ffc093d"
       },
       "redrawn": {
         "path": "comparison/redrawn60/front_slow_walk.png",
@@ -94,13 +94,6 @@
       "old": "comparison/front_run.png",
       "old_frame": null,
       "old_sha256": "2c7fc0b213e25ae175020be35ab3b06134e25f4dd2b24123dd9a2fa60343f700",
-      "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/front_run.png",
-        "frame_count": 60,
-        "columns": 12,
-        "scale": 1.0,
-        "sha256": "9b1c49eb5d3d3cc22d348a55edd464cdf51f277897b0f9b4a9e00033dd6c3255"
-      },
       "redrawn": {
         "path": "comparison/redrawn60/front_run.png",
         "frame_count": 60,
@@ -108,6 +101,13 @@
         "sha256": "1b35ec1aa361727fcaf4864ef7cbdff76e6d0ebff21bee89a4d719c9599d2dde",
         "scale": 0.8127853881278538,
         "source": "图片/游戏素材/diluc-redrawn-60/atlases/front_run.png"
+      },
+      "previous": {
+        "path": "comparison/before-run-fix/atlases/256/front_run.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "00ab6640df85c37f3a55cc4b663d190323095348aba2a2653dcf09cb13ddfeaf"
       }
     },
     {
@@ -131,11 +131,11 @@
       "old_frame": null,
       "old_sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c",
       "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/front_jump.png",
+        "path": "comparison/before-run-fix/atlases/256/front_jump.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "8bda6fb85dbcd84c874fbf025003e8e9b1320d7f16e39507b6df371f35f89cae"
+        "sha256": "63660be68ce3fa5ffd00d95e1ba5acc3da36c339bbbc1627bf62c2a1cef0a409"
       },
       "redrawn": {
         "path": "comparison/redrawn60/front_jump.png",
@@ -166,13 +166,6 @@
       "old": "comparison/front_dash.png",
       "old_frame": null,
       "old_sha256": "2f38a5b2af053a1b16dc07c06fd0dd2e1a56aa1a9e0597e99a379faaa4e825bf",
-      "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/front_dash.png",
-        "frame_count": 60,
-        "columns": 12,
-        "scale": 1.0,
-        "sha256": "0e1ac1f5c92b4e578e4dd2ff4ddc46fa7709e278adb0a9f033a5287720eae15d"
-      },
       "redrawn": {
         "path": "comparison/redrawn60/front_dash.png",
         "frame_count": 60,
@@ -180,6 +173,13 @@
         "sha256": "4db64329064cf2d4c23323bc53ad9d6d133ae92148a9e881fca83e76b7a8b7ec",
         "scale": 0.8127853881278538,
         "source": "图片/游戏素材/diluc-redrawn-60/atlases/front_dash.png"
+      },
+      "previous": {
+        "path": "comparison/before-run-fix/atlases/256/front_dash.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "0eb06829d95c922c6c072cc82b3945c332ab7be385b6c6bb88b5f832e26c4408"
       }
     },
     {
@@ -203,11 +203,11 @@
       "old_frame": 0,
       "old_sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c",
       "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/front_crouch.png",
+        "path": "comparison/before-run-fix/atlases/256/front_crouch.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "7dba79be5f4dbbc9e74fd24e29420ec95515ff1077201ae1ee0aa851cf96a8e3"
+        "sha256": "ff71e6e6b670f079580d719de10a35a87d12941b8bbf7f8295d2f4c55a986b9f"
       }
     },
     {
@@ -231,11 +231,11 @@
       "old_frame": 7,
       "old_sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839",
       "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/side_idle.png",
+        "path": "comparison/before-run-fix/atlases/256/side_idle.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "57c9d712c00e6b61f9784eefa20c395b9cbc2bf54e14e3091c76bbec73f90b65"
+        "sha256": "fac8d538c8de5c34832bfaa31112572b4eee024e46a9143b57ae10fcf58e9309"
       },
       "redrawn": {
         "path": "comparison/redrawn60/side_idle.png",
@@ -267,11 +267,11 @@
       "old_frame": null,
       "old_sha256": "7df72506625ea86b2bd5fde06a27271c91147d48e83df33bf6eb06a19379f2a9",
       "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/side_slow_walk.png",
+        "path": "comparison/before-run-fix/atlases/256/side_slow_walk.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "2f4c5c2c61618bacb0c091e7528ff65539d7353fefa31b4d2bf62dd6d2d493ba"
+        "sha256": "ec83ecaa41cfb3b54209e864188f91a97a3f43128408adb15c7ac2ed4aca7ce7"
       },
       "redrawn": {
         "path": "comparison/redrawn60/side_slow_walk.png",
@@ -302,13 +302,6 @@
       "old": "comparison/side_run.png",
       "old_frame": null,
       "old_sha256": "c3e2ad15b4cff7a6369a68d0ceec633fcc6754e9be697b0e9c48514c4efe3d71",
-      "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/side_run.png",
-        "frame_count": 60,
-        "columns": 12,
-        "scale": 1.0,
-        "sha256": "416366f908a7a3e0c19a4622111871ed3f621d226594119e78917cad8fa4425a"
-      },
       "redrawn": {
         "path": "comparison/redrawn60/side_run.png",
         "frame_count": 60,
@@ -316,6 +309,13 @@
         "sha256": "9e041b4fa1b3b2f8eea41933803f1e22611ce940c1f4fdccc42c373ab04e4d37",
         "scale": 0.7807017543859649,
         "source": "图片/游戏素材/diluc-redrawn-60/atlases/side_run.png"
+      },
+      "previous": {
+        "path": "comparison/before-run-fix/atlases/256/side_run.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "f296f6693fe3aed48cd8bfb19ed1fdc1a27c2aec85bd679f1c09bf35859dbb60"
       }
     },
     {
@@ -339,11 +339,11 @@
       "old_frame": null,
       "old_sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839",
       "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/side_jump.png",
+        "path": "comparison/before-run-fix/atlases/256/side_jump.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "2ee5faeeb366bf63e700d313328e5790d7da2bbf6db103dd397e284d8e71c9e2"
+        "sha256": "d18e7c96cfddfafd69e5f2b17b49c32b507387312e2dd55dfb7189637bc15033"
       },
       "redrawn": {
         "path": "comparison/redrawn60/side_jump.png",
@@ -374,13 +374,6 @@
       "old": "comparison/side_dash.png",
       "old_frame": null,
       "old_sha256": "3543cc09e2dd796c35826d8a3fba59659c7548f05c1efee39403e53ad6facce5",
-      "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/side_dash.png",
-        "frame_count": 60,
-        "columns": 12,
-        "scale": 1.0,
-        "sha256": "cb81fd2c67b6270818c76b79b9dfa3af6a91e1ab4e6e4b310d27d1656c0ebc51"
-      },
       "redrawn": {
         "path": "comparison/redrawn60/side_dash.png",
         "frame_count": 60,
@@ -388,6 +381,13 @@
         "sha256": "ec716467959f6686485553d951cd67fcbe62dd99639719106f00531dd3c0b1a6",
         "scale": 0.7807017543859649,
         "source": "图片/游戏素材/diluc-redrawn-60/atlases/side_dash.png"
+      },
+      "previous": {
+        "path": "comparison/before-run-fix/atlases/256/side_dash.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "7d848c618c91b318944448f6c96b89dc53b24c204187bc64d01de25d919cd400"
       }
     },
     {
@@ -411,11 +411,11 @@
       "old_frame": 0,
       "old_sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839",
       "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/side_crouch.png",
+        "path": "comparison/before-run-fix/atlases/256/side_crouch.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "fac3e7c2815c23ae63367ae552a5eaeef08a9f7de5ceaf793519fa0273b2b772"
+        "sha256": "91fa8710ac38918e5052d5d7927a8a0a9f6a2d6a04666753cc13847a33a1eec3"
       }
     },
     {
@@ -439,11 +439,11 @@
       "old_frame": 7,
       "old_sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f",
       "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/back_idle.png",
+        "path": "comparison/before-run-fix/atlases/256/back_idle.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "0ed99a6a89e48cc360c8408da4c6b8f2c903221496a82ada87c9ec56a5916d21"
+        "sha256": "fdc9caebadad13d2e796aa9cd27b0227a2b03a5c878ba5e7279e01d6ede84485"
       },
       "redrawn": {
         "path": "comparison/redrawn60/back_idle.png",
@@ -475,11 +475,11 @@
       "old_frame": null,
       "old_sha256": "bf773aecdb43df52a79f3515b5539f5b332deb52c1b73fa5e619019a00144fe6",
       "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/back_slow_walk.png",
+        "path": "comparison/before-run-fix/atlases/256/back_slow_walk.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "cdd786ad58b26ee8f77d803a2271b063a279382e4e32a7ad8641d4848c9713c8"
+        "sha256": "1b0b18af651add537fc5057c9156bd7a4bba1a1bf34981319f5590e7d219749a"
       },
       "redrawn": {
         "path": "comparison/redrawn60/back_slow_walk.png",
@@ -510,13 +510,6 @@
       "old": "comparison/back_run.png",
       "old_frame": null,
       "old_sha256": "8d5345f28c238feb1ca385cbd385356eaa01c986e2637750bc805fab3b3a9a29",
-      "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/back_run.png",
-        "frame_count": 60,
-        "columns": 12,
-        "scale": 1.0,
-        "sha256": "dc4afbb850b917dbc725ef5ca744500c184a0860398c76f87ec4236317f28d71"
-      },
       "redrawn": {
         "path": "comparison/redrawn60/back_run.png",
         "frame_count": 60,
@@ -524,6 +517,13 @@
         "sha256": "4407091d2b75f8e069a44d5e1a1663f165239e9150307a2d3b825cba7df5aa67",
         "scale": 0.7606837606837606,
         "source": "图片/游戏素材/diluc-redrawn-60/atlases/back_run.png"
+      },
+      "previous": {
+        "path": "comparison/before-run-fix/atlases/256/back_run.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "504e8d2dcb479f5d3a7f29b5e5faf3765d39f0c5f5fa8420528b050fd319a0c1"
       }
     },
     {
@@ -547,11 +547,11 @@
       "old_frame": null,
       "old_sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f",
       "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/back_jump.png",
+        "path": "comparison/before-run-fix/atlases/256/back_jump.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "6b308ee217f107299aca17a57564679443c906b05531a38ba21c038a68ee13ea"
+        "sha256": "cdcebc2bdf97985018f5e534f9a5a0f2a7333de85013121aec0a3270c044d07a"
       },
       "redrawn": {
         "path": "comparison/redrawn60/back_jump.png",
@@ -582,13 +582,6 @@
       "old": "comparison/back_dash.png",
       "old_frame": null,
       "old_sha256": "52a96729ec0b65602a946c4757c73c16606cece90f700fdcf4c7dfdcf5f70a5a",
-      "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/back_dash.png",
-        "frame_count": 60,
-        "columns": 12,
-        "scale": 1.0,
-        "sha256": "ce2768084132c00ad89e0392b9cef364c0881f5e5144304320afabc7d42feead"
-      },
       "redrawn": {
         "path": "comparison/redrawn60/back_dash.png",
         "frame_count": 60,
@@ -596,6 +589,13 @@
         "sha256": "c9ebff34ef493eb233cf2069b9e446c07a35b137be9c61d7fcf81de77a669911",
         "scale": 0.7606837606837606,
         "source": "图片/游戏素材/diluc-redrawn-60/atlases/back_dash.png"
+      },
+      "previous": {
+        "path": "comparison/before-run-fix/atlases/256/back_dash.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "741badf8d6e12b26fc45e2babcec98fd87f478799923847bf6676a35a916f589"
       }
     },
     {
@@ -619,11 +619,11 @@
       "old_frame": 0,
       "old_sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f",
       "previous": {
-        "path": "comparison/before-posture-fix/atlases/256/back_crouch.png",
+        "path": "comparison/before-run-fix/atlases/256/back_crouch.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "c7123add74a5cad85f6b4af5abd42eaa3e972166ada141e116d27059f567a0bf"
+        "sha256": "06b9f03f3836e2ed6cd9b659fdd7b862627115a9f1396de8d1075025df9d23ef"
       }
     }
   ],

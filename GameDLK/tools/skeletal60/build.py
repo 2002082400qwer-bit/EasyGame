@@ -183,6 +183,14 @@ def save_previous_version(snapshot_name: str = 'before-gait-fix') -> None:
                 shutil.copy2(source, target)
 
 
+def comparison_snapshot() -> str:
+    """选择最近一轮已固定保存的修改前素材；无参数，旧版快照始终保留。"""
+    for name in ('before-run-fix', 'before-posture-fix', 'before-gait-fix'):  # 从最新到最初的修正轮次
+        if (OUTPUT / 'comparison' / name).exists():
+            return name
+    return 'before-gait-fix'
+
+
 def export_all(rebuild_actions: tuple[str, ...] = ACTIONS) -> None:
     """输出60帧成品；rebuild_actions为要重新导出的动作，其他动作保留已经验证的索引。"""
     clips = []  # 所有正式动作的元数据
@@ -224,11 +232,6 @@ def export_all(rebuild_actions: tuple[str, ...] = ACTIONS) -> None:
                           'atlas512': f'atlases/512/{clip_id}.png', 'animation': f'animations/{clip_id}.json',
                           'old': f'comparison/{old_id}.png', 'old_frame': 7 if action == 'idle' else 0 if action == 'crouch' else None,
                           'old_sha256': digest(old_source)})
-            snapshot_name = 'before-posture-fix' if (OUTPUT / 'comparison/before-posture-fix').exists() else 'before-gait-fix'  # 优先比较本轮修改前的版本。
-            previous = OUTPUT / f'comparison/{snapshot_name}/atlases/256/{clip_id}.png'  # 同尺寸同帧数的修正前骨骼素材
-            if previous.exists():
-                clips[-1]['previous'] = {'path': previous.relative_to(OUTPUT).as_posix(), 'frame_count': 60,
-                                         'columns': 12, 'scale': 1.0, 'sha256': digest(previous)}
             candidate = REDRAWN / f'atlases/{clip_id}.png'  # 已完成重绘组的候选图集
             candidate_meta = candidate.with_suffix('.json')  # 对应的完整帧索引
             if candidate.exists() and candidate_meta.exists():
@@ -249,6 +252,11 @@ def export_all(rebuild_actions: tuple[str, ...] = ACTIONS) -> None:
                                             'source': candidate.relative_to(ROOT).as_posix()}
             contact_sheet([frames[index] for index in (0, 10, 20, 30, 40, 50)], NAMES[view] + ' · ' + NAMES[action] + ' · 60帧骨骼拆件').save(OUTPUT / f'previews/{clip_id}.png')
             print('export', clip_id, flush=True)
+    for clip in clips:  # 增量导出时，未重画的动作也必须指向同一轮修改前快照
+        previous = OUTPUT / f'comparison/{comparison_snapshot()}/atlases/256/{clip["id"]}.png'  # 当前动作的同尺寸60帧对照
+        if previous.exists():
+            clip['previous'] = {'path': previous.relative_to(OUTPUT).as_posix(), 'frame_count': 60,
+                                'columns': 12, 'scale': 1.0, 'sha256': digest(previous)}
     write_json(OUTPUT / 'manifest.json', {'version': 1, 'method': 'fixed-cutout-skeletal', 'clips': clips,
                                         'part_count': 48, 'frame_count_per_resolution': 1080, 'resolutions': [256, 512],
                                         'reference': '三视图参考.png', 'rigs': {view: f'rigs/{view}.json' for view in VIEWS}})
@@ -288,13 +296,13 @@ def export_auxiliary_gif() -> None:
 def export_gait_comparison() -> None:
     """导出正常速度的修正前后走跑冲刺GIF，辅助预览采用30FPS，正式PNG仍各60帧。"""
     frames = []  # 30张正常速度对照画面
-    actions = ('slow_walk', 'run', 'dash')  # 用户指出问题的三类动作
-    snapshot_name = 'before-posture-fix' if (OUTPUT / 'comparison/before-posture-fix').exists() else 'before-gait-fix'  # 本轮对照来源
+    actions = ('run', 'dash')  # 本轮专门比较跑步与爆发冲刺，留出更大人物显示面积
+    snapshot_name = comparison_snapshot()  # 本轮对照来源与HTML一致
     if not all((OUTPUT / f'comparison/{snapshot_name}/atlases/256/side_{action}.png').exists() for action in actions):
         return
-    cell = 192  # 对照中每个人物的显示宽度
+    cell = 288  # 对照中每个人物的显示宽度
     for index in range(0, 60, 2):  # 从正式60帧每隔一帧取样，保持一秒周期
-        canvas = Image.new('RGB', (cell * 3, (cell + 32) * 2 + 42), '#142733')  # 两行三列的对照画布
+        canvas = Image.new('RGB', (cell * len(actions), (cell + 32) * 2 + 42), '#142733')  # 两行对照画布
         draw = ImageDraw.Draw(canvas)  # 中文标签绘制器
         draw.text((10, 7), '同尺寸 · 正常速度 · 上排修正前 / 下排修正后', font=font(16), fill='#eef5f7')
         for row in (0, 1):  # 上行为旧版，下行为新版
@@ -319,7 +327,7 @@ def main() -> None:
     parser.add_argument('--reuse-parts', action='store_true')
     args = parser.parse_args()  # 用户选择的导出模式
     if args.all:
-        save_previous_version('before-posture-fix')
+        save_previous_version('before-run-fix')
     if not args.reuse_parts:
         extract_parts()
     else:

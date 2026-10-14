@@ -21,8 +21,8 @@ class GaitQualityTests(unittest.TestCase):
     """检验可见的动作关系；self为当前测试实例。"""
 
     def test_same_side_hand_and_foot_oppose_over_the_whole_cycle(self):
-        """同侧脚在前时手应在后，两侧全周期都不得顺拐。"""
-        for action in ('slow_walk', 'run'):  # 当前步态
+        """走路同侧脚在前时手应在后；跑步折叠回收的配合另按双大腿相位检查。"""
+        for action in ('slow_walk',):  # 走路脚踝轨迹可直接表示同侧前后相位
             for frame in range(60):  # 当前采样帧
                 for side, (foot, hand) in limb_excursions(action, frame).items():  # 当前同侧手脚位移
                     if abs(foot) > 6:
