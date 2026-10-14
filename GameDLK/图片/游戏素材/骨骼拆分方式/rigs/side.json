@@ -18,7 +18,7 @@
       "y": -98,
       "length": 0.0,
       "rest_angle": 0.0,
-      "draw_order": 14,
+      "draw_order": 6.5,
       "part": "head",
       "pivot": [
         98.5,
@@ -72,7 +72,7 @@
       "y": -36,
       "length": 0.0,
       "rest_angle": 0.0,
-      "draw_order": 7.5,
+      "draw_order": 6.25,
       "part": "hair",
       "pivot": [
         216.0,
@@ -270,7 +270,7 @@
       "y": -20,
       "length": 0.0,
       "rest_angle": 0.0,
-      "draw_order": 5,
+      "draw_order": -1,
       "part": "coat_l",
       "pivot": [
         136.5,

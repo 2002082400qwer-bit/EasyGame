@@ -34,6 +34,18 @@ async function main() {
       if (!(await page.locator('#status').innerText()).includes('修正后 22 / 59')) throw new Error('逐帧前进失败');
       await page.locator('#bones').uncheck();
       scenes.push({ action, compared_frame: 21, next_frame: 22, comparison: 'previous' });
+      if (action !== 'dash') {
+        for (const frame of [0, 15, 30, 45]) { // 左右落脚与半步中段，检查前倾周期及内侧腿遮挡
+          await page.locator('#seek').evaluate((element, value) => { // element为滑块，value为目标帧
+            element.value = String(value);
+            element.dispatchEvent(new Event('input', { bubbles: true }));
+          }, frame);
+          const actual = await page.locator('#status').innerText(); // 真实显示的两侧帧号
+          if (!actual.includes(`修正后 ${String(frame).padStart(2, '0')} / 59`) || !actual.includes(`对照 ${frame} / 59`)) throw new Error(actual);
+          if (frame === 0 || frame === 30) await page.screenshot({ path: path.join(output, 'previews', `browser_contact_${action}_${frame}.png`), fullPage: true });
+          scenes.push({ action, compared_frame: frame, comparison: 'previous', phase: frame % 30 === 0 ? 'contact' : 'recovery' });
+        }
+      }
     }
     await page.locator('#compare').selectOption('old');
     await page.waitForFunction(() => document.getElementById('comparisonTag').textContent.includes('8个姿势'));

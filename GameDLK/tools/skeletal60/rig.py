@@ -59,20 +59,20 @@ def build_rig(view: str, sizes: dict[str, tuple[int, int]]) -> dict:
     }
     # layers：方向对应的遮挡层级；数值越大，越靠近观众。
     if view == "side":
-        layers = {"foot_l": 0, "shin_l": 1, "thigh_l": 2, "forearm_l": 3,
-                  "upper_arm_l": 4, "coat_l": 5, "pelvis": 6, "torso": 7,
+        layers = {"coat_l": -1, "foot_l": 0, "shin_l": 1, "thigh_l": 2, "forearm_l": 3,
+                  "upper_arm_l": 4, "pelvis": 6, "torso": 7,
                   "thigh_r": 8, "shin_r": 9, "foot_r": 10, "coat_r": 11,
-                  "upper_arm_r": 12, "forearm_r": 13, "head": 14, "hair": 7.5}
+                  "upper_arm_r": 12, "forearm_r": 13, "head": 6.5, "hair": 6.25}
     elif view == "back":
         layers = {"foot_r": 0, "shin_r": 1, "thigh_r": 2, "pelvis": 3,
-                  "torso": 4, "head": 5, "foot_l": 6, "shin_l": 7,
+                  "torso": 4, "head": 3.5, "foot_l": 6, "shin_l": 7,
                   "thigh_l": 8, "coat_r": 9, "coat_l": 10, "upper_arm_r": 11,
                   "forearm_r": 12, "upper_arm_l": 13, "forearm_l": 14, "hair": 15}
     else:
         layers = {"foot_l": 0, "shin_l": 1, "thigh_l": 2, "foot_r": 3,
                   "shin_r": 4, "thigh_r": 5, "coat_l": 6, "coat_r": 7,
                   "pelvis": 8, "torso": 9, "upper_arm_l": 10, "upper_arm_r": 11,
-                  "forearm_l": 12, "forearm_r": 13, "hair": 5.5, "head": 15}
+                  "forearm_l": 12, "forearm_r": 13, "hair": 5.5, "head": 8.5}
 
     bones = []  # bones：返回的骨骼记录列表。
     for name in PART_ORDER:  # name：当前部件和关节名称。
@@ -166,7 +166,14 @@ def sample_pose(action: str, frame: int, view: str) -> dict:
             root_y = required_drop + 2.0 + (2.0 if action == "slow_walk" else 6.0) * (1.0 - math.cos(2.0 * cycle)) / 2.0
         else:
             root_y = (3.0 if action == "slow_walk" else 6.0) * (1.0 - math.cos(2.0 * cycle)) / 2.0
-        angles["torso"] = direction * ((0.075 if action == "slow_walk" else 0.20) if view == "side" else 0.035) + 0.012 * tiny
+        if view == "side":
+            # 步行在支撑初期较前倾，跑步俯仰相位相反；每个左右支撑均有一次回收。
+            lean = (math.radians(6.0) + math.radians(2.0) * math.cos(2.0 * cycle)
+                    if action == "slow_walk" else
+                    math.radians(13.0) - math.radians(2.5) * math.cos(2.0 * cycle))  # lean：按研究时序设置的动画前倾角，非个体医学测量值。
+            angles["torso"] = direction * lean
+        else:
+            angles["torso"] = direction * 0.035 + 0.012 * tiny
         angles["head"] = -angles["torso"] * 0.45
         for side, offset in (("l", 0.0), ("r", 0.5)):  # side/offset：左右腿及半周相位差。
             foot_phase = (phase + offset) % 1.0  # foot_phase：当前脚的周期相位。
@@ -275,7 +282,11 @@ def sample_pose(action: str, frame: int, view: str) -> dict:
         angles["hair"] += wind + 0.07 * strength * math.sin(cycle - 0.55)
         angles["coat_l"] += wind + 0.15 * strength * math.sin(cycle - 0.50)
         angles["coat_r"] += wind - 0.15 * strength * math.sin(cycle - 0.50)
-    return {"root": [root_x, root_y], "angles": angles, "scales": scales, "phase": phase}
+    offsets = {}  # offsets：让侧面胸部关节随上身一起绕髋部转动的局部位移。
+    if view == "side":
+        torso_angle = angles["torso"]  # torso_angle：从髋部延伸到上身的倾角。
+        offsets["torso"] = [52.0 * math.sin(torso_angle), 52.0 * (1.0 - math.cos(torso_angle))]
+    return {"root": [root_x, root_y], "angles": angles, "scales": scales, "offsets": offsets, "phase": phase}
 
 
 def world_transforms(rig: dict, pose: dict) -> dict[str, tuple[float, float, float]]:

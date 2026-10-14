@@ -23,7 +23,7 @@
       "old_frame": 7,
       "old_sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/front_idle.png",
+        "path": "comparison/before-posture-fix/atlases/256/front_idle.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
@@ -33,7 +33,7 @@
         "path": "comparison/redrawn60/front_idle.png",
         "frame_count": 60,
         "columns": 12,
-        "sha256": "82ad10e43f15a0463b110d3917c57ab68f034d04470c01f2f5051e120bd5dde0",
+        "sha256": "fd1333051b14b05e26617854cb77d3300e96da42884fb3a17cf66017d6118ba1",
         "scale": 0.8127853881278538,
         "source": "图片/游戏素材/diluc-redrawn-60/atlases/front_idle.png"
       }
@@ -59,11 +59,19 @@
       "old_frame": null,
       "old_sha256": "b47c00d644a6ece5b216140bf46af12567e4dfa03449e6029aeeee80a7850d33",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/front_slow_walk.png",
+        "path": "comparison/before-posture-fix/atlases/256/front_slow_walk.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "f90fddbc9edbce4fbd769ad258f3c38ccedf210d6922397a104955b51449b45e"
+        "sha256": "6c73518cab5093aa3b037d57f328857eb70bfbe77e88ee89e322b15807c4ee37"
+      },
+      "redrawn": {
+        "path": "comparison/redrawn60/front_slow_walk.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "89e7e7af7284dbb3f8a04a305d8d8b180abc05047c7605c468d311570bad9081",
+        "scale": 0.8127853881278538,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/front_slow_walk.png"
       }
     },
     {
@@ -87,11 +95,19 @@
       "old_frame": null,
       "old_sha256": "2c7fc0b213e25ae175020be35ab3b06134e25f4dd2b24123dd9a2fa60343f700",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/front_run.png",
+        "path": "comparison/before-posture-fix/atlases/256/front_run.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "45110087b0b62a7fb3bd2a33b92064bf28a322ecd15ca1c12d7ec2c5be05bb91"
+        "sha256": "9b1c49eb5d3d3cc22d348a55edd464cdf51f277897b0f9b4a9e00033dd6c3255"
+      },
+      "redrawn": {
+        "path": "comparison/redrawn60/front_run.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "1b35ec1aa361727fcaf4864ef7cbdff76e6d0ebff21bee89a4d719c9599d2dde",
+        "scale": 0.8127853881278538,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/front_run.png"
       }
     },
     {
@@ -115,11 +131,19 @@
       "old_frame": null,
       "old_sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/front_jump.png",
+        "path": "comparison/before-posture-fix/atlases/256/front_jump.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
         "sha256": "8bda6fb85dbcd84c874fbf025003e8e9b1320d7f16e39507b6df371f35f89cae"
+      },
+      "redrawn": {
+        "path": "comparison/redrawn60/front_jump.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "8599321cd89bbd2402869b445f2411fc4cce48aed1380a1a41a5af4f466008e1",
+        "scale": 0.8127853881278538,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/front_jump.png"
       }
     },
     {
@@ -143,11 +167,19 @@
       "old_frame": null,
       "old_sha256": "2f38a5b2af053a1b16dc07c06fd0dd2e1a56aa1a9e0597e99a379faaa4e825bf",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/front_dash.png",
+        "path": "comparison/before-posture-fix/atlases/256/front_dash.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "b0d36bc7ecf0d59179701fc448dd684d9ea40e557ec70218e05475881aebb991"
+        "sha256": "0e1ac1f5c92b4e578e4dd2ff4ddc46fa7709e278adb0a9f033a5287720eae15d"
+      },
+      "redrawn": {
+        "path": "comparison/redrawn60/front_dash.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "4db64329064cf2d4c23323bc53ad9d6d133ae92148a9e881fca83e76b7a8b7ec",
+        "scale": 0.8127853881278538,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/front_dash.png"
       }
     },
     {
@@ -171,7 +203,7 @@
       "old_frame": 0,
       "old_sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/front_crouch.png",
+        "path": "comparison/before-posture-fix/atlases/256/front_crouch.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
@@ -199,7 +231,7 @@
       "old_frame": 7,
       "old_sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/side_idle.png",
+        "path": "comparison/before-posture-fix/atlases/256/side_idle.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
@@ -209,7 +241,7 @@
         "path": "comparison/redrawn60/side_idle.png",
         "frame_count": 60,
         "columns": 12,
-        "sha256": "af3bfd98ff78eabdf54282ed4aa2422f991e104d4adeb8be4f3d6bd28201ade3",
+        "sha256": "77a58c1c8c52018ac070bdda79e3d4bf57e14d6904c99207120ee85684f2a221",
         "scale": 0.7807017543859649,
         "source": "图片/游戏素材/diluc-redrawn-60/atlases/side_idle.png"
       }
@@ -235,17 +267,17 @@
       "old_frame": null,
       "old_sha256": "7df72506625ea86b2bd5fde06a27271c91147d48e83df33bf6eb06a19379f2a9",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/side_slow_walk.png",
+        "path": "comparison/before-posture-fix/atlases/256/side_slow_walk.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "2f7233193f60c398270c6d24c7dc7295a636c89013f9009735239c111dc82bba"
+        "sha256": "2f4c5c2c61618bacb0c091e7528ff65539d7353fefa31b4d2bf62dd6d2d493ba"
       },
       "redrawn": {
         "path": "comparison/redrawn60/side_slow_walk.png",
         "frame_count": 60,
         "columns": 12,
-        "sha256": "4e712b57932f273b3f16b9b61dd8a3425483ce34356b9e22b01b3c8884c2309e",
+        "sha256": "7dabd2aa2e574f0e60f757df6d326470018111abdaea98167b3ea1802a221d59",
         "scale": 0.7807017543859649,
         "source": "图片/游戏素材/diluc-redrawn-60/atlases/side_slow_walk.png"
       }
@@ -271,11 +303,19 @@
       "old_frame": null,
       "old_sha256": "c3e2ad15b4cff7a6369a68d0ceec633fcc6754e9be697b0e9c48514c4efe3d71",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/side_run.png",
+        "path": "comparison/before-posture-fix/atlases/256/side_run.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "f1991e26cbf680746303634639bf81c960e9bd8dc3441ee2a093e6fe8741084d"
+        "sha256": "416366f908a7a3e0c19a4622111871ed3f621d226594119e78917cad8fa4425a"
+      },
+      "redrawn": {
+        "path": "comparison/redrawn60/side_run.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "9e041b4fa1b3b2f8eea41933803f1e22611ce940c1f4fdccc42c373ab04e4d37",
+        "scale": 0.7807017543859649,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/side_run.png"
       }
     },
     {
@@ -299,11 +339,19 @@
       "old_frame": null,
       "old_sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/side_jump.png",
+        "path": "comparison/before-posture-fix/atlases/256/side_jump.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
         "sha256": "2ee5faeeb366bf63e700d313328e5790d7da2bbf6db103dd397e284d8e71c9e2"
+      },
+      "redrawn": {
+        "path": "comparison/redrawn60/side_jump.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "006f802f97ec2735ce74d6dde2a5ca8fe5b062b13ac058d17e8242f998991f3b",
+        "scale": 0.7807017543859649,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/side_jump.png"
       }
     },
     {
@@ -327,11 +375,19 @@
       "old_frame": null,
       "old_sha256": "3543cc09e2dd796c35826d8a3fba59659c7548f05c1efee39403e53ad6facce5",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/side_dash.png",
+        "path": "comparison/before-posture-fix/atlases/256/side_dash.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "fc3d201fa03c71e3e77c016ca787bb6606b5a65e83aefd243b317e0be49247ea"
+        "sha256": "cb81fd2c67b6270818c76b79b9dfa3af6a91e1ab4e6e4b310d27d1656c0ebc51"
+      },
+      "redrawn": {
+        "path": "comparison/redrawn60/side_dash.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "ec716467959f6686485553d951cd67fcbe62dd99639719106f00531dd3c0b1a6",
+        "scale": 0.7807017543859649,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/side_dash.png"
       }
     },
     {
@@ -355,7 +411,7 @@
       "old_frame": 0,
       "old_sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/side_crouch.png",
+        "path": "comparison/before-posture-fix/atlases/256/side_crouch.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
@@ -383,7 +439,7 @@
       "old_frame": 7,
       "old_sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/back_idle.png",
+        "path": "comparison/before-posture-fix/atlases/256/back_idle.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
@@ -393,7 +449,7 @@
         "path": "comparison/redrawn60/back_idle.png",
         "frame_count": 60,
         "columns": 12,
-        "sha256": "8f599072ffc8951b1d99872a1b5088fb07ea1674244493bec98f28f64530b838",
+        "sha256": "5072aaef1ec8b07b27ec5e9662c59b5c73edf2de3ccff20b633dd54c68e983f6",
         "scale": 0.7606837606837606,
         "source": "图片/游戏素材/diluc-redrawn-60/atlases/back_idle.png"
       }
@@ -419,11 +475,19 @@
       "old_frame": null,
       "old_sha256": "bf773aecdb43df52a79f3515b5539f5b332deb52c1b73fa5e619019a00144fe6",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/back_slow_walk.png",
+        "path": "comparison/before-posture-fix/atlases/256/back_slow_walk.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "ca3b73abfb1757374dc0485a3f7de56f0dfe6160db6ab71bafc164afac1a4eb4"
+        "sha256": "cdd786ad58b26ee8f77d803a2271b063a279382e4e32a7ad8641d4848c9713c8"
+      },
+      "redrawn": {
+        "path": "comparison/redrawn60/back_slow_walk.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "4fc2d6e4caed2e143ee4cf9b567e9ad1f823157e509a96c4b99ca8b9845a0e5d",
+        "scale": 0.7606837606837606,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/back_slow_walk.png"
       }
     },
     {
@@ -447,11 +511,19 @@
       "old_frame": null,
       "old_sha256": "8d5345f28c238feb1ca385cbd385356eaa01c986e2637750bc805fab3b3a9a29",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/back_run.png",
+        "path": "comparison/before-posture-fix/atlases/256/back_run.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "08d2b8948954b92bf89232c59a0e2e36386681e7042a498cf49d2cf23d7145f2"
+        "sha256": "dc4afbb850b917dbc725ef5ca744500c184a0860398c76f87ec4236317f28d71"
+      },
+      "redrawn": {
+        "path": "comparison/redrawn60/back_run.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "4407091d2b75f8e069a44d5e1a1663f165239e9150307a2d3b825cba7df5aa67",
+        "scale": 0.7606837606837606,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/back_run.png"
       }
     },
     {
@@ -475,11 +547,19 @@
       "old_frame": null,
       "old_sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/back_jump.png",
+        "path": "comparison/before-posture-fix/atlases/256/back_jump.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
         "sha256": "6b308ee217f107299aca17a57564679443c906b05531a38ba21c038a68ee13ea"
+      },
+      "redrawn": {
+        "path": "comparison/redrawn60/back_jump.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "75ba9a17f981454e679b90f72d5433b653f4285845d73634ca726e120cd93250",
+        "scale": 0.7606837606837606,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/back_jump.png"
       }
     },
     {
@@ -503,11 +583,19 @@
       "old_frame": null,
       "old_sha256": "52a96729ec0b65602a946c4757c73c16606cece90f700fdcf4c7dfdcf5f70a5a",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/back_dash.png",
+        "path": "comparison/before-posture-fix/atlases/256/back_dash.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,
-        "sha256": "e6c057fd528e578ff52153a782591f196eb252380a10b2b599db2bc586880f08"
+        "sha256": "ce2768084132c00ad89e0392b9cef364c0881f5e5144304320afabc7d42feead"
+      },
+      "redrawn": {
+        "path": "comparison/redrawn60/back_dash.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "c9ebff34ef493eb233cf2069b9e446c07a35b137be9c61d7fcf81de77a669911",
+        "scale": 0.7606837606837606,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/back_dash.png"
       }
     },
     {
@@ -531,7 +619,7 @@
       "old_frame": 0,
       "old_sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f",
       "previous": {
-        "path": "comparison/before-gait-fix/atlases/256/back_crouch.png",
+        "path": "comparison/before-posture-fix/atlases/256/back_crouch.png",
         "frame_count": 60,
         "columns": 12,
         "scale": 1.0,

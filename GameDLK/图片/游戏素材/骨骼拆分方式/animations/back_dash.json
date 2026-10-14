@@ -32,6 +32,7 @@
           "forearm_l": 1.0,
           "forearm_r": 1.0
         },
+        "offsets": {},
         "phase": 0.0
       },
       "world": {
@@ -147,6 +148,7 @@
           "forearm_l": 0.9885333943587221,
           "forearm_r": 0.9541335774348887
         },
+        "offsets": {},
         "phase": 0.016666666666666666
       },
       "world": {
@@ -262,6 +264,7 @@
           "forearm_l": 0.9599764338126099,
           "forearm_r": 0.8399057352504394
         },
+        "offsets": {},
         "phase": 0.03333333333333333
       },
       "world": {
@@ -377,6 +380,7 @@
           "forearm_l": 0.9230934029282448,
           "forearm_r": 0.6923736117129795
         },
+        "offsets": {},
         "phase": 0.05
       },
       "world": {
@@ -492,6 +496,7 @@
           "forearm_l": 0.886648586272209,
           "forearm_r": 0.5465943450888358
         },
+        "offsets": {},
         "phase": 0.06666666666666667
       },
       "world": {
@@ -607,6 +612,7 @@
           "forearm_l": 0.8594062684110839,
           "forearm_r": 0.43762507364433556
         },
+        "offsets": {},
         "phase": 0.08333333333333333
       },
       "world": {
@@ -722,6 +728,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.1
       },
       "world": {
@@ -837,6 +844,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.11666666666666667
       },
       "world": {
@@ -952,6 +960,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.13333333333333333
       },
       "world": {
@@ -1067,6 +1076,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.15
       },
       "world": {
@@ -1182,6 +1192,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.16666666666666666
       },
       "world": {
@@ -1297,6 +1308,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.18333333333333332
       },
       "world": {
@@ -1412,6 +1424,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.2
       },
       "world": {
@@ -1527,6 +1540,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.21666666666666667
       },
       "world": {
@@ -1642,6 +1656,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.23333333333333334
       },
       "world": {
@@ -1757,6 +1772,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.25
       },
       "world": {
@@ -1872,6 +1888,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.26666666666666666
       },
       "world": {
@@ -1987,6 +2004,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.2833333333333333
       },
       "world": {
@@ -2102,6 +2120,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.3
       },
       "world": {
@@ -2217,6 +2236,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.31666666666666665
       },
       "world": {
@@ -2332,6 +2352,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.3333333333333333
       },
       "world": {
@@ -2447,6 +2468,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.35
       },
       "world": {
@@ -2562,6 +2584,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.36666666666666664
       },
       "world": {
@@ -2677,6 +2700,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.38333333333333336
       },
       "world": {
@@ -2792,6 +2816,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.4
       },
       "world": {
@@ -2907,6 +2932,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.4166666666666667
       },
       "world": {
@@ -3022,6 +3048,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.43333333333333335
       },
       "world": {
@@ -3137,6 +3164,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.45
       },
       "world": {
@@ -3252,6 +3280,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.4666666666666667
       },
       "world": {
@@ -3367,6 +3396,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.48333333333333334
       },
       "world": {
@@ -3482,6 +3512,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.5
       },
       "world": {
@@ -3597,6 +3628,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.5166666666666667
       },
       "world": {
@@ -3712,6 +3744,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.5333333333333333
       },
       "world": {
@@ -3827,6 +3860,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.55
       },
       "world": {
@@ -3942,6 +3976,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.5666666666666667
       },
       "world": {
@@ -4057,6 +4092,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.5833333333333334
       },
       "world": {
@@ -4172,6 +4208,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.6
       },
       "world": {
@@ -4287,6 +4324,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.6166666666666667
       },
       "world": {
@@ -4402,6 +4440,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.6333333333333333
       },
       "world": {
@@ -4517,6 +4556,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.65
       },
       "world": {
@@ -4632,6 +4672,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.6666666666666666
       },
       "world": {
@@ -4747,6 +4788,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.6833333333333333
       },
       "world": {
@@ -4862,6 +4904,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.7
       },
       "world": {
@@ -4977,6 +5020,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.7166666666666667
       },
       "world": {
@@ -5092,6 +5136,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.7333333333333333
       },
       "world": {
@@ -5207,6 +5252,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.75
       },
       "world": {
@@ -5322,6 +5368,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.7666666666666667
       },
       "world": {
@@ -5437,6 +5484,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.7833333333333333
       },
       "world": {
@@ -5552,6 +5600,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.8
       },
       "world": {
@@ -5667,6 +5716,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.8166666666666667
       },
       "world": {
@@ -5782,6 +5832,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.8333333333333334
       },
       "world": {
@@ -5897,6 +5948,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.85
       },
       "world": {
@@ -6012,6 +6064,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.8666666666666667
       },
       "world": {
@@ -6127,6 +6180,7 @@
           "forearm_l": 0.85,
           "forearm_r": 0.4
         },
+        "offsets": {},
         "phase": 0.8833333333333333
       },
       "world": {
@@ -6242,6 +6296,7 @@
           "forearm_l": 0.8594062684110839,
           "forearm_r": 0.43762507364433556
         },
+        "offsets": {},
         "phase": 0.9
       },
       "world": {
@@ -6357,6 +6412,7 @@
           "forearm_l": 0.8866485862722089,
           "forearm_r": 0.5465943450888355
         },
+        "offsets": {},
         "phase": 0.9166666666666666
       },
       "world": {
@@ -6472,6 +6528,7 @@
           "forearm_l": 0.9230934029282449,
           "forearm_r": 0.6923736117129797
         },
+        "offsets": {},
         "phase": 0.9333333333333333
       },
       "world": {
@@ -6587,6 +6644,7 @@
           "forearm_l": 0.9599764338126098,
           "forearm_r": 0.8399057352504392
         },
+        "offsets": {},
         "phase": 0.95
       },
       "world": {
@@ -6702,6 +6760,7 @@
           "forearm_l": 0.9885333943587222,
           "forearm_r": 0.9541335774348889
         },
+        "offsets": {},
         "phase": 0.9666666666666667
       },
       "world": {
@@ -6817,6 +6876,7 @@
           "forearm_l": 1.0,
           "forearm_r": 1.0
         },
+        "offsets": {},
         "phase": 0.9833333333333333
       },
       "world": {

@@ -31,6 +31,17 @@ def gait_metrics(animation: dict) -> dict:
             'hand_span': max(hands)-min(hands), 'flight_frames': flight}
 
 
+def posture_metrics(animation: dict) -> dict:
+    """从正式动画关节测量上身前倾；animation为含world关节的侧面动作，角度不读取采样公式。"""
+    inclines = []  # 各帧髋到胸的实际前倾角，面朝左时为正。
+    for frame in animation['frames']:  # 正式输出的每个动作帧
+        hip, chest = frame['world']['pelvis'], frame['world']['torso']  # 真实髋与胸部关节
+        inclines.append(math.degrees(math.atan2(hip[0] - chest[0], hip[1] - chest[1])))
+        assert abs(math.hypot(chest[0] - hip[0], chest[1] - hip[1]) - 52.0) < .001, ('胸髋距离改变', frame['frame'])
+    return {'minimum_forward_degrees': min(inclines), 'maximum_forward_degrees': max(inclines),
+            'frames_0_15_30_45': [inclines[index] for index in (0, 15, 30, 45)]}
+
+
 def verify() -> dict:
     """检查全部独立帧和图集，并保存验证报告；错误直接抛出，不标记通过。"""
     manifest = json.loads((OUTPUT / 'manifest.json').read_text(encoding='utf-8'))  # 正式动作索引
@@ -41,9 +52,18 @@ def verify() -> dict:
     atlas_count = 0  # 实际解码的图集总数
     part_records = []  # 48张透明部件的检查结果
     gait_records = []  # 修复前后实际导出姿势的步态指标
+    posture_records = []  # 实际髋胸连线测得的落脚前倾变化
+    layer_records = []  # 正式绑定中的遮挡关系
     for view in VIEWS:  # 当前视角
         rig = json.loads((OUTPUT / f'rigs/{view}.json').read_text(encoding='utf-8'))  # 绑定数据
         assert {bone['name'] for bone in rig['bones']} == set(PART_ORDER)
+        layers = {bone['name']: bone['draw_order'] for bone in rig['bones']}  # 读取正式交付绑定的遮挡顺序
+        assert layers['head'] < layers['torso'], ('脖根覆盖胸部衣领', view)
+        if view == 'side':
+            assert layers['coat_l'] < min(layers[name] for name in ('thigh_l', 'shin_l', 'foot_l')), '后衣摆遮挡内侧腿'
+            assert layers['hair'] < layers['head'], '后发覆盖脸部'
+            assert layers['coat_r'] > layers['thigh_r'], '外侧衣摆的前后关系被反转'
+        layer_records.append({'view': view, 'neck_behind_collar': True, 'draw_order': layers})
         for part in PART_ORDER:  # 当前透明部件名
             path = OUTPUT / f'parts/{view}/{part}.png'  # 当前部件文件
             image = Image.open(path)  # 已解码部件
@@ -95,9 +115,15 @@ def verify() -> dict:
             if clip['action'] != 'dash':
                 assert metrics['foot_span'] > (80 if clip['action'] == 'slow_walk' else 132)
                 assert metrics['hand_span'] > (90 if clip['action'] == 'slow_walk' else 130)
-            previous_path = OUTPUT / f'comparison/before-gait-fix/animations/{clip_id}.json'  # 对照的旧版正式姿势
+            previous_path = (OUTPUT / clip['previous']['path']).parents[2] / f'animations/{clip_id}.json'  # 和预览一致的本轮修正前正式姿势
             before = gait_metrics(json.loads(previous_path.read_text(encoding='utf-8'))) if previous_path.exists() else None  # 相同算法度量旧版，避免只给新版结论
             gait_records.append({'id': clip_id, 'before': before, 'after': metrics})
+            posture = posture_metrics(animation)  # 由已保存髋胸关节计算，避免把贴图旋转误当作整体前倾
+            if clip['action'] in ('slow_walk', 'run'):
+                angles = posture['frames_0_15_30_45']  # 左接地、中段、右接地、中段的实际倾角
+                assert abs(angles[0] - angles[2]) < .001 and abs(angles[1] - angles[3]) < .001, ('左右支撑不对称', clip_id)
+                assert (angles[0] - angles[1] > 3.0) if clip['action'] == 'slow_walk' else (angles[1] - angles[0] > 4.0), ('支撑前倾时序错误', clip_id)
+            posture_records.append({'id': clip_id, **posture})
         parts = {name: Image.open(OUTPUT / f'parts/{clip["view"]}/{name}.png').convert('RGBA') for name in PART_ORDER}  # 元数据重放部件
         rig = json.loads((OUTPUT / f'rigs/{clip["view"]}.json').read_text(encoding='utf-8'))  # 元数据重放绑定
         for index in (0, 17, 37, 59):  # 首尾与中段的重放校验样本
@@ -108,7 +134,8 @@ def verify() -> dict:
         print('verified', clip_id, flush=True)
     assert file_count == 2160 and atlas_count == 36 and len(part_records) == 48
     report = {'passed': True, 'decoded_frames': file_count, 'decoded_atlases': atlas_count, 'parts': part_records,
-              'clips': records, 'gait_quality': gait_records, 'scope': '三方向×六动作×60帧×两尺寸',
+              'clips': records, 'gait_quality': gait_records, 'posture_quality': posture_records, 'layer_quality': layer_records,
+              'scope': '三方向×六动作×60帧×两尺寸',
               'limitations': ['本验证不自动判断美术自然程度，需要查看动作拼图和浏览器对照',
                               '原图遮挡补画由image_gen完成，与参考设计存在少量细节差异',
                               '自定义骨骼JSON不是Spine工程文件，C项目可直接使用导出的PNG图集']}

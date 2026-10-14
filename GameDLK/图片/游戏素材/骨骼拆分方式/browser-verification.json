@@ -10,10 +10,58 @@
       "comparison": "previous"
     },
     {
+      "action": "slow_walk",
+      "compared_frame": 0,
+      "comparison": "previous",
+      "phase": "contact"
+    },
+    {
+      "action": "slow_walk",
+      "compared_frame": 15,
+      "comparison": "previous",
+      "phase": "recovery"
+    },
+    {
+      "action": "slow_walk",
+      "compared_frame": 30,
+      "comparison": "previous",
+      "phase": "contact"
+    },
+    {
+      "action": "slow_walk",
+      "compared_frame": 45,
+      "comparison": "previous",
+      "phase": "recovery"
+    },
+    {
       "action": "run",
       "compared_frame": 21,
       "next_frame": 22,
       "comparison": "previous"
+    },
+    {
+      "action": "run",
+      "compared_frame": 0,
+      "comparison": "previous",
+      "phase": "contact"
+    },
+    {
+      "action": "run",
+      "compared_frame": 15,
+      "comparison": "previous",
+      "phase": "recovery"
+    },
+    {
+      "action": "run",
+      "compared_frame": 30,
+      "comparison": "previous",
+      "phase": "contact"
+    },
+    {
+      "action": "run",
+      "compared_frame": 45,
+      "comparison": "previous",
+      "phase": "recovery"
     },
     {
       "action": "dash",

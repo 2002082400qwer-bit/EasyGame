@@ -126,6 +126,13 @@ def extract_parts() -> dict:
     return sources
 
 
+def refresh_rigs() -> None:
+    """按现有拆件实际尺寸重新生成三视图绑定，复用美术时也更新层序与枢轴；无参数。"""
+    for view in VIEWS:  # 当前视角
+        sizes = {name: Image.open(OUTPUT / f'parts/{view}/{name}.png').size for name in PART_ORDER}  # 已交付原图的真实尺寸
+        write_json(OUTPUT / f'rigs/{view}.json', build_rig(view, sizes))
+
+
 def load_view(view: str) -> tuple[dict, dict]:
     """读取view的透明部件和已保存骨架，供采样与导出。"""
     parts = {name: Image.open(OUTPUT / f'parts/{view}/{name}.png').convert('RGBA') for name in PART_ORDER}  # 本视角所有部件
@@ -163,9 +170,9 @@ def sample_previews() -> None:
         print('sample', view, flush=True)
 
 
-def save_previous_version() -> None:
-    """首次修复步态时保留旧版图集、骨骼与姿势数据；已保存的旧版不再覆盖。"""
-    previous = OUTPUT / 'comparison/before-gait-fix'  # 此次步态修复前的固定对照目录
+def save_previous_version(snapshot_name: str = 'before-gait-fix') -> None:
+    """保留修复前图集、骨骼与姿势；snapshot_name为本轮对照目录名，已有快照不再覆盖。"""
+    previous = OUTPUT / 'comparison' / snapshot_name  # 本轮修复前的固定对照目录
     for view in VIEWS:  # 当前视角
         for relative in [f'rigs/{view}.json'] + [f'{kind}/{view}_{action}.{suffix}' for action in ACTIONS
                                                 for kind, suffix in (('atlases/256', 'png'), ('animations', 'json'))]:  # 当前视角的图集与可重放源数据
@@ -217,7 +224,8 @@ def export_all(rebuild_actions: tuple[str, ...] = ACTIONS) -> None:
                           'atlas512': f'atlases/512/{clip_id}.png', 'animation': f'animations/{clip_id}.json',
                           'old': f'comparison/{old_id}.png', 'old_frame': 7 if action == 'idle' else 0 if action == 'crouch' else None,
                           'old_sha256': digest(old_source)})
-            previous = OUTPUT / f'comparison/before-gait-fix/atlases/256/{clip_id}.png'  # 同尺寸同帧数的修正前骨骼素材
+            snapshot_name = 'before-posture-fix' if (OUTPUT / 'comparison/before-posture-fix').exists() else 'before-gait-fix'  # 优先比较本轮修改前的版本。
+            previous = OUTPUT / f'comparison/{snapshot_name}/atlases/256/{clip_id}.png'  # 同尺寸同帧数的修正前骨骼素材
             if previous.exists():
                 clips[-1]['previous'] = {'path': previous.relative_to(OUTPUT).as_posix(), 'frame_count': 60,
                                          'columns': 12, 'scale': 1.0, 'sha256': digest(previous)}
@@ -281,7 +289,8 @@ def export_gait_comparison() -> None:
     """导出正常速度的修正前后走跑冲刺GIF，辅助预览采用30FPS，正式PNG仍各60帧。"""
     frames = []  # 30张正常速度对照画面
     actions = ('slow_walk', 'run', 'dash')  # 用户指出问题的三类动作
-    if not all((OUTPUT / f'comparison/before-gait-fix/atlases/256/side_{action}.png').exists() for action in actions):
+    snapshot_name = 'before-posture-fix' if (OUTPUT / 'comparison/before-posture-fix').exists() else 'before-gait-fix'  # 本轮对照来源
+    if not all((OUTPUT / f'comparison/{snapshot_name}/atlases/256/side_{action}.png').exists() for action in actions):
         return
     cell = 192  # 对照中每个人物的显示宽度
     for index in range(0, 60, 2):  # 从正式60帧每隔一帧取样，保持一秒周期
@@ -290,7 +299,7 @@ def export_gait_comparison() -> None:
         draw.text((10, 7), '同尺寸 · 正常速度 · 上排修正前 / 下排修正后', font=font(16), fill='#eef5f7')
         for row in (0, 1):  # 上行为旧版，下行为新版
             for column, action in enumerate(actions):  # 当前动作列
-                source = OUTPUT / (f'comparison/before-gait-fix/atlases/256/side_{action}.png' if row == 0 else f'atlases/256/side_{action}.png')  # 当前对照图集
+                source = OUTPUT / (f'comparison/{snapshot_name}/atlases/256/side_{action}.png' if row == 0 else f'atlases/256/side_{action}.png')  # 当前对照图集
                 atlas = Image.open(source)  # 当前动作的透明图集
                 sx, sy = (index % 12) * 256, (index // 12) * 256  # 当前帧在图集中的位置
                 image = atlas.crop((sx, sy, sx + 256, sy + 256)).resize((cell, cell), Image.Resampling.LANCZOS)  # 保持相同尺度的预览帧
@@ -310,9 +319,11 @@ def main() -> None:
     parser.add_argument('--reuse-parts', action='store_true')
     args = parser.parse_args()  # 用户选择的导出模式
     if args.all:
-        save_previous_version()
+        save_previous_version('before-posture-fix')
     if not args.reuse_parts:
         extract_parts()
+    else:
+        refresh_rigs()
     sample_previews()
     if args.all:
         export_all()
