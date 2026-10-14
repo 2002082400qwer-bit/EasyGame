@@ -1,0 +1,16 @@
+{
+  "id": "turn_left_to_back",
+  "status": "packed",
+  "summary": {
+    "id": "turn_left_to_back",
+    "frameCount": 60,
+    "verification": {
+      "sourceFigures": 80,
+      "distinctPixelFrames": 60,
+      "seamDifference": 0.05006706264192352,
+      "seamLimit": 0.042089330137167584,
+      "seamMetricPassed": true,
+      "visualContinuityVerified": false
+    }
+  }
+}

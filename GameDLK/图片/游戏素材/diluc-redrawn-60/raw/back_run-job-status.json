@@ -1,0 +1,16 @@
+{
+  "id": "back_run",
+  "status": "packed",
+  "summary": {
+    "id": "back_run",
+    "frameCount": 60,
+    "verification": {
+      "sourceFigures": 60,
+      "distinctPixelFrames": 60,
+      "seamDifference": 0.03092272050469649,
+      "seamLimit": 0.05082567715232426,
+      "seamMetricPassed": true,
+      "visualContinuityVerified": false
+    }
+  }
+}

@@ -1,0 +1,1018 @@
+{
+  "id": "side_idle",
+  "direction": "side",
+  "action": "idle",
+  "loop": true,
+  "endState": "stand",
+  "frameCount": 60,
+  "frameSize": 256,
+  "pixelFormat": "RGBA",
+  "pivot": {
+    "x": 0.5,
+    "y": 0.92
+  },
+  "atlas": {
+    "image": "atlases/side_idle.png",
+    "columns": 12,
+    "rows": 5,
+    "width": 3072,
+    "height": 1280
+  },
+  "preview": {
+    "image": "previews/side_idle.gif",
+    "delayMs": [
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30
+    ]
+  },
+  "durationSeconds": 2,
+  "suggestedFps": 30,
+  "frames": [
+    {
+      "index": 0,
+      "image": "frames/side_idle/00.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 0,
+      "sha256": "2c94bb24034c825a25d22630ebd410aff534d27a9a13c03c1cc7b6cd464deb53",
+      "pixelSha256": "d325be8e2bb61b2ff00ed7f95c16287a1556ec40f51490343189c9eef5ac2e6d",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 1,
+      "image": "frames/side_idle/01.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 1,
+      "sha256": "c78ab9ab3edd97cd3602b746aa4b9c98fd3cea1b64f3df8d7509a287e570292f",
+      "pixelSha256": "ba7c3346074ffda40c34a6af74af92add68c108d4c890191abe9f6e520db7b4d",
+      "rect": {
+        "x": 256,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 2,
+      "image": "frames/side_idle/02.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 2,
+      "sha256": "c9c1c4645ef08b59a743d0d83cb2cda6e7622e16bc03a06052a4424de2d428ca",
+      "pixelSha256": "fd7e844d3b41d4fb9023b8ac828d1dd0f456f22acb8d8f89387589b25a2ed276",
+      "rect": {
+        "x": 512,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 3,
+      "image": "frames/side_idle/03.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 4,
+      "sha256": "30b6036b481a036aaf3058739649ad1f8f31cddc2f6f58a62e16d4ff676ac1b1",
+      "pixelSha256": "ed25f0cacf7775ce5dfa63579929e3dbc05692b7fec524a7c8ebafa99050857e",
+      "rect": {
+        "x": 768,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 4,
+      "image": "frames/side_idle/04.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 5,
+      "sha256": "a799453a34687fd63495bc9345a343d0a6710f60453c6b1eb037ca1faf60efda",
+      "pixelSha256": "4f4be4f16227963e2ea07b0169740a7c6662b2cf9b21c93e0662fb89ac8fe1a2",
+      "rect": {
+        "x": 1024,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 5,
+      "image": "frames/side_idle/05.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 6,
+      "sha256": "373a25db58b4681aff8cb84f0b9af4505ea48f91127bda64d6d38586ad3af233",
+      "pixelSha256": "bbfd9510b6d0b56fe6455a1029cd7c810dd87938411ab45ceafcf662b7c7ac24",
+      "rect": {
+        "x": 1280,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 6,
+      "image": "frames/side_idle/06.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 7,
+      "sha256": "96acc0dddd6f90799d171929ac4514a612538165b768e89f14059ba80f22b289",
+      "pixelSha256": "1f6dee52e0b58a63a4bd055479c668b70be0ffc3e7aa0783d7970c4cf21250e6",
+      "rect": {
+        "x": 1536,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 7,
+      "image": "frames/side_idle/07.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 8,
+      "sha256": "440de79198c0b5c5a96dbf8e93fc4477039d2f400a77c62614f3c8e0768a8507",
+      "pixelSha256": "7fb9e58954ba12bb8abe4a00c27734237cc9b22914a8766823cc5a21172734e7",
+      "rect": {
+        "x": 1792,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 8,
+      "image": "frames/side_idle/08.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 9,
+      "sha256": "83668a52a8bbea415a74542c49919e5b3e70e4ae7b9cd514a8d6c4c508629654",
+      "pixelSha256": "5ad462cd49c187a1e71c1c5ae317697a33a4deb334749bdc1f901518874ac82d",
+      "rect": {
+        "x": 2048,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 9,
+      "image": "frames/side_idle/09.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 11,
+      "sha256": "b9894bfe979c962c9f420036ce530f53c1f424d3398a324445c68f108b18c3e2",
+      "pixelSha256": "be8ad7e916a5b3ad5d953645f33d396e8d265b6cfb26428602af35a9621b9e23",
+      "rect": {
+        "x": 2304,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 10,
+      "image": "frames/side_idle/10.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 12,
+      "sha256": "ee8a035ff87be6ef07fbb0c4e58871e62bfed7644bd9e870e9b67bd1dd6844ef",
+      "pixelSha256": "95343c9f6df0fd019310cb5eb0df31df1db4a7ff358fc62b90b25cfa93b5d80a",
+      "rect": {
+        "x": 2560,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 11,
+      "image": "frames/side_idle/11.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 13,
+      "sha256": "59ac50eefe8dca51c0f2fb06320ab1f5f70e4444149bbb8e86b34473427c46d0",
+      "pixelSha256": "8254f94885e338f4e8e209df31913887dce2bc61efbd75a2c462b170b2baf2e1",
+      "rect": {
+        "x": 2816,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 12,
+      "image": "frames/side_idle/12.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 14,
+      "sha256": "13a619206dcbf316840153cbfce6ec5bcc30bd5f6252b2a3264590379c651254",
+      "pixelSha256": "ef93a428931ae4c0712d638c69070392a097ab2eaa33c76fb053cdee6c722e7f",
+      "rect": {
+        "x": 0,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 13,
+      "image": "frames/side_idle/13.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 15,
+      "sha256": "6cc67045695cfdc8cbe7fb52ea345736101cb631ea839cb9ee02cbafe401fbcd",
+      "pixelSha256": "2510001a6d113cf8f5f4e27993db723aae43e394befbee407fd3c211d1bdf6c2",
+      "rect": {
+        "x": 256,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 14,
+      "image": "frames/side_idle/14.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 16,
+      "sha256": "2dcce116127857f34092f8adf7520a3db1c04b57c22743ad8288db0bf83a3876",
+      "pixelSha256": "3916860bfd03d0fad20bb223c4a8c763079d10b8f324c4c5eacd14c6c75ab63a",
+      "rect": {
+        "x": 512,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 15,
+      "image": "frames/side_idle/15.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 18,
+      "sha256": "35fd03eff6813e9682ba9b6b72ecd5b2f32b2c6f6aca60c69c5a5d8013b1b334",
+      "pixelSha256": "a2630c6ee2bbfb6235e416fb51dbe43a85aba5e6071e172cdfcf0cbf4da5de53",
+      "rect": {
+        "x": 768,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 16,
+      "image": "frames/side_idle/16.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 19,
+      "sha256": "819dd9966716822ef2d4460b2f6af86696e970f9acf5f420fd466a6c264016ee",
+      "pixelSha256": "67d137b3d3161195877bf60844eb5ae8c3fc8107a9effd4a9588215fc38feb3a",
+      "rect": {
+        "x": 1024,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 17,
+      "image": "frames/side_idle/17.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 20,
+      "sha256": "ee131c2a7f3c81f8f4aa1401f925a6848cd6c63349d1dd92875a46f4ea5d2262",
+      "pixelSha256": "f7edfc7c690699ef78c2a9058ca724a7d84062cfc809195bc746c9a8f7057ec3",
+      "rect": {
+        "x": 1280,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 18,
+      "image": "frames/side_idle/18.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 21,
+      "sha256": "15ecaf333c7052d63e09bf70717b6e4c18f6a9561f61d691e431c3a992076c2e",
+      "pixelSha256": "32ad4aedfaad22893bff43f6cd029908cc7f63d849a904c3db1c470336794ace",
+      "rect": {
+        "x": 1536,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 19,
+      "image": "frames/side_idle/19.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 22,
+      "sha256": "a337a9dad6582c0387cd8eda06c329ee37097854a9131fc56b6a81933fbfa567",
+      "pixelSha256": "f69cb1401f2687e897b592d33e752299986b2d045e9870da894d266f821b98bf",
+      "rect": {
+        "x": 1792,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 20,
+      "image": "frames/side_idle/20.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 23,
+      "sha256": "6deea78c609dc551c21be990f8d7622defb751a0c5783b6e79f65c09c81e38a2",
+      "pixelSha256": "00da2a24a5c54398fb7b2d3bf5f93f23fc783ab6c2e4a8df2779980b8cf26016",
+      "rect": {
+        "x": 2048,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 21,
+      "image": "frames/side_idle/21.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 25,
+      "sha256": "ce896aa6cc31c9a794e0cd7406aa9b5ba1cb47e5d12db3f76ea92931ece610e9",
+      "pixelSha256": "1f638d3132e14a78de5c7c181c3272cca00df7f99eec1c39ed25546ce2af12b8",
+      "rect": {
+        "x": 2304,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 22,
+      "image": "frames/side_idle/22.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 26,
+      "sha256": "9f4aeb4f3837002e566f3762414ff94733d72b464874653c41205eb254c0225a",
+      "pixelSha256": "c231e377f200cea9b85777b67b9bcbfdb32f11d4787700a5c0ffad7c07403f8f",
+      "rect": {
+        "x": 2560,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 23,
+      "image": "frames/side_idle/23.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 27,
+      "sha256": "65bd7794906dbe4885b400d4e82bd7d0c9a547a3cff4279a24def4bacfe21abf",
+      "pixelSha256": "26055310cc246091302dce714f5abb47c9c46e1fa8d30049bfa3b8736135deba",
+      "rect": {
+        "x": 2816,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 24,
+      "image": "frames/side_idle/24.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 28,
+      "sha256": "eebe74d42153d9a141f4eb9410d34596062fafab87f0415cc76768cf2363b4b8",
+      "pixelSha256": "d6bb023c4ad97f66479fcc313b7d3bb9091671d1ea7e6c5655bd60b3d9ae1edb",
+      "rect": {
+        "x": 0,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 25,
+      "image": "frames/side_idle/25.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 29,
+      "sha256": "d42c3980849a2dfc8362a15b28bbda39c528d310b07c26e4137620d8b2b59299",
+      "pixelSha256": "f9d32e4826e7dabaa36b2862e58152222af10e1fdc2227e8261e1abb461953c5",
+      "rect": {
+        "x": 256,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 26,
+      "image": "frames/side_idle/26.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 30,
+      "sha256": "fd6ce29496e6d2b7b75b0cc4193d1f236bba11d71a8ef04bee2419ae8660a8d9",
+      "pixelSha256": "74b491035c22aa404a43de41e068753659b70fbaa99d6066714429331cb2ceb7",
+      "rect": {
+        "x": 512,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 27,
+      "image": "frames/side_idle/27.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 32,
+      "sha256": "0980d159465bc6847097662d492d178ebdd048c79aa275840cb6699a17c00f9b",
+      "pixelSha256": "fba7c9306a0dd91c9db593e10a2d17e76f64e8809c1cbe1bc3904bb9209fa216",
+      "rect": {
+        "x": 768,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 28,
+      "image": "frames/side_idle/28.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 33,
+      "sha256": "8c5ea96b31125bbb33e5bccf0c0a8e6059051d2fa5b735c5a14434d4c1a2582b",
+      "pixelSha256": "fcd501be5849c30b0c3cd20de3b7160ea342da6df2139e0cbb7deb3c6151112e",
+      "rect": {
+        "x": 1024,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 29,
+      "image": "frames/side_idle/29.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 34,
+      "sha256": "0fc20458d4ce75b0c9bf4b8607975b8cfb2940c3d6cdf21507d5195bc8b51368",
+      "pixelSha256": "c78062377d97cf27598cf444cab4208b183723f6e9ca0ffefeff11eb29a77402",
+      "rect": {
+        "x": 1280,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 30,
+      "image": "frames/side_idle/30.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 35,
+      "sha256": "c4bd3545d9a66468acaa20bca61f61754304dba5dc47efad11258daf28251c30",
+      "pixelSha256": "38db69e391c346b041b02aab4885997325b32c2de30e4bf49e51bf8204962af3",
+      "rect": {
+        "x": 1536,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 31,
+      "image": "frames/side_idle/31.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 36,
+      "sha256": "c5d6099e89303cfd52a0ab9cfdb12a01fe986f05a11743b884cd53f8ffdee3b0",
+      "pixelSha256": "2a26a11dd072f5c5732be194c487be3474667d2c7f0f5285943167d02e6b77fa",
+      "rect": {
+        "x": 1792,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 32,
+      "image": "frames/side_idle/32.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 37,
+      "sha256": "7463f3c33e27474acbb3a79998c9123ac23bb4ed4ca6216af9a13b8e7604ef90",
+      "pixelSha256": "9f40fffc9657c3cce460bc625a58fc6b78300ba1014314618846d080a9597ee2",
+      "rect": {
+        "x": 2048,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 33,
+      "image": "frames/side_idle/33.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 39,
+      "sha256": "c5c80e0ba1a436af09c9e2bcc2f3ee1bda343bdb845245b98289768f9f405676",
+      "pixelSha256": "944116a95948d9c72ba9e5d17d75443d56281be8ea322743c75bf6956a1a2859",
+      "rect": {
+        "x": 2304,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 34,
+      "image": "frames/side_idle/34.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 40,
+      "sha256": "2ef0f32f80b99df8c84d883e951d9e2e901dae051d89d2cd55238d93a9b25818",
+      "pixelSha256": "09cf840d8824d093abb528349e78af4bada39de3a1aa1d65a3e7886b789765af",
+      "rect": {
+        "x": 2560,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 35,
+      "image": "frames/side_idle/35.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 41,
+      "sha256": "158732c417c896878f7ed0ecb70ceca7c7a2049c06a84349fa8e32dc366d67b4",
+      "pixelSha256": "fed01949c86dd17ffa3b029f6934308c416ad8f57c1fb99bee46faa233b5ca88",
+      "rect": {
+        "x": 2816,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 36,
+      "image": "frames/side_idle/36.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 42,
+      "sha256": "488e582e40b64a0f4cf11bee572017c030f38022d46ed70c1c1fbf3f6f7148ec",
+      "pixelSha256": "8a90ea1fc103df9a287da6368fc06ddb910db0d1fd0b4ea83c3939428b84a84c",
+      "rect": {
+        "x": 0,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 37,
+      "image": "frames/side_idle/37.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 43,
+      "sha256": "35d1a9701ed9387923a2d1b900b4779ac556af31e0473648d8113be44d7e0052",
+      "pixelSha256": "aa842d5c48f6ad72feb2432d574c6aaf5fd0cf125c4898ef91a121af23540b29",
+      "rect": {
+        "x": 256,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 38,
+      "image": "frames/side_idle/38.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 44,
+      "sha256": "7aa7b9af67974bfb13a06f14396b5b6cf2afa9e9f2b5e61f8dd8878279e1757a",
+      "pixelSha256": "6383357ed2869a93036f94e4708ba98cd18d2739521e738452707884c39261a0",
+      "rect": {
+        "x": 512,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 39,
+      "image": "frames/side_idle/39.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 46,
+      "sha256": "85d95723a3d6477fb0b08d012c20658382f6c7fd940624ae24547a8747a50543",
+      "pixelSha256": "39f3e99c44f3e6f0ca3a8e5d69b3a85e5c0fc6c7da52a1c5dcb6a3a5370c53a6",
+      "rect": {
+        "x": 768,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 40,
+      "image": "frames/side_idle/40.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 47,
+      "sha256": "cca5c3cd4f47edbb8b6baabb87d154fa718e6da757402c1cc5c6f52c5ed7a651",
+      "pixelSha256": "05bb8166feb3d92c95fc645313c29ecbcfb9c5bc8102c40d8e6a8fe935a175ae",
+      "rect": {
+        "x": 1024,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 41,
+      "image": "frames/side_idle/41.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 48,
+      "sha256": "5ebed1a855e271e58878c0061db89b50860b5dced4f3a940a676312455431848",
+      "pixelSha256": "4f6f49e1a004d29fdeb6a8ec652117c5ac2dba2feb789a39f8c63dcc4589440e",
+      "rect": {
+        "x": 1280,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 42,
+      "image": "frames/side_idle/42.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 49,
+      "sha256": "2a2d247821ac78d80b42293281b4022533be6023d1902c9739079e9f0df8e324",
+      "pixelSha256": "2e49a6c79149bc4b4a833fa3e494ed44b70134458ce30be490bcb3181e4ae0f5",
+      "rect": {
+        "x": 1536,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 43,
+      "image": "frames/side_idle/43.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 50,
+      "sha256": "975d7da2c53846c227a4da7259786483227c87880e655e7bb55483282c0db04a",
+      "pixelSha256": "eefcc80ba40c116e03361f19c90f60dab39fb6e857ef70e557db15223f5834cc",
+      "rect": {
+        "x": 1792,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 44,
+      "image": "frames/side_idle/44.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 51,
+      "sha256": "7cbf6b70c953ff58eabf14359b5901a069d87d22c5f346ae9cebfd283713aa80",
+      "pixelSha256": "9046b15f1fea43f11cd8915bd926a692e1b99d7ab1223b795d249946d9859c7f",
+      "rect": {
+        "x": 2048,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 45,
+      "image": "frames/side_idle/45.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 53,
+      "sha256": "5244ed39d8f15334acfc33315d945d77fbc044463b054e1261a434d560841254",
+      "pixelSha256": "275c9ac6d42d3790e2d12282e2de939d6befd43da7fa447b3adac8cd0cebba50",
+      "rect": {
+        "x": 2304,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 46,
+      "image": "frames/side_idle/46.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 54,
+      "sha256": "bc7da545fc13db489abe2c32247347e0bd5b26f6c4994ce07e3e49ddea0e3ef2",
+      "pixelSha256": "622c5863764388b931c3a092f98adfd389d36abdaa470a1e4811781b702ed3a0",
+      "rect": {
+        "x": 2560,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 47,
+      "image": "frames/side_idle/47.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 55,
+      "sha256": "66afb97fee819358a52eacc98992693456933fa271d94138d4bb3ff6969fabe8",
+      "pixelSha256": "9033b9fc0500732edfabb338b2a641b6fd4a2a3ab94ca79dfff7766587a80762",
+      "rect": {
+        "x": 2816,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 48,
+      "image": "frames/side_idle/48.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 56,
+      "sha256": "eefb24d9e499010a45b839fe388589de675b5655c6444d0f857db57aaeca639d",
+      "pixelSha256": "6003eb288d8fa312b65c7b310990d285e5180b1cc85fa658c11575d77ef949db",
+      "rect": {
+        "x": 0,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 49,
+      "image": "frames/side_idle/49.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 57,
+      "sha256": "7033c648f723f19ee4353f56bb53ec5d0a1799e0834e2aca91063af615e5503b",
+      "pixelSha256": "c320438b10db9cabc6814dc043a307f9de14e04c881cc8c75fd81f8f13af1cd1",
+      "rect": {
+        "x": 256,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 50,
+      "image": "frames/side_idle/50.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 58,
+      "sha256": "aad44d08986d55aafcd06169e5f08a6986029311a8e5a7d3835d97001f5fcc06",
+      "pixelSha256": "283b671e29cb3a4a2089ad68b579990c364e649f01e789085baf71d227b823b2",
+      "rect": {
+        "x": 512,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 51,
+      "image": "frames/side_idle/51.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 60,
+      "sha256": "15e443864844b52757f196d8bb9ba1b621230ab45ca6ade418fc51a89d9db387",
+      "pixelSha256": "3c70a645b1405a60cabecf8eed72eda4f986cea1754557a40a1d148519aa3b62",
+      "rect": {
+        "x": 768,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 52,
+      "image": "frames/side_idle/52.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 61,
+      "sha256": "b06f99e03fcc1aa0010a738e8dc8a85984588e9cd11f9ac75b6c0bc2e53189a7",
+      "pixelSha256": "0f692363566e629dc5867d825dda61636542167545221fc4cefaa5d4eeaa1e99",
+      "rect": {
+        "x": 1024,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 53,
+      "image": "frames/side_idle/53.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 62,
+      "sha256": "c61490217b2f5e2ffc83780103cb8f324061c1c56065d76cd61c5c61dd9a0c71",
+      "pixelSha256": "263865da7150ed4a228d9e980123419513e2b0e2223eb778814c14dd7856cacd",
+      "rect": {
+        "x": 1280,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 54,
+      "image": "frames/side_idle/54.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 63,
+      "sha256": "c07d2f5a8bce98be3018863a44b07a792deb190ccf338065acffb1c5ab77a190",
+      "pixelSha256": "8a263744f93626b1e5cfed1202c25e5d6238c738068c4c2c454c99857127d060",
+      "rect": {
+        "x": 1536,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 55,
+      "image": "frames/side_idle/55.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 64,
+      "sha256": "729e35fec4f34558a7bbb22b3e525f9c3d5b67dd5a5b81d97075481f8c1ebdcc",
+      "pixelSha256": "aa63cc0d2faf3325c8aeecf2157e379453e03728c123a3707062e96657d065e7",
+      "rect": {
+        "x": 1792,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 56,
+      "image": "frames/side_idle/56.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 65,
+      "sha256": "c7adcfd3353bae3bd26c58cc7108aae838ebbfc6ba927e036757c20a7b4c4f4d",
+      "pixelSha256": "bb39b9d6dba1a38dba6563349215e467e012e1f7fe245071e385905a32625a8d",
+      "rect": {
+        "x": 2048,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 57,
+      "image": "frames/side_idle/57.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 67,
+      "sha256": "cff5bda14888f3bd5e93500dcb4d7955443805c9ef240dc9501857d9c98b349d",
+      "pixelSha256": "71e1b06081efdeb92058ffea7389d133ab12688b8ae03441ba60be171c17cdb1",
+      "rect": {
+        "x": 2304,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 58,
+      "image": "frames/side_idle/58.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 68,
+      "sha256": "50f7c805aebdc343cde35471811bbe8c15ade5071ad30f58de4d75eb6f84278e",
+      "pixelSha256": "62b5eaa535736a4115814deccdeacfd0dcb123ad082c00daf493eba24423f5a3",
+      "rect": {
+        "x": 2560,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 59,
+      "image": "frames/side_idle/59.png",
+      "sourceImage": "raw/side_idle-full.png",
+      "sourceFrame": 69,
+      "sha256": "35b216454bf430990936fc40a06827d9d3d1c127c04de26bd93f61c5fa942df4",
+      "pixelSha256": "f89694d0c9aee3b6aad1eb0c84d5c0998b32ef85b4212bf1206e0780ce829d3c",
+      "rect": {
+        "x": 2816,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    }
+  ],
+  "sources": [
+    {
+      "image": "raw/side_idle-full.png",
+      "sha256": "7110d2cd968550205580531ff7d850ec9644393037f97cbac35a51ebcef351a1",
+      "nativeWidth": 1536,
+      "nativeHeight": 1024,
+      "actualFigures": 70,
+      "selectedIndices": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        67,
+        68,
+        69
+      ],
+      "rows": 5,
+      "rowCounts": [
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "method": "image_gen fresh redraw; no interpolation or repeated-frame padding"
+    }
+  ],
+  "verification": {
+    "sourceFigures": 70,
+    "distinctPixelFrames": 60,
+    "seamDifference": 0.008938979955876093,
+    "seamLimit": 0.02939993816465182,
+    "seamMetricPassed": true,
+    "visualContinuityVerified": false
+  }
+}

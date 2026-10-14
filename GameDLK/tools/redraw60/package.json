@@ -1,0 +1,15 @@
+{
+  "name": "mx002-redraw60-tools",
+  "private": true,
+  "version": "1.0.0",
+  "description": "60帧重绘素材的裁取、图集、预览与真实性校验工具",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "test": "node --test pack.test.cjs",
+    "audit": "node audit.cjs",
+    "contact": "node contact.cjs",
+    "preview-check": "node preview.check.cjs"
+  },
+  "dependencies": { "sharp": "0.35.5" },
+  "devDependencies": { "playwright": "1.62.1" }
+}

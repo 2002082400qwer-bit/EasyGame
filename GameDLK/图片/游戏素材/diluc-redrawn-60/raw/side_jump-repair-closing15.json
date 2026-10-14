@@ -1,0 +1,11 @@
+{
+  "prompt": "Use case: identity-preserve. Draw EXACTLY 15 complete freshly drawn unique incremental FULL BODY sprites in FIVE columns x 3 rows, transparent RGBA, no labels/grid/glow/shadow. All boots/legs/hair fully inside each cell with wide blank margins. Opaque character interior. Reference1 locks identity, black/red ornate coat, red ponytail, gems/chains/gloves/boots and crisp anime linework. Reference2 is the PRECEDING frame44. Reference3 is destination. This image ONLY covers the LAST15 frames of side_jump, NOT the whole action. First drawing differs just slightly from reference2; last drawing settles to reference3. Maintain same physical body/head scale, orthographic camera and foot-root; NO action restart. LEFT-profile final landing/recovery phase. Begin near the crouched recovery pose in reference2. Gradually stand fully upright with straight knees, arms relaxed by thighs, head/boots LEFT, settle coat/pony to reference3. Last drawing same posture and physical stature as frame00 reference3 for a seamless cycle. No second jump/crouch.",
+  "refs": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_jump\\00.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_jump\\44.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_jump\\00.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-306fe54e-15cc-43e4-bc65-aa38e43158dc.png",
+  "method": "image_gen fresh tail repair",
+  "created": "2026-10-14T09:03:35.884Z"
+}

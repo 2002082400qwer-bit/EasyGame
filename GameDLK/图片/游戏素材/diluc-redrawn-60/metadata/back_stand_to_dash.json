@@ -1,0 +1,1033 @@
+{
+  "id": "back_stand_to_dash",
+  "direction": "back",
+  "action": "stand_to_dash",
+  "loop": false,
+  "endState": "dash",
+  "frameCount": 60,
+  "frameSize": 256,
+  "pixelFormat": "RGBA",
+  "pivot": {
+    "x": 0.5,
+    "y": 0.92
+  },
+  "atlas": {
+    "image": "atlases/back_stand_to_dash.png",
+    "columns": 12,
+    "rows": 5,
+    "width": 3072,
+    "height": 1280
+  },
+  "preview": {
+    "image": "previews/back_stand_to_dash.gif",
+    "delayMs": [
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20
+    ]
+  },
+  "durationSeconds": 1,
+  "suggestedFps": 60,
+  "frames": [
+    {
+      "index": 0,
+      "image": "frames/back_stand_to_dash/00.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 0,
+      "sha256": "e7ca1089f71bd918bd1b395b046d84557df351a1dbf70359b42993b3675ea03d",
+      "pixelSha256": "9db30af3458100ac856b025e434fcd424e825ec672c72a478be73508ecf73a6f",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 1,
+      "image": "frames/back_stand_to_dash/01.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 1,
+      "sha256": "372273ece2fb2b2185fd1b5c520d14ffff4665c676a5969829ca88bb0ff40d92",
+      "pixelSha256": "4145668966d30549b34f99a849e09e7da4e8f0fefcbc297209722235621bef0d",
+      "rect": {
+        "x": 256,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 2,
+      "image": "frames/back_stand_to_dash/02.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 2,
+      "sha256": "3ec980787fdc9fba37f6871741d0287bd9ebae7b7b94016b3515a4ffc21ffad7",
+      "pixelSha256": "d20f3548b04ce7362af6130fcf09ab3e38588471975c280b9c228509a0aca55b",
+      "rect": {
+        "x": 512,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 3,
+      "image": "frames/back_stand_to_dash/03.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 3,
+      "sha256": "9add0aeb2753306b4198c2cc87fbe8f13d9239bd7f21edd3d2a119b332c97796",
+      "pixelSha256": "f4e231e60bd9eeaf13dbac0d9f38650acfeb33d87eb44d8c92d3900c39128c4b",
+      "rect": {
+        "x": 768,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 4,
+      "image": "frames/back_stand_to_dash/04.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 4,
+      "sha256": "3116bcf756ee29294e5f762af7c02222059fdfeb61de3a7dd3a697481b9fb171",
+      "pixelSha256": "45cbde0415e1d2285e648053aacfd20962ac1b5cec68a5da23950cdf6f3e0b82",
+      "rect": {
+        "x": 1024,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 5,
+      "image": "frames/back_stand_to_dash/05.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 5,
+      "sha256": "58f33c3156eaccc3063bdbdc7d319d67a80b98e52bfdd034321be343523713b2",
+      "pixelSha256": "3a1252e072d72c338691e565e998eb958d41fde61b226f1f50c2f4a1e2fb6bc2",
+      "rect": {
+        "x": 1280,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 6,
+      "image": "frames/back_stand_to_dash/06.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 6,
+      "sha256": "ac249dbe71eb2fba0b97e812ddff04aaa9639355b32f7a898d767be6d098f3be",
+      "pixelSha256": "711e5618d54f7c04a845ee9e045453db20caa94fc7f3db805cf156a8063865ac",
+      "rect": {
+        "x": 1536,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 7,
+      "image": "frames/back_stand_to_dash/07.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 7,
+      "sha256": "2446d6c7b5f4d898f59aaaac1b04d1c2ef554ae496348b0c6205101b3a4748e6",
+      "pixelSha256": "7ef88c01072c9d8523032d99b500c579c75273b595850a78f4b74f20fc680716",
+      "rect": {
+        "x": 1792,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 8,
+      "image": "frames/back_stand_to_dash/08.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 8,
+      "sha256": "aa62dab7651dc4be657c39ea074bbb603fa0edb0b990e42a266e723917741dc5",
+      "pixelSha256": "8a13ad647e1f8a41c91b78d496c1cadbb23382749c3908f8e67eb8ff02328111",
+      "rect": {
+        "x": 2048,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 9,
+      "image": "frames/back_stand_to_dash/09.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 9,
+      "sha256": "a1da296321ccd4545d230e13ce7a77b0f7e0b46c4db018576f31abf32715d7b0",
+      "pixelSha256": "e01249b3f3ffc16f1e7b3b2e985119e1a587905fc81640cb7263e41810fcf579",
+      "rect": {
+        "x": 2304,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 10,
+      "image": "frames/back_stand_to_dash/10.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 10,
+      "sha256": "39da28a1696fa1d8fc6c06b76487b01c344ec1a518cf36049e54656b5b8fa807",
+      "pixelSha256": "064add15cb9e4d409c0caa9cfd962c7e985814916cc7330a954fe1ab679ad0ba",
+      "rect": {
+        "x": 2560,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 11,
+      "image": "frames/back_stand_to_dash/11.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 11,
+      "sha256": "43040072faaa3f861741b1d521236584ca3bccb30754937975e48116da56ad3a",
+      "pixelSha256": "efa951c5d7e5fc5bc3bf442b7d9a594650ac9c6ad0a883db550c4a82e35dc81e",
+      "rect": {
+        "x": 2816,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 12,
+      "image": "frames/back_stand_to_dash/12.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 12,
+      "sha256": "17c33e8f6d173f05e947940c9e12c2188a51b62dc6cb297e747bb127f8d61fc8",
+      "pixelSha256": "bfa8cf017ec9bc9345a6bb6d43e47b9e89e73999f0b4b858c1dec6c9147a7376",
+      "rect": {
+        "x": 0,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 13,
+      "image": "frames/back_stand_to_dash/13.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 13,
+      "sha256": "24d43bed91e877e25cffe7c36994d89a60626f2b953b4ad3fc26eb19c471b8cb",
+      "pixelSha256": "e781e1cd1cf835fffbe16a4d86ce5fc7f211cd3cd6e77a6592238821505815ec",
+      "rect": {
+        "x": 256,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 14,
+      "image": "frames/back_stand_to_dash/14.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 14,
+      "sha256": "41cd141bb0ff3b56d8f9c03b540d2c37852252b0c8cb69bfd14d376c8cc73277",
+      "pixelSha256": "c566d7ec65e2b47d9476ddceb15d0a5dc95e41d114cd365e3bd452cac1886b78",
+      "rect": {
+        "x": 512,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 15,
+      "image": "frames/back_stand_to_dash/15.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 15,
+      "sha256": "29317434a10473c5584c84d5c87a7c5a4a35754707c697acc02dd77433952ebd",
+      "pixelSha256": "f3392ee74ebe49e1151783bb25c3c3ec0ac503b3eef6774c2abd7d20893d2bb0",
+      "rect": {
+        "x": 768,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 16,
+      "image": "frames/back_stand_to_dash/16.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 16,
+      "sha256": "bf6683450a4cb2fa1af366ca0b56ca344b8520fd07cd403475070279e4055569",
+      "pixelSha256": "fa09744bea10a73e3591f28c9d87892079d704b8c5b495d151dcd77fad59e533",
+      "rect": {
+        "x": 1024,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 17,
+      "image": "frames/back_stand_to_dash/17.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 17,
+      "sha256": "3b44ab9be09ff744785f94d05ed561e156306a738e0c5c845491d600f8430ffa",
+      "pixelSha256": "d20b375f2b96fd90d195aca24d6280cddbdff78d62d8ab1f68840d93c7d9f4e2",
+      "rect": {
+        "x": 1280,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 18,
+      "image": "frames/back_stand_to_dash/18.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 18,
+      "sha256": "ef924993326edc1d6d176755585ff74a30efdf925703d6cb2c71f17391230fff",
+      "pixelSha256": "5d78c434af765c31ecf5d5e8042f1e1054c00c77f811f1270a1ed3ad11b4c87c",
+      "rect": {
+        "x": 1536,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 19,
+      "image": "frames/back_stand_to_dash/19.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 19,
+      "sha256": "09dd75c5a823eaeae4101e771e367d5f4ceac00758fe0c30f3f71f5900798e08",
+      "pixelSha256": "265c4c04d386029fb58df729f601221598aa25faf0eebad6f7191a19e605af9a",
+      "rect": {
+        "x": 1792,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 20,
+      "image": "frames/back_stand_to_dash/20.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 20,
+      "sha256": "4b3d4706bb9fa5def7322827553df5fde8f4987facf39678bf47f80e913aefad",
+      "pixelSha256": "13783a3a34605ddfe704db5741ad96005904d3693386b6f373249621f76e9a9e",
+      "rect": {
+        "x": 2048,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 21,
+      "image": "frames/back_stand_to_dash/21.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 21,
+      "sha256": "bc8163a0ef11e90c21dbc34699c7f0d5a3f7cfee0aa9df645d9d2d162be6f020",
+      "pixelSha256": "43b7d0b0244986a0a408c639fda9cabe8e3f8579700a8bc3de2e021a7710f0f1",
+      "rect": {
+        "x": 2304,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 22,
+      "image": "frames/back_stand_to_dash/22.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 22,
+      "sha256": "56305fd0a209deec7c4a17faa852183559fa9a75bbb7adfac01492056e4f4198",
+      "pixelSha256": "1d7479c9f3d918d05117efe41a5db0340c73bdb3b0d0566abd49d01037d116d1",
+      "rect": {
+        "x": 2560,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 23,
+      "image": "frames/back_stand_to_dash/23.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 23,
+      "sha256": "76771560d12c52e2ae53faac549ecfca7baa58c6212870f3ccb88576afced617",
+      "pixelSha256": "5b0e33bd6f88c3fcb59bb9f9705ae5ce7a0ee92f59df70f71cf2407706230ca7",
+      "rect": {
+        "x": 2816,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 24,
+      "image": "frames/back_stand_to_dash/24.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 24,
+      "sha256": "dab910be476f011a5ba624b256e59b99103efcdf471489a2ad4f7c06c1fe271e",
+      "pixelSha256": "6675d52a2cb34aa4bda9a5fe138bc9d92783bdd6e0b63214ef44bb825720f63f",
+      "rect": {
+        "x": 0,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 25,
+      "image": "frames/back_stand_to_dash/25.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 25,
+      "sha256": "42da92098a44929e41a955ef2630378b60277d1502730f706fa0fc048c608386",
+      "pixelSha256": "792d14f06fbefb5a833800bd4ab9a2c60af90f465d3d1d122bcf043cc3888f41",
+      "rect": {
+        "x": 256,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 26,
+      "image": "frames/back_stand_to_dash/26.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 26,
+      "sha256": "bebed97699a157e7cab3066aa0124c35ff30ff557c4eba54e29a18a6aeb4f12f",
+      "pixelSha256": "d511d362ab9e4c420dba7e85fbf44ff2a1686f6857f01ad56fef1330e799bf58",
+      "rect": {
+        "x": 512,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 27,
+      "image": "frames/back_stand_to_dash/27.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 27,
+      "sha256": "5d78ba742cb830d9e46e55c92a23903236469366268efe51d447c33768222809",
+      "pixelSha256": "4d9ffde4ddfafb9f627233fe6a8f9641a7e3ad2a01d65a82437fdb106fb4d80a",
+      "rect": {
+        "x": 768,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 28,
+      "image": "frames/back_stand_to_dash/28.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 28,
+      "sha256": "5645ca3bc82f0d2496de2445803ebdda378452c8baebd35806a80a607ea9ebb7",
+      "pixelSha256": "a52139d2c57e4efa7795d92738c2f83b45c32e00a038d4e9d7d37a48fc43b664",
+      "rect": {
+        "x": 1024,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 29,
+      "image": "frames/back_stand_to_dash/29.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 29,
+      "sha256": "6d39190685403f4c98914f05ff06ecbee34bd666d2065f34eb16014fb2ad495f",
+      "pixelSha256": "bf4744f082e09cf40ee020f11b64111b91b6ffee5f354114db6a562642733f32",
+      "rect": {
+        "x": 1280,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 30,
+      "image": "frames/back_stand_to_dash/30.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 30,
+      "sha256": "ed1e810df2ad127f8239d6d7bafc82956ff3be1a1d8ca4beb1ac362d5dd637f3",
+      "pixelSha256": "b49cfe54e54fe55ce4c1950a03743e6aa4dd73b0a2cbb9ea162a1ef69977985a",
+      "rect": {
+        "x": 1536,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 31,
+      "image": "frames/back_stand_to_dash/31.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 31,
+      "sha256": "f5d0e1842b1bc64bec5b7447c0ea143a47be2433cdb3136dc9c3a25b1f7df836",
+      "pixelSha256": "82a0ba30de9f48c5c8b817e722893f8f6f0c79b3a59112395b27fa07e5c6e8f3",
+      "rect": {
+        "x": 1792,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 32,
+      "image": "frames/back_stand_to_dash/32.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 32,
+      "sha256": "d2177bc757fba740f0f2d400a10790a5ca99c324c0c1e5687c977624c7c13288",
+      "pixelSha256": "8021ce81420343cb9c89fd5809d851cc4016bec24cfe715b028e870e4f27bc2f",
+      "rect": {
+        "x": 2048,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 33,
+      "image": "frames/back_stand_to_dash/33.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 33,
+      "sha256": "fadb1e804329b27dfb384cd9d5f747b9f25b99fea203046dd8ee825dc2c433dd",
+      "pixelSha256": "2a8cd0b62d65f65841a70326ad9e7d2da1a03096a28c2af0d2d377398159c19d",
+      "rect": {
+        "x": 2304,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 34,
+      "image": "frames/back_stand_to_dash/34.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 34,
+      "sha256": "12235c7d637c333e35c32d638048534540d317cbff542b7408546865df6a90cd",
+      "pixelSha256": "26db348542730faa9c2db0ad017cc73d83b92504a7a0b2c2b07247c7ab83efab",
+      "rect": {
+        "x": 2560,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 35,
+      "image": "frames/back_stand_to_dash/35.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 35,
+      "sha256": "a68f34b3b47d6456736255d2a8c7a82fe64dfbfa669dac3b35d4949e48891c09",
+      "pixelSha256": "d2078fcb714b13408277040a63ac9ec909cb01ae34260a357fa14b790742a234",
+      "rect": {
+        "x": 2816,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 36,
+      "image": "frames/back_stand_to_dash/36.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 36,
+      "sha256": "54f45ad24d7c9ada3e853d6d3604e1d25278a07c5f69f6e1f6ea720f57072a0e",
+      "pixelSha256": "f11d98e40cd68d2ff8e8a285310fbc90f20b3c0bbf9b2decc48f7bb1c02338b7",
+      "rect": {
+        "x": 0,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 37,
+      "image": "frames/back_stand_to_dash/37.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 37,
+      "sha256": "0870901ec20cf0102c268b54472e6a77433f31850545a88765a883f035b694c6",
+      "pixelSha256": "f75c3d4ed561146890165ce7188bbc10f568731d04fff2db43d6a4a5fb4dbd3a",
+      "rect": {
+        "x": 256,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 38,
+      "image": "frames/back_stand_to_dash/38.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 38,
+      "sha256": "0e2723f54e7edfd079df1069f90640f59c59a57d762554ea7f9e804439453ef2",
+      "pixelSha256": "4277c03202d0e035a2860fd7e6f6323be23f26da33390d94f344304c50501536",
+      "rect": {
+        "x": 512,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 39,
+      "image": "frames/back_stand_to_dash/39.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 39,
+      "sha256": "b56d82f6434ae1b67ba44b07b1f7721bd39ffcdd6fc1be0eb729d42aff54c40c",
+      "pixelSha256": "5da58b459788cefb63b9e7bf03d0a643acf5cb86f88281545c07173559130955",
+      "rect": {
+        "x": 768,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 40,
+      "image": "frames/back_stand_to_dash/40.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 40,
+      "sha256": "2233cff7c8bae674cdd1f799ecc7ec42161a05b48ed2e67e12de2a477dbad53b",
+      "pixelSha256": "62168aaef20fd53a7f55995cd32c03ad3031497f2086c508885ce05634f3f468",
+      "rect": {
+        "x": 1024,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 41,
+      "image": "frames/back_stand_to_dash/41.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 41,
+      "sha256": "242a382244e6b209c2a24b0e418db5b7e19a418f9c2fba05243360f07aaf3182",
+      "pixelSha256": "8431f79bd10ebcbe7763503840f8565dd422138ee64d0769df1c81cae6186cfa",
+      "rect": {
+        "x": 1280,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 42,
+      "image": "frames/back_stand_to_dash/42.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 42,
+      "sha256": "8e4c882e1d42efb5513965df1428b35e1211eff1e3672da78f324e32eaa5a01e",
+      "pixelSha256": "90ed7df07ee0b131bf50ad3f2c881b46fa5c19842d0c5595596850391637e136",
+      "rect": {
+        "x": 1536,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 43,
+      "image": "frames/back_stand_to_dash/43.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 43,
+      "sha256": "fa765b1e58b8eb6db01beeab6fd51d0c682f92a17466c1ac84719742d424a0cc",
+      "pixelSha256": "6c8a40d20fb5903586d8ac069288e17a46c785e6de7fde8f0170c48018988867",
+      "rect": {
+        "x": 1792,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 44,
+      "image": "frames/back_stand_to_dash/44.png",
+      "sourceImage": "raw/back_stand_to_dash-full.png",
+      "sourceFrame": 44,
+      "sha256": "68b3aaa0af3353d6778dd62cc8588356c5d04712ee8e018e27c1b98dba8a9bd9",
+      "pixelSha256": "5c3387f8ee285258b805dc7f83ef24be7872b1769af11d0933abc79d1316732e",
+      "rect": {
+        "x": 2048,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 45,
+      "image": "frames/back_stand_to_dash/45.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 0,
+      "sha256": "555fa2ed4e739fb445e8590f5a7d23a87bf1652ce8bf2309ced3994c779a135d",
+      "pixelSha256": "400d5622d57eb062e9221491dcefb821759e82d29f1d63fa76be13869c57b25a",
+      "rect": {
+        "x": 2304,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 46,
+      "image": "frames/back_stand_to_dash/46.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 1,
+      "sha256": "1e98a5024084df9d8623cbf8dd6e8f74f3b45337b9241d6c521c7b222c2807e7",
+      "pixelSha256": "f7bc9c682d481662fe874960cbed8c25f352dfeacfaeee7e34d93a0aa66f05c9",
+      "rect": {
+        "x": 2560,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 47,
+      "image": "frames/back_stand_to_dash/47.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 2,
+      "sha256": "0137aff86ebc2b2333642edab605a0c4da7c91d05f63c7e0a1b21278314aeee5",
+      "pixelSha256": "6025339c4b0e54189958807771ff5b4ed26c1e436e454984599e2fd23f372965",
+      "rect": {
+        "x": 2816,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 48,
+      "image": "frames/back_stand_to_dash/48.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 3,
+      "sha256": "90e2cb6dbbde2f73c677af210c2d0cc724215011d0dc85ab59330ffc52de7117",
+      "pixelSha256": "836a231d531e8260f20f5a22e04920526b690a0c1759ddab4087a0bd541de26c",
+      "rect": {
+        "x": 0,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 49,
+      "image": "frames/back_stand_to_dash/49.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 4,
+      "sha256": "7b8a38d0b325860ee123b1dae86c0625bb0b935a580e1aa871a195291ec9f7b9",
+      "pixelSha256": "4f91c2c2fc9535386a5c2444b179164d5639591bc54fd8843c0f116e85b736e5",
+      "rect": {
+        "x": 256,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 50,
+      "image": "frames/back_stand_to_dash/50.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 5,
+      "sha256": "32229f0b882af27688a375d8d2f0c1ab07cf1c434b16340951393d346d587c72",
+      "pixelSha256": "47c538f906628399fa10155f05b098c45a295b2433367f2097cd92b1eeb91ee6",
+      "rect": {
+        "x": 512,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 51,
+      "image": "frames/back_stand_to_dash/51.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 6,
+      "sha256": "7639c64bb458fdf136059e27b1f96537faee412ff41417446d16117cc19018cc",
+      "pixelSha256": "54fdd9d91613bd1e8fa4ba65bf5f564664aba9cb5dff0f6a8dfd37ebfe229e82",
+      "rect": {
+        "x": 768,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 52,
+      "image": "frames/back_stand_to_dash/52.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 7,
+      "sha256": "54382f217628122cf5d741f73f26b11528783b190ae8b0f7c183ebfd5f18b69d",
+      "pixelSha256": "5423d075fd4b76ada82808fe24b685a3aa61121098bae3b930d4096f9ef66938",
+      "rect": {
+        "x": 1024,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 53,
+      "image": "frames/back_stand_to_dash/53.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 8,
+      "sha256": "cfdda584c689bab2a003738acf81dd8038765af1d4f314544957195af8775355",
+      "pixelSha256": "63ffc5f8503b2fae5c70eadf34fc136ead2a0f64b3ed16ccf065f78a2c477eec",
+      "rect": {
+        "x": 1280,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 54,
+      "image": "frames/back_stand_to_dash/54.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 9,
+      "sha256": "295929a51bf27a4ea932fe63dab721c615ef7c3e14109561c7a18693ca806eb2",
+      "pixelSha256": "1129b5ea764d0664701799f82e18b9ce1a94b23cd82f740ae0b8029e65b26a55",
+      "rect": {
+        "x": 1536,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 55,
+      "image": "frames/back_stand_to_dash/55.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 10,
+      "sha256": "b2021390a1b5c60ffb2d4beee4ec42dd88558f39ee2861dde5c2ffe10dcd466b",
+      "pixelSha256": "13a392edb2807a44fc1f8bb211291d8eaa09935323fa958f73a658798ac17905",
+      "rect": {
+        "x": 1792,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 56,
+      "image": "frames/back_stand_to_dash/56.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 11,
+      "sha256": "72c3cb144f7e5fa981bf790e5b7d678a153a9309961f13a3f029a090008a52a3",
+      "pixelSha256": "be11f48d94d780b5f90a4a1b955be084f9afacce84ba5a3457b6d5267faae4ad",
+      "rect": {
+        "x": 2048,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 57,
+      "image": "frames/back_stand_to_dash/57.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 12,
+      "sha256": "d5bbb143814d30f39f86a8557cab6f15abb40149785953fc9fee9b5e3981cdf7",
+      "pixelSha256": "cc69b60be36c452096caf3fd0fc8921176531ba1a203c70446b1b0d1a501e142",
+      "rect": {
+        "x": 2304,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 58,
+      "image": "frames/back_stand_to_dash/58.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 13,
+      "sha256": "21e6d2e6557ae1771e42f308eeb4e0e2295d175e9a8549db11296a4e9d533d05",
+      "pixelSha256": "5137b3118b3c0d66ec47847c842091561994d1b31807f5c4ff1be8077cb69a0c",
+      "rect": {
+        "x": 2560,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 59,
+      "image": "frames/back_stand_to_dash/59.png",
+      "sourceImage": "raw/back_stand_to_dash-closing15.png",
+      "sourceFrame": 14,
+      "sha256": "92602ef5cf65579a0acfec99e1d985991763d53720d06437f7803e0d3308b51e",
+      "pixelSha256": "cf3a51b91c380f6d8a92682c1c7f908ead5e3a4e978ad018d7facb8004a4b8be",
+      "rect": {
+        "x": 2816,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    }
+  ],
+  "sources": [
+    {
+      "image": "raw/back_stand_to_dash-full.png",
+      "sha256": "33792addc379d3b9898a364d9e45e2f36e7eeb13181654d405a7f6e8dd99174a",
+      "nativeWidth": 1536,
+      "nativeHeight": 1024,
+      "actualFigures": 48,
+      "selectedIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "rows": 4,
+      "rowCounts": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "method": "image_gen fresh redraw; no interpolation or repeated-frame padding"
+    },
+    {
+      "image": "raw/back_stand_to_dash-closing15.png",
+      "sha256": "cb953052cf3cd490896af7f926a4703927d963ac70cc2f7fdaac6c988cd92543",
+      "nativeWidth": 1536,
+      "nativeHeight": 1024,
+      "actualFigures": 15,
+      "selectedIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "rows": 3,
+      "rowCounts": [
+        5,
+        5,
+        5
+      ],
+      "method": "image_gen fresh redraw; no interpolation or repeated-frame padding"
+    }
+  ],
+  "verification": {
+    "sourceFigures": 63,
+    "distinctPixelFrames": 60,
+    "seamDifference": 0.0459676830698022,
+    "seamLimit": 0.04653804832144677,
+    "seamMetricPassed": true,
+    "visualContinuityVerified": false
+  }
+}

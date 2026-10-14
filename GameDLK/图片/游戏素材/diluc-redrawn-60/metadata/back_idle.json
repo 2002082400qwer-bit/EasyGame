@@ -1,0 +1,1018 @@
+{
+  "id": "back_idle",
+  "direction": "back",
+  "action": "idle",
+  "loop": true,
+  "endState": "stand",
+  "frameCount": 60,
+  "frameSize": 256,
+  "pixelFormat": "RGBA",
+  "pivot": {
+    "x": 0.5,
+    "y": 0.92
+  },
+  "atlas": {
+    "image": "atlases/back_idle.png",
+    "columns": 12,
+    "rows": 5,
+    "width": 3072,
+    "height": 1280
+  },
+  "preview": {
+    "image": "previews/back_idle.gif",
+    "delayMs": [
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30,
+      30,
+      40,
+      30
+    ]
+  },
+  "durationSeconds": 2,
+  "suggestedFps": 30,
+  "frames": [
+    {
+      "index": 0,
+      "image": "frames/back_idle/00.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 0,
+      "sha256": "218ff5ce0492ca15b0019b4d09ac37adb46b8d7f684e6bf8877437278a6fa44a",
+      "pixelSha256": "7902fff08a351cc23602f72046bb014767f77d8e9345360d429d407f96361754",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 1,
+      "image": "frames/back_idle/01.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 1,
+      "sha256": "1196f5a35320010a8b715809039e87c2dcd57f3f87f363488263bf05272d7ebd",
+      "pixelSha256": "1ac1c201a01470e7e0b8f2a5942461d270d6209560e41aa70ef3c29a31587e38",
+      "rect": {
+        "x": 256,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 2,
+      "image": "frames/back_idle/02.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 2,
+      "sha256": "29790cab6cc873884a1e1b4322769ae62e00aa11a2e124d16ed4f0b2d8ef0503",
+      "pixelSha256": "98c16bc0a0a83b3624bf8cb98a3ead6eed57baf7553a37ae22fb775578dba22a",
+      "rect": {
+        "x": 512,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 3,
+      "image": "frames/back_idle/03.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 3,
+      "sha256": "43cf6b624f666c08817c6b3b0af7640762ed43909075aa71bdbb555196c03aff",
+      "pixelSha256": "75c2924ef4772fd96bbf29ce3afb898c18f7cee6bc950477e59aa1fc0c044f73",
+      "rect": {
+        "x": 768,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 4,
+      "image": "frames/back_idle/04.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 4,
+      "sha256": "ba91d58ae953722324d6c673afe8b278f7c5b76798b4d257dd96eadffb7c8a2d",
+      "pixelSha256": "58949f5fd75c8173a1cd520f4c29cb6d66222e02ce780fde2667db0f584593fe",
+      "rect": {
+        "x": 1024,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 5,
+      "image": "frames/back_idle/05.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 5,
+      "sha256": "702b4639ae9decd1d84548aa1cf61db70c995aceb1f20ec9f6a2179d82e3943d",
+      "pixelSha256": "92c1f7ca435603c459033dcde90c05033722edf846bf69a58c5d7b32593a200c",
+      "rect": {
+        "x": 1280,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 6,
+      "image": "frames/back_idle/06.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 6,
+      "sha256": "29e9640eb86bc9ca0de304d154e9fe94b0b2684549a0270e3948f229a2a4f5dc",
+      "pixelSha256": "c7e733539c13270babbabe34b9f82b243424286bb13b1d7504cbc027084eb84a",
+      "rect": {
+        "x": 1536,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 7,
+      "image": "frames/back_idle/07.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 7,
+      "sha256": "1792d657b0ac407a6c3d177754f571854f48e5d96d70c78005ced01be187cca8",
+      "pixelSha256": "c961a8823828cca055a3e42144dbab19a6c1a7f9ade2ed6d649bee81fa79af8a",
+      "rect": {
+        "x": 1792,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 8,
+      "image": "frames/back_idle/08.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 8,
+      "sha256": "5a5fd4b7800b84e7276f58c549e955901ff4369afbef070a37fd66c7160b4f19",
+      "pixelSha256": "33a54459ab4dca2d7d2d850b1e6614f569049fd036de2b00989edd7471ba82ea",
+      "rect": {
+        "x": 2048,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 9,
+      "image": "frames/back_idle/09.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 9,
+      "sha256": "17ca675aa6da6da26b9d64ef105ee10ded4549de1f9d621b384ca5c46c23d227",
+      "pixelSha256": "32668c4b3e2095841ad05561efcaab460387d064c9f416e9b6f9e1a843635723",
+      "rect": {
+        "x": 2304,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 10,
+      "image": "frames/back_idle/10.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 10,
+      "sha256": "f02dbeaca586bdb0b5afbdb2c9e605f2196cb33482cdf2b382cca5945bec5313",
+      "pixelSha256": "b5f025222a71d2be2eda4d2c629e13b1361d7ab67469471401942325c63b86ec",
+      "rect": {
+        "x": 2560,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 11,
+      "image": "frames/back_idle/11.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 11,
+      "sha256": "105e3bd94372806ad6482ec4aa134621e35bfb4f678306b4b54662ce654b182c",
+      "pixelSha256": "7caa56da350fea5a1da1204d29e1ae0f9100dc2f0f17515463945fc33f7fd9b1",
+      "rect": {
+        "x": 2816,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 12,
+      "image": "frames/back_idle/12.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 12,
+      "sha256": "b1a901aa6128eea850616c83ca7bedbd80741142938ec8c5ce075c2d4251d51c",
+      "pixelSha256": "770a87724f8c4d8477b39ba009ddac8f6bfcd6fcfed00e5d59a1c7603f6ff47f",
+      "rect": {
+        "x": 0,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 13,
+      "image": "frames/back_idle/13.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 13,
+      "sha256": "2e6b2aeb2ea0095848c2e386146dd999e809c2defcf681ae9df558bf6298b8a1",
+      "pixelSha256": "8276a21caa2673fdde9757df74155631f1b47d8e2781af5657ae31a76a8e61fd",
+      "rect": {
+        "x": 256,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 14,
+      "image": "frames/back_idle/14.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 14,
+      "sha256": "3453b45302870274d0ae9a9363b78939739687e22361153763275c06ffac80bf",
+      "pixelSha256": "67fe2757fc6f652d758a668f97ec3ae246f0b73460a7eba913ee03aae79add86",
+      "rect": {
+        "x": 512,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 15,
+      "image": "frames/back_idle/15.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 15,
+      "sha256": "d897e76b4965d48d9490b131bc67b6498cc523b32d4159dcb5c5afdfdf0a8665",
+      "pixelSha256": "cf28b222b559f5aa4feb0fb2ad762b6ebcb5e3543f6f3f322102f662f6558f2c",
+      "rect": {
+        "x": 768,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 16,
+      "image": "frames/back_idle/16.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 16,
+      "sha256": "d8edda3a2affff8f844d18d9ef4a7bb14abc8106bcdcc6accbdb4615c4645f89",
+      "pixelSha256": "ce8de46e64516df0a8f42b6793eaf0eca1994927f68531c8863e0d79f0373a45",
+      "rect": {
+        "x": 1024,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 17,
+      "image": "frames/back_idle/17.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 17,
+      "sha256": "a26604b32f3463579af2131792f73d5f3f7d291dbebf955a8dcbcab4f47bcc30",
+      "pixelSha256": "fd0c6d2cb2ce74a600e8830fb43c3fcfe126e7625f9e8add8117539ade4f1393",
+      "rect": {
+        "x": 1280,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 18,
+      "image": "frames/back_idle/18.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 18,
+      "sha256": "1820eb48248f5878a18e285827ee64a6e8dd9b58d3809846d6ac812ad7971db2",
+      "pixelSha256": "7f12f59425ffc8d802c94cfb2bbc564f2430947c61a108de85449c6e5888d2fe",
+      "rect": {
+        "x": 1536,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 19,
+      "image": "frames/back_idle/19.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 19,
+      "sha256": "d35b11630271a3aff9e3812260e7a9afa399fde987332af741aaf77aecd1c3e6",
+      "pixelSha256": "9ee80b1c7293dfd8d1a522eff64e9e78cca8e1e540f3559a66712c21108fc607",
+      "rect": {
+        "x": 1792,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 20,
+      "image": "frames/back_idle/20.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 20,
+      "sha256": "29cefaea0b39acb32eddf7a3f49b1915abada72e477920bab6b5d29ddc55deab",
+      "pixelSha256": "89262ede66a0a006b485cfdd80508719ea296d280ab697904889cb6c471b3d9d",
+      "rect": {
+        "x": 2048,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 21,
+      "image": "frames/back_idle/21.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 21,
+      "sha256": "239cf7a47aaf2e353855fae707afc526e117c630ebc76974c529c5e7ac8c0032",
+      "pixelSha256": "4e1f5d84084e88b28b19e92db7666f56a025003260358fd51a10b740120fde0a",
+      "rect": {
+        "x": 2304,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 22,
+      "image": "frames/back_idle/22.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 22,
+      "sha256": "566d91d7fb47d498a3a5a1fe5cae46443e49723f53da53eb77978e95e01e8aa7",
+      "pixelSha256": "73a612ad3d9cc9df722400343037e878f0c346a1167ea4db7e5dbcbff56581d3",
+      "rect": {
+        "x": 2560,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 23,
+      "image": "frames/back_idle/23.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 23,
+      "sha256": "cb023a3a83fec0967fa1800d5175bd5ad28e5735aef32667345f6598a872cc25",
+      "pixelSha256": "921031d416cbc86ad268cd5ea07a56db3191b4197858b4534160bfa320773c9d",
+      "rect": {
+        "x": 2816,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 24,
+      "image": "frames/back_idle/24.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 24,
+      "sha256": "eb1eea700c2716530f131954aaa559fd92babdf938c6ef6b0111d5eed3589b8a",
+      "pixelSha256": "bc1c30392150a0b9c58299d1bf48628fd5df4681b2acd849a5c965c594ca9780",
+      "rect": {
+        "x": 0,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 25,
+      "image": "frames/back_idle/25.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 25,
+      "sha256": "aa936b008944972b497612373b117e91229b707f630e1cffb9d07b11dbdc9b8e",
+      "pixelSha256": "106b6d6a71c264b54176825f58eaef0de9dc2f8a3242ba3c951bc1190bb363d3",
+      "rect": {
+        "x": 256,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 26,
+      "image": "frames/back_idle/26.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 26,
+      "sha256": "11562e51004be7e0ed395108d8ea13af157b35b30b22cc5cb6ecdcf42663ae80",
+      "pixelSha256": "ea98632a3dc728480e96df2cc25eee018f5b10e3aae6adbb68799e312c3bc4ce",
+      "rect": {
+        "x": 512,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 27,
+      "image": "frames/back_idle/27.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 27,
+      "sha256": "14287a11de0f5956e48f71960171a8212307e0c379389070e339a3118815a248",
+      "pixelSha256": "acb7a26a0697ef721a97e0fd4fc19beb60e574270c5e38213ccb9529ffebbfa9",
+      "rect": {
+        "x": 768,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 28,
+      "image": "frames/back_idle/28.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 28,
+      "sha256": "e55e9acaef7e458d89e25f4090937fd3e037f3f006f2bcbceeaa4fc94f78194d",
+      "pixelSha256": "306bbd1d893fa18c244502cebb287a01bb7df0339264c2b33299501ee89256ef",
+      "rect": {
+        "x": 1024,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 29,
+      "image": "frames/back_idle/29.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 29,
+      "sha256": "6c12fe3f16b2d3e31e8b2953b4692c4cb40e242f788c10e1b8cd978262d64e00",
+      "pixelSha256": "adb59d242f6432a631bfdb094b7c005d14db3303a23dfe6877155d0779c5ad75",
+      "rect": {
+        "x": 1280,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 30,
+      "image": "frames/back_idle/30.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 30,
+      "sha256": "c76aa1ad8cfcca159c3f9d9ec38e4074f6c4abfc3ca621aaf18c90e3399ab9ce",
+      "pixelSha256": "0b33205aa38d63206790be92c551484bcb680bfcf71313a287392875c065530c",
+      "rect": {
+        "x": 1536,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 31,
+      "image": "frames/back_idle/31.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 31,
+      "sha256": "fcf567a16a682ec0b3d15d923a8380d89a9d14d0450386c71727248ec6d3872d",
+      "pixelSha256": "48dd22f48ddd3e8a5fe8b1204dab4a77670993b542e37182abb7d92edfcced00",
+      "rect": {
+        "x": 1792,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 32,
+      "image": "frames/back_idle/32.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 32,
+      "sha256": "8b1ed5d97d1a844bcf928bc36606655acf97ae1b75bb681fa13be6080d9bc9c1",
+      "pixelSha256": "dd03d9ead0eb2a02a741f8bbdba7da1deb562a9961b8f93c62767fe5cf0b7139",
+      "rect": {
+        "x": 2048,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 33,
+      "image": "frames/back_idle/33.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 33,
+      "sha256": "059e2a7c747da9c671c1d40729f7fca1f7c6c69f70abaef717958cc19391700a",
+      "pixelSha256": "2e226634785ca1d667e2a5a235ead3cbad49de87287d1033aeab47449c2e0088",
+      "rect": {
+        "x": 2304,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 34,
+      "image": "frames/back_idle/34.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 34,
+      "sha256": "07673f57c9a4a3c8ba6af38ff416b9f4edd4296d808b00fa4ce84e5a93dc2e01",
+      "pixelSha256": "10da76d564d6964c424a569bc9acb9e87eadf0c923b3a3a842d992285ffaeca4",
+      "rect": {
+        "x": 2560,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 35,
+      "image": "frames/back_idle/35.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 35,
+      "sha256": "cece87cf5d1d4e94099ae4de754f8debf36999d2f1c2591e345ebbb107f81912",
+      "pixelSha256": "e5020fc5a75f225961222f07b0203f21f56c789c40b0e2c1e1334d83f08909e1",
+      "rect": {
+        "x": 2816,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 36,
+      "image": "frames/back_idle/36.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 36,
+      "sha256": "33581171f4cc769142cf4c3fdc4df2ca6a050633f28990d06b0728e769f202d2",
+      "pixelSha256": "47b04306f83606d39a002c8953781014b291a755006fea7c47fb2c4335162644",
+      "rect": {
+        "x": 0,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 37,
+      "image": "frames/back_idle/37.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 37,
+      "sha256": "da9dfac2299705d8b42818f33be6741e1c7deddc97725b85a80933e5e4d249d4",
+      "pixelSha256": "be3a10d73b7da468b6e2a13451b8e8062c7d775da391b5baba2f1122e45e96ad",
+      "rect": {
+        "x": 256,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 38,
+      "image": "frames/back_idle/38.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 38,
+      "sha256": "a2b288e0bde572153b78bc2ce707d02ec312b3a8b27741e7ef875f6cabef581b",
+      "pixelSha256": "86b2d135a73bae6f3743e8ffe48df2a63a657cfd65a2f97a20745a5dd786f88d",
+      "rect": {
+        "x": 512,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 39,
+      "image": "frames/back_idle/39.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 39,
+      "sha256": "4672e059619542da0bf2c03ba87bd963197e3b5bda2e8e154c39157bfd838c43",
+      "pixelSha256": "d2187c3f50d8c248430b3b2bc29f0ca69dd514d10fe18d9446d2a5ef9fb30ad4",
+      "rect": {
+        "x": 768,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 40,
+      "image": "frames/back_idle/40.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 40,
+      "sha256": "9f7aef046bedc00da5efdec4c1fa211c0cb5f98ca9cb17334f83abfb8853da8f",
+      "pixelSha256": "f9d8fc4539a7848ddffbb7579b2c1ad4d9892ff7e9298509079b9cfae7fca74f",
+      "rect": {
+        "x": 1024,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 41,
+      "image": "frames/back_idle/41.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 41,
+      "sha256": "57f9d1da02ffa8dc766235ba482891dbd9573e1a7b291fa4c591656c80ec9a7d",
+      "pixelSha256": "1d45587d38a8bee6a94eef40d446b9a96d6961ffc1cfcd46126a81b3db612942",
+      "rect": {
+        "x": 1280,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 42,
+      "image": "frames/back_idle/42.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 42,
+      "sha256": "0442590f84913b500ff2e7c2afe622aaf3b00a71b00d1d8c0c1b8cbfe6636925",
+      "pixelSha256": "0f1632a95ec06a1dec7f8dcc273373384f92f09d031ea0a97655d9e53bf46e45",
+      "rect": {
+        "x": 1536,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 43,
+      "image": "frames/back_idle/43.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 43,
+      "sha256": "7ba0bd4b820191b9d5ce5eee6dffeaffe5116cca48fbf09c8893814db8dd49b7",
+      "pixelSha256": "4a3fc72408479d2124a42f93c79be4b9d25444a1f2747948f21be14e6a8edc97",
+      "rect": {
+        "x": 1792,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 44,
+      "image": "frames/back_idle/44.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 44,
+      "sha256": "530ee0cac37190440cf02fbd8142f85090d1942eb8b0de111af1c9b3c793534f",
+      "pixelSha256": "f7e327bd30e26832b328018666dd7fa3208b8b6bac14c147fe85ebb57500d023",
+      "rect": {
+        "x": 2048,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 45,
+      "image": "frames/back_idle/45.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 45,
+      "sha256": "57077ece1f4245878cb5e62203b05c8d4252812a2bb64fa9424c33651d63279b",
+      "pixelSha256": "84f5376cde9389d01380fd3ba2e6ebc18164f29c39bcee091d52af8b47016efd",
+      "rect": {
+        "x": 2304,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 46,
+      "image": "frames/back_idle/46.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 46,
+      "sha256": "c6e39c5076995c637148e907bad70e9b9ab96cd3975774e66faa55ce2f13a7e6",
+      "pixelSha256": "4aca7f88b33b9aa945a002fa194fa69fe75be9482d6c890ad4e1e747f0e264a5",
+      "rect": {
+        "x": 2560,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 47,
+      "image": "frames/back_idle/47.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 47,
+      "sha256": "eeef7d07529feb3aef70b9e746fed981127bd50b83c669d1d55af947493951cd",
+      "pixelSha256": "8a391f6e58ca237d1c212f1d180fbb78f5344ec585158c20b5cd82a4e33e8ebb",
+      "rect": {
+        "x": 2816,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 48,
+      "image": "frames/back_idle/48.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 48,
+      "sha256": "408f0dc2fba69dabb2862c7c9fa1b3aaeb7e63598c39750d8c2b46a31ff1b361",
+      "pixelSha256": "c62bb4acfd8372119bd34a78f35edd09a68fc7dd37dd320a51697ffc2f5cc0cc",
+      "rect": {
+        "x": 0,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 49,
+      "image": "frames/back_idle/49.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 49,
+      "sha256": "6b0e13493ca2ef3c37ea3dcc7f4ba7d4c521dd002878d6ea8c25df62bd51aaa3",
+      "pixelSha256": "7ef851098ac79a77b961a2fd9407f7a8a8b1fcf4249219c74d3b5a8e3bd55d40",
+      "rect": {
+        "x": 256,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 50,
+      "image": "frames/back_idle/50.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 50,
+      "sha256": "332b7e38aa5ab9387ab0658aaa96a93559613a5ed72cb1faa0ce7913a77474ac",
+      "pixelSha256": "068282b1ddd68a8a4ae5714c0fdfa29abd48368eaa9601515be0e07b8b42b5c8",
+      "rect": {
+        "x": 512,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 51,
+      "image": "frames/back_idle/51.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 51,
+      "sha256": "1ec83a5e54748822a9288f6a22145a59811ce357f3effbb10d5866d037f674ee",
+      "pixelSha256": "bfc3a72a9e3885377319f10cd155cdfe8050195bdd7cdc935cde2c05a51b68eb",
+      "rect": {
+        "x": 768,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 52,
+      "image": "frames/back_idle/52.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 52,
+      "sha256": "49755d95216c413417209e125d24ce84f0e98434be6a60fa161438b5edc55613",
+      "pixelSha256": "ac608e11b1fcdca03dc9497a636287a054bfd72107f800ee6716bfc31eeec014",
+      "rect": {
+        "x": 1024,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 53,
+      "image": "frames/back_idle/53.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 53,
+      "sha256": "a70fb0b89c97c61bddd62f791acc640f0d13c22d76cbca0dc3be83cc0dad8b38",
+      "pixelSha256": "ac31ad1f6020462ad37c832ab65c196f2b1e283d1cdde9cedb854febccab2f34",
+      "rect": {
+        "x": 1280,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 54,
+      "image": "frames/back_idle/54.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 54,
+      "sha256": "01605e2dbea528dcb452c91440ea90443ecbb3e05e907d7ba3a0b9d9013350c0",
+      "pixelSha256": "1e6c032ab66e7e6b9340f79c9fdd3266c6b17b8d9b9cc5bd64f6cfba8fbec4ec",
+      "rect": {
+        "x": 1536,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 55,
+      "image": "frames/back_idle/55.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 55,
+      "sha256": "e4f68c85149b8126ae5cac9600872872be0c15aa2133575ad5ea0017ea3d0b67",
+      "pixelSha256": "5460d68c545bf7cabfe2469675e1a71c8878379bd469fe6bc5a6b7010cd73ece",
+      "rect": {
+        "x": 1792,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 56,
+      "image": "frames/back_idle/56.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 56,
+      "sha256": "dfa5670557a3ad291670154cbee215975f8be6da66e005f5e075673468c66e71",
+      "pixelSha256": "1fae0160adfa951f2d67094a31abf5eeeba74c4cee9ac19c8b4f1c90877bb06c",
+      "rect": {
+        "x": 2048,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 57,
+      "image": "frames/back_idle/57.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 57,
+      "sha256": "fd122d8f9f125cea216e075fe6f1811086f3a92fa8d8fcec6f58eaef81bc31f2",
+      "pixelSha256": "07b9f85dd6105db1d8e7aec77ec0c411e62d97687309e045ea7402b0ba349387",
+      "rect": {
+        "x": 2304,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 58,
+      "image": "frames/back_idle/58.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 58,
+      "sha256": "497b8bbec24333193023e829fbba78651a328eb4c9bb8697df4bfe8b7c365b97",
+      "pixelSha256": "29132e7d55177848f13b267e03dcc57c30468661f3f0a97ee9a19bc11d0ea974",
+      "rect": {
+        "x": 2560,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 59,
+      "image": "frames/back_idle/59.png",
+      "sourceImage": "raw/back_idle-full.png",
+      "sourceFrame": 59,
+      "sha256": "1cf79b9d9284a9ef27ee76d1be4e611a474e9961030a9efc940c25c66afe456d",
+      "pixelSha256": "053d5065adf062fcc6d3e2c33425c5ad5fcd86671c85c0ebb39e9c6820f003e3",
+      "rect": {
+        "x": 2816,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    }
+  ],
+  "sources": [
+    {
+      "image": "raw/back_idle-full.png",
+      "sha256": "d9548927d441218f78a9c5844d6754f608ce1acb4a9fe66220779ee506b66003",
+      "nativeWidth": 1536,
+      "nativeHeight": 1024,
+      "actualFigures": 60,
+      "selectedIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "rows": 5,
+      "rowCounts": [
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "method": "image_gen fresh redraw; no interpolation or repeated-frame padding"
+    }
+  ],
+  "verification": {
+    "sourceFigures": 60,
+    "distinctPixelFrames": 60,
+    "seamDifference": 0.02254031071705089,
+    "seamLimit": 0.043610496981517345,
+    "seamMetricPassed": true,
+    "visualContinuityVerified": false
+  }
+}

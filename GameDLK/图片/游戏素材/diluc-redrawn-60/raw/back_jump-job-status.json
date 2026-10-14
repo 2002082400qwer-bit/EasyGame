@@ -1,0 +1,16 @@
+{
+  "id": "back_jump",
+  "status": "packed",
+  "summary": {
+    "id": "back_jump",
+    "frameCount": 60,
+    "verification": {
+      "sourceFigures": 63,
+      "distinctPixelFrames": 60,
+      "seamDifference": 0.022172829563092505,
+      "seamLimit": 0.0679607905087607,
+      "seamMetricPassed": true,
+      "visualContinuityVerified": false
+    }
+  }
+}

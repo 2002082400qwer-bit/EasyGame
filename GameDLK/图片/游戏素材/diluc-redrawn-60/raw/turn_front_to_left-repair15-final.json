@@ -1,0 +1,10 @@
+{
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-25f7dace-d858-476f-8304-50eee009fda6.png",
+  "method": "built-in image_gen: first fifteen-frame invocation of repairTail",
+  "actualFigures": 15,
+  "refs": [
+    "三视图.png",
+    "frames/turn_front_to_left/44.png"
+  ],
+  "note": "末段已重新绘制，禁止重启整段动作；完整调用模板见tools/redraw60/repair-runner.js.txt"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "side_slow_walk",
+  "status": "packed",
+  "summary": {
+    "id": "side_slow_walk",
+    "frameCount": 60,
+    "verification": {
+      "sourceFigures": 60,
+      "distinctPixelFrames": 60,
+      "seamDifference": 0.02406748741234964,
+      "seamLimit": 0.05714719688594953,
+      "seamMetricPassed": true,
+      "visualContinuityVerified": false
+    }
+  }
+}

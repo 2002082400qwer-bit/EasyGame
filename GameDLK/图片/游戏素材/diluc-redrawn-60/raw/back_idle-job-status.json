@@ -1,0 +1,16 @@
+{
+  "id": "back_idle",
+  "status": "packed",
+  "summary": {
+    "id": "back_idle",
+    "frameCount": 60,
+    "verification": {
+      "sourceFigures": 60,
+      "distinctPixelFrames": 60,
+      "seamDifference": 0.02254031071705089,
+      "seamLimit": 0.043610496981517345,
+      "seamMetricPassed": true,
+      "visualContinuityVerified": false
+    }
+  }
+}

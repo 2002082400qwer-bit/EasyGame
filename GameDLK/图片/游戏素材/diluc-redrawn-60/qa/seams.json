@@ -1,0 +1,62 @@
+[
+  {
+    "image": "qa/seams-1.png",
+    "ids": [
+      "back_dash",
+      "back_idle",
+      "back_jump",
+      "back_run",
+      "back_slow_walk"
+    ],
+    "indices": [
+      56,
+      57,
+      58,
+      59,
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "image": "qa/seams-2.png",
+    "ids": [
+      "front_dash",
+      "front_idle",
+      "front_jump",
+      "front_run",
+      "front_slow_walk"
+    ],
+    "indices": [
+      56,
+      57,
+      58,
+      59,
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "image": "qa/seams-3.png",
+    "ids": [
+      "side_dash",
+      "side_idle",
+      "side_jump",
+      "side_run",
+      "side_slow_walk"
+    ],
+    "indices": [
+      56,
+      57,
+      58,
+      59,
+      0,
+      1,
+      2,
+      3
+    ]
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "id": "side_run",
+  "status": "packed",
+  "summary": {
+    "id": "side_run",
+    "frameCount": 60,
+    "verification": {
+      "sourceFigures": 75,
+      "distinctPixelFrames": 60,
+      "seamDifference": 0.034897968859822916,
+      "seamLimit": 0.06325042918204081,
+      "seamMetricPassed": true,
+      "visualContinuityVerified": false
+    }
+  }
+}

@@ -1,0 +1,66 @@
+/** 在内置图像工具中绘制并导出一组；id是完整计划中的动作标识，tools提供工具接口。 */
+async function generateClip(id) {
+  const root = load('assetRoot'); // 目标素材根目录
+  const clip = load('plan35').clips.find(item => item.id === id); // 当前动作的已确认定义
+  const project = 'E:\\Aproject\\MX002'; // PowerShell执行工作目录
+  /** 引用PowerShell字面字符串；value是路径或安全文本。 */
+  function quote(value) { return "'" + value.replace(/'/g, "''") + "'"; }
+  /** 执行裁取和保存命令；command是已进行单引号引用的PowerShell代码。 */
+  async function run(command) {
+    const result = await tools.exec_command({ cmd:command, workdir:project, max_output_tokens:1500 }); // 命令执行结果
+    if(result.exit_code !== 0) throw new Error(result.output);
+    return result.output;
+  }
+  /** 保存JSON；file是目标路径，value是来源和选择记录。 */
+  async function save(file,value) {
+    const content = JSON.stringify(value,null,2); // 保存来源和选择记录的UTF8文本
+    await run('[IO.File]::WriteAllText('+quote(file)+','+quote(content)+',[Text.UTF8Encoding]::new($false))');
+  }
+  /** 绘制并持久化真实源图；prompt是动作要求，refs是已查看的角色参考，name是组内文件名。 */
+  async function draw(prompt,refs,name) {
+    const result = await tools.image_gen__imagegen({prompt,referenced_image_paths:refs,transparent_background:true}); // 内置重绘结果
+    const source = result.output_hint.match(/as (C:\\[^\r\n]+?\.png) by default/)[1]; // 内置工具返回的默认源图路径
+    const target = root+'\\raw\\'+name+'.png'; // 工程中保留的真实源图
+    await run('Copy-Item -LiteralPath '+quote(source)+' -Destination '+quote(target));
+    await save(root+'\\raw\\'+name+'.json',{prompt,refs,source,method:'image_gen fresh redraw',created:new Date().toISOString()});
+    generatedImage(result);
+    return target;
+  }
+  /** 按顺序选取不同实绘帧；total为实绘帧数，count为需要的帧数。 */
+  function select(total,count) { return Array.from({length:count},(_,index)=>Math.round(index*(total-1)/(count-1))); }
+  const reference = direction => direction==='right' ? root+'\\raw\\anchors\\right\\anchor-0.png' : root+'\\frames\\'+(direction==='left'||direction==='side'?'side':direction)+'_idle\\00.png'; // 方位对应的统一人物参考
+  const refs = clip.references ?? ['E:\\Aproject\\MX002\\图片\\游戏素材\\三视图.png',reference(clip.from??clip.direction)]; // 人物身份与初始朝向参考
+  if(clip.to && !clip.references) refs.push(reference(clip.to));
+  // 统一三视图与三个待机参考已在本轮逐一查看。
+  let failure=''; // 最近一次源图或导出失败原因
+  for(let attempt=0;attempt<3;attempt++) { // 原图重绘尝试序号
+    try {
+      const raw=await draw(clip.prompt+(attempt?' EXTRA: reduce figure scale 15%, add safe blank margins on all borders. Keep ALL bodies fully inside cells.':''),refs,id+'-full'); // 当前完整实绘图
+      const info=JSON.parse(await run('node tools/redraw60/pack.cjs inspect-flex '+quote(raw))); // 原图实际人物和布局
+      if(info.count<30) throw new Error('INSUFFICIENT_DRAWN_FRAMES:'+info.count);
+      const baseCount = Math.min(45,info.count); // 不足60帧时先保留的实际连续新绘帧数
+      const needed = 60-baseCount; // 需要继续真实重绘的末段帧数
+      let sources=[{image:id+'-full.png',expected:info.count,indices:info.count>=60?select(info.count,60):Array.from({length:baseCount},(_,index)=>index)}]; // 只记录实际新绘帧，不补复制
+      if(info.count<60) {
+        const anchorDir=root+'\\raw\\anchors\\'+id; // 原图交接姿态参考目录
+        await run('node tools/redraw60/pack.cjs anchors '+quote(raw)+' '+quote(anchorDir)+" '0,"+(baseCount-1)+","+(info.count-1)+"' natural");
+        const first=anchorDir+'\\anchor-'+(baseCount-1)+'.png'; // 第45帧前的真实交接姿态
+        const final=anchorDir+'\\anchor-'+(clip.loop===false?info.count-1:0)+'.png'; // 末状态或循环开头的参考姿态
+        const closeRefs=[refs[0],first,final]; // 衔接段身份与首尾锚点
+        for(const file of closeRefs) { const shown=await tools.view_image({path:file}); image(shown.image_url); } // file为接续参考
+        const prompt='Draw EXACTLY '+needed+' freshly drawn distinct incremental full-body sprites, FIVE columns x '+Math.ceil(needed/5)+' rows (last row only remaining figures), transparent RGBA, no text/shadow/grid, all bodies fully inside cells with wide margin. This is the closing '+needed+' frames of the action. Reference2 is the preceding pose: start with only a tiny change from it. Reference3 is the destination pose: final frame must match this pose/scale/orientation; do not repeat or copy references, draw fresh each. Complete the motion gradually; consistent anatomy and outfit. '+(clip.endState==='stand'?'Finish fully UPRIGHT STANDING with relaxed arms, no crouch/lean/airborne. ':'')+(clip.loop===false?'NONLOOPING reach final destination. ':'LOOPING end immediately before initial pose, match gait phase and hair/coat settling. ')+ 'Action: '+clip.id+'. Keep orientation '+(clip.to??clip.direction)+'. Reference3 defines the final destination pose. '; // 真实补绘末15帧的动作要求
+        const closing=await draw(prompt,closeRefs,id+'-closing'+needed); // 缺失衔接段的新绘源图
+        const closeInfo=JSON.parse(await run('node tools/redraw60/pack.cjs inspect-flex '+quote(closing))); // 末段实际人物数
+        if(closeInfo.count<needed) throw new Error('INSUFFICIENT_CLOSING_FRAMES:'+closeInfo.count);
+        sources.push({image:id+'-closing'+needed+'.png',expected:closeInfo.count,indices:select(closeInfo.count,needed)});
+      }
+      await save(root+'\\raw\\'+id+'-source-layout.json',{sources});
+      const summary=JSON.parse(await run('node tools/redraw60/pack.cjs pack '+quote(root)+' tools/redraw60/full-generation-plan.json '+quote(id))); // 实际导出验证结果
+      await save(root+'\\raw\\'+id+'-job-status.json',{id,status:'packed',summary});
+      notify({id,status:'packed',verification:summary.verification});
+      return summary;
+    } catch(error) { failure=String(error); notify({id,attempt:attempt+1,status:'retry',reason:failure}); } // error为本次失败原因
+  }
+  await save(root+'\\raw\\'+id+'-job-status.json',{id,status:'needs_repair',error:failure});
+  throw new Error(id+': '+failure);
+}

@@ -1,0 +1,11 @@
+{
+  "prompt": "Use case: identity-preserve. Draw EXACTLY 20 complete freshly drawn unique incremental FULL BODY sprites in FIVE columns x 4 rows, transparent RGBA, no labels/grid/glow/shadow. All boots/legs/hair fully inside each cell with wide blank margins. Opaque character interior. Reference1 locks identity, black/red ornate coat, red ponytail, gems/chains/gloves/boots and crisp anime linework. Reference2 is the PRECEDING frame44. Reference3 is destination. This image ONLY covers the LAST15 frames of turn_front_to_left, NOT the whole action. First drawing differs just slightly from reference2; last drawing settles to reference3. Maintain same physical body/head scale, orthographic camera and foot-root; NO action restart. Character is ALREADY nearly LEFT-facing profile in reference2. Complete only remaining small angle to exact LEFT profile nose and boots point LEFT; never return toward front. Feet planted full boots visible. No step/crouch. Tiny coat/ponytail settling.",
+  "refs": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\三视图.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\turn_front_to_left\\44.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_idle\\00.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-8168d877-9149-418a-add4-346aafb387fe.png",
+  "method": "image_gen fresh tail repair",
+  "created": "2026-10-14T06:11:34.641Z"
+}

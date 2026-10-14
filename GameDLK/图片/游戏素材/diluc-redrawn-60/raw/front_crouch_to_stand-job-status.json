@@ -1,0 +1,16 @@
+{
+  "id": "front_crouch_to_stand",
+  "status": "packed",
+  "summary": {
+    "id": "front_crouch_to_stand",
+    "frameCount": 60,
+    "verification": {
+      "sourceFigures": 60,
+      "distinctPixelFrames": 60,
+      "seamDifference": 0.07037969258509608,
+      "seamLimit": 0.047032797326863114,
+      "seamMetricPassed": true,
+      "visualContinuityVerified": false
+    }
+  }
+}

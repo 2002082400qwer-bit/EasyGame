@@ -1,0 +1,37 @@
+/** 重新绘制有问题的末15帧；id为组标识，motion为末段动作要求，destination为目标姿态参考。 */
+async function repairTail(id,motion,destination) {
+  const root=load('assetRoot'); // 新绘素材根目录
+  const first=root+'\\frames\\'+id+'\\44.png'; // 已有第44帧的真实交接姿态
+  const refs=[destination,first,destination]; // 身份、交接姿态和目标姿态
+  const clip=load('plan35').clips.find(item=>item.id===id); // 用户确认的动作定义
+  const project='E:\\Aproject\\MX002'; // 工具运行工程目录
+  const quote=value=>"'"+value.replace(/'/g,"''")+"'"; // PowerShell字面字符串引用
+  /** 执行命令；cmd为字面路径引用后的PowerShell命令。 */
+  async function run(cmd) { const result=await tools.exec_command({cmd,workdir:project,max_output_tokens:1400}); if(result.exit_code!==0)throw new Error(result.output);return result.output; } // result为实际命令结果
+  /** 保存JSON；file为绝对目标，value为提示词或选帧记录。 */
+  async function save(file,value) { await run('[IO.File]::WriteAllText('+quote(file)+','+quote(JSON.stringify(value,null,2))+',[Text.UTF8Encoding]::new($false))'); }
+  for(const file of refs) { const shown=await tools.view_image({path:file});image(shown.image_url); } // file为本地编辑参考，shown为已查看结果
+  let error=''; // 最近一次重绘或导出问题
+  for(let attempt=0;attempt<3;attempt++) { // 末段独立重绘尝试序号
+    try {
+      const requested=attempt?20:15; // 失败后多画5张再选15张不同新绘帧，不复制或插值
+      const prompt='Use case: identity-preserve. Draw EXACTLY '+requested+' complete freshly drawn unique incremental FULL BODY sprites in FIVE columns x '+(requested/5)+' rows, transparent RGBA, no labels/grid/glow/shadow. All boots/legs/hair fully inside each cell with wide blank margins. Opaque character interior. Reference1 locks identity, black/red ornate coat, red ponytail, gems/chains/gloves/boots and crisp anime linework. Reference2 is the PRECEDING frame44. Reference3 is destination. This image ONLY covers the LAST15 frames of '+id+', NOT the whole action. First drawing differs just slightly from reference2; last drawing settles to reference3. Maintain same physical body/head scale, orthographic camera and foot-root; NO action restart. '+motion; // 仅绘末段的明确动作约束
+      const result=await tools.image_gen__imagegen({prompt,referenced_image_paths:refs,transparent_background:true}); // 内置图像重绘结果
+      const source=result.output_hint.match(/as (C:\\[^\r\n]+?\.png) by default/)[1]; // 内置实际PNG默认路径
+      const name=id+'-repair-closing15'; // 保存已修正末段的新文件名称
+      const target=root+'\\raw\\'+name+'.png'; // 工程保存的新绘末段PNG
+      await run('Copy-Item -LiteralPath '+quote(source)+' -Destination '+quote(target));
+      await save(root+'\\raw\\'+name+'.json',{prompt,refs,source,method:'image_gen fresh tail repair',created:new Date().toISOString()});generatedImage(result);
+      const info=JSON.parse(await run('node tools/redraw60/pack.cjs inspect-flex '+quote(target))); // 末段真实人物数量
+      if(info.count<15)throw new Error('尾段实际人物不足15:'+info.count);
+      const metadata=JSON.parse(await run('node -e '+quote('console.log(JSON.stringify({sources:[require('+JSON.stringify(root+'\\metadata\\'+id+'.json')+').sources[0]]}))'))); // 原正式来源和真实选择序号
+      const original=metadata.sources[0]; // 原组的首段来源记录
+      const sources=[{image:original.image.replace(/^raw\//,''),expected:original.actualFigures,indices:original.selectedIndices.slice(0,45)},{image:name+'.png',expected:info.count,indices:Array.from({length:15},(_,index)=>Math.round(index*(info.count-1)/14))}]; // 保留前45个真实新绘帧，替换为新绘末15帧
+      if(sources[0].indices.length!==45)throw new Error('原组首段不是45帧');
+      await save(root+'\\raw\\'+id+'-source-layout.json',{sources});
+      const summary=JSON.parse(await run('node tools/redraw60/pack.cjs pack '+quote(root)+' tools/redraw60/full-generation-plan.json '+quote(id))); // 整组真实导出验证结果
+      notify({id,status:'tail_repaired',verification:summary.verification});return summary;
+    }catch(failure){error=String(failure);notify({id,status:'tail_retry',attempt:attempt+1,error});} // failure为本次独立末段重绘失败原因
+  }
+  throw new Error(id+': '+error);
+}

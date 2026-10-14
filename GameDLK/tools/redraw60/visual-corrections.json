@@ -1,0 +1,26 @@
+[
+  {
+    "id": "turn_front_to_right",
+    "direction": "turn",
+    "action": "turn",
+    "from": "front",
+    "to": "right",
+    "loop": false,
+    "endState": "right",
+    "prompt": "Use case: identity-preserve. Reference1 is EXACT START FRONT-facing upright idle pose. Reference2 is EXACT END RIGHT-facing profile: nose/toes face RIGHT, ponytail lies to LEFT behind head. Draw a fresh continuous 90-degree standing turn from Reference1 toward Reference2. NEVER face LEFT, NEVER show BACK, NEVER reverse or restart. At every intermediate angle, nose projects toward IMAGE RIGHT, ponytail shifts toward IMAGE LEFT. FRONT chest remains visible until nearly right-profile. Fixed orthographic camera, no perspective changes. Same red-haired human man/ornate black red coat/gems/chains/gloves/boots, anime style from these references ONLY. Exact60 full body distinct incremental sprites, TWELVE columns x FIVE rows, transparent RGBA, all boot soles/head/hair inside cells with 15% safe margin. Uniform physical stature/scale every row. Frame00 front,12 yaw18deg RIGHT,24 yaw36deg RIGHT,36 yaw54deg RIGHT,48 yaw72deg RIGHT,59 yaw90deg RIGHT. Rotate pelvis/shoulders/head coherently, pivot feet gently. Arms relaxed by thighs. Opaque character interior, no grid/numbers/text/floor/shadow. Each row CONTINUES previous angle; do not flip/mirror midway. Overall sheet1536x1024, virtualcell128x205, upright person160pixels high, rootx64 feet190. FRESH distinct drawings, no interpolation/copies.",
+    "references": [
+      "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\front_idle\\00.png",
+      "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\raw\\anchors\\right\\anchor-0.png"
+    ]
+  },
+  {
+    "id": "front_jump",
+    "direction": "front",
+    "action": "jump",
+    "prompt": "Use case: identity-preserve. Same red-haired anime man and ornate black/red full outfit from references. Reference1 locks FRONT standing pose/identity. Draw EXACT60 distinct full-body sprites in TWELVE columns x FIVE rows,1536x1024 landscape, transparent RGBA. ALL frames FRONT VIEW, face/chest toward viewer, no rotation. One complete seamless jumping cycle:00 standing ready;01-12 gradually crouch/load legs;13-24 extend legs/takeoff;25-36 airborne apex with knees tucked;37-48 descend/land/knees absorb;49-59 stand fully upright again matching00 so repeat is seamless. Maintain constant physical body/head scale: standing height160pixels inside each128x205cell; crouched/tucked naturally shorter. Cell rootx64 groundfeet190. Airborne feet rise at most25 pixels, complete head/hair/boots remain inside own cell with generous margin. CRITICAL keep ARMS COMPACT close to torso throughout, elbows bent, hands near ribs/waist, never spread sideways. Width at most85pixels INCLUDING hair/coat/hands. Clear blank gaps between EVERY sprite; absolutely no touching neighboring outlines. Never shrink character between rows. Hair/coat move gently, details/palette/anatomy consistent. ALL60 fresh incremental drawings, no duplicates/interpolation, no labels/grid/shadow/glow.",
+    "references": [
+      "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\front_idle\\00.png",
+      "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\front_stand_to_jump\\59.png"
+    ]
+  }
+]

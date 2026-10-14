@@ -1,0 +1,16 @@
+{
+  "id": "front_stand_to_jump",
+  "status": "packed",
+  "summary": {
+    "id": "front_stand_to_jump",
+    "frameCount": 60,
+    "verification": {
+      "sourceFigures": 60,
+      "distinctPixelFrames": 60,
+      "seamDifference": 0.04920729863373506,
+      "seamLimit": 0.05944686697227574,
+      "seamMetricPassed": true,
+      "visualContinuityVerified": false
+    }
+  }
+}

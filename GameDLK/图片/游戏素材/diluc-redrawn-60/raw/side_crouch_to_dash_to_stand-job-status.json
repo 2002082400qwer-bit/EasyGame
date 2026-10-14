@@ -1,0 +1,16 @@
+{
+  "id": "side_crouch_to_dash_to_stand",
+  "status": "packed",
+  "summary": {
+    "id": "side_crouch_to_dash_to_stand",
+    "frameCount": 60,
+    "verification": {
+      "sourceFigures": 60,
+      "distinctPixelFrames": 60,
+      "seamDifference": 0.060976175897081264,
+      "seamLimit": 0.05438384701187743,
+      "seamMetricPassed": true,
+      "visualContinuityVerified": false
+    }
+  }
+}

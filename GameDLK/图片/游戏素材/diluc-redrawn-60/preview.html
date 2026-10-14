@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>角色动作 · 60帧预览</title>
+<style>
+body{margin:0;background:#171b24;color:#edf0f7;font:16px system-ui,"Microsoft YaHei",sans-serif}main{max-width:980px;margin:32px auto;padding:0 24px}h1{font-size:26px}p{color:#b2bdce}select,button,input{font:inherit}select,button{padding:10px;background:#293345;color:#edf0f7;border:1px solid #52627c;border-radius:6px}button{cursor:pointer}.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.stage{margin:24px 0;display:grid;place-items:center;min-height:400px;border-radius:12px;background-color:#293345;background-image:linear-gradient(45deg,#354056 25%,transparent 25%),linear-gradient(-45deg,#354056 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#354056 75%),linear-gradient(-45deg,transparent 75%,#354056 75%);background-size:32px 32px;background-position:0 0,0 16px,16px -16px,-16px 0}canvas{width:384px;height:384px;max-width:100%;object-fit:contain}input[type=range]{flex:1;min-width:200px}#status{min-height:24px}a{color:#b5ceff}
+</style>
+<main>
+<h1>角色动作 · 60帧预览</h1>
+<p>选择动作后可播放或逐帧查看。过渡动作播放到末帧后停住；循环动作可单独检查 59 → 00 的衔接。</p>
+<div class="controls"><select id="clip" aria-label="动作"></select><button id="play">播放</button><button id="restart">回到首帧</button><label><input id="seam" type="checkbox">查看循环接缝</label></div>
+<div class="stage"><canvas id="sprite" width="256" height="256"></canvas></div>
+<div class="controls"><button id="prev">上一帧</button><input id="frame" type="range" min="0" max="59" value="0" aria-label="帧号"><button id="next">下一帧</button><output id="number">00 / 59</output></div>
+<p id="status"></p><p><a id="gif" href="#">打开GIF</a> · <a href="verification-report.json">查看素材清单</a></p>
+</main>
+<script src="bundle.js"></script>
+<script>
+'use strict';
+const clips = window.SPRITE_BUNDLE.verified; // 实际通过文件校验的动作清单
+const directions = {front:'正面',side:'侧面',back:'背面',left:'左侧',right:'右侧'}; // 朝向中文名称
+const actions = {slow_walk:'慢走',run:'跑步',jump:'跳跃',dash:'冲刺',idle:'站立待机',crouch_to_stand:'下蹲 → 站立',stand_to_jump:'站立 → 跳跃',stand_to_dash:'站立 → 冲刺',crouch_to_dash_to_stand:'下蹲 → 冲刺 → 站立'}; // 动作中文名称
+const select = document.getElementById('clip'); // 动作选择器
+const slider = document.getElementById('frame'); // 帧号滑块
+const context = document.getElementById('sprite').getContext('2d'); // 透明PNG绘制区域
+const playButton = document.getElementById('play'); // 播放暂停按钮
+const seamToggle = document.getElementById('seam'); // 循环接缝查看开关
+const seams = [56,57,58,59,0,1,2,3]; // 接缝模式按时间播放的帧序
+let active = null; // 当前选择的动作
+let atlas = null; // 当前动作已加载的图集
+let frame = 0; // 当前显示帧号
+let playing = false; // 当前是否播放
+let lastTime = 0; // 上次换帧的时刻
+let request = 0; // 异步图集加载请求序号，防止切换时显示旧图
+
+/** 取得动作名称；clip为清单中动作定义。 */
+function label(clip){return clip.action==='turn'? directions[clip.from]+' → '+directions[clip.to] : directions[clip.direction]+' · '+actions[clip.action];}
+/** 显示当前帧；无参数，使用已加载图集和当前帧号。 */
+function render(){context.clearRect(0,0,256,256);if(atlas)context.drawImage(atlas,frame%12*256,Math.floor(frame/12)*256,256,256,0,0,256,256);slider.value=frame;document.getElementById('number').textContent=String(frame).padStart(2,'0')+' / 59';playButton.textContent=playing?'暂停':'播放';}
+/** 切换动作并加载图集；无参数，读取动作选择器。 */
+function change(){active=clips[Number(select.value)];playing=false;frame=0;atlas=null;seamToggle.checked=false;seamToggle.disabled=!active.loop;const current=++request; // 当前加载请求编号
+const image=new Image(); // 当前图集图片对象
+image.onload=()=>{if(current!==request)return;atlas=image;render();};image.onerror=()=>{if(current===request)document.getElementById('status').textContent='图集加载失败，请保持预览文件与素材目录在一起。';};image.src=active.atlas;document.getElementById('gif').href=active.preview;document.getElementById('status').textContent=label(active)+' · 60张PNG · '+(active.loop?'循环动作':'过渡动作，播放完停在末帧');render();}
+/** 手动切换帧；delta为前后移动步长。 */
+function step(delta){playing=false;frame=Math.max(0,Math.min(59,frame+delta));render();}
+/** 按整段预览速度播放；time为浏览器动画时钟的毫秒值。 */
+function tick(time){if(playing&&atlas&&active){const delay=seamToggle.checked?150:1000/active.suggestedFps; // 当前查看模式的单帧持续时间
+if(time-lastTime>=delay){const steps=Math.floor((time-lastTime)/delay); // 本次经过的帧数
+lastTime+=steps*delay;if(seamToggle.checked){frame=seams[(Math.max(0,seams.indexOf(frame))+steps)%seams.length];}else{frame+=steps;if(frame>=60){if(active.loop)frame%=60;else{frame=59;playing=false;}}}render();}}requestAnimationFrame(tick);}
+for(let index=0;index<clips.length;index++){ // 当前动作的列表序号
+const option=document.createElement('option'); // 当前动作选项
+option.value=index;option.textContent=label(clips[index]);select.append(option);}
+select.onchange=change;playButton.onclick=()=>{if(!atlas)return;if(!playing&&frame===59&&!active.loop)frame=0;playing=!playing;lastTime=performance.now();render();};document.getElementById('restart').onclick=()=>{playing=false;frame=seamToggle.checked?56:0;render();};slider.oninput=()=>{playing=false;frame=Number(slider.value);render();};document.getElementById('prev').onclick=()=>step(-1);document.getElementById('next').onclick=()=>step(1);seamToggle.onchange=()=>{playing=false;frame=seamToggle.checked?56:0;render();};if(clips.length)change();requestAnimationFrame(tick);
+</script>
+</html>

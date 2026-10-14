@@ -1,0 +1,1018 @@
+{
+  "id": "back_crouch_to_dash_to_stand",
+  "direction": "back",
+  "action": "crouch_to_dash_to_stand",
+  "loop": false,
+  "endState": "stand",
+  "frameCount": 60,
+  "frameSize": 256,
+  "pixelFormat": "RGBA",
+  "pivot": {
+    "x": 0.5,
+    "y": 0.92
+  },
+  "atlas": {
+    "image": "atlases/back_crouch_to_dash_to_stand.png",
+    "columns": 12,
+    "rows": 5,
+    "width": 3072,
+    "height": 1280
+  },
+  "preview": {
+    "image": "previews/back_crouch_to_dash_to_stand.gif",
+    "delayMs": [
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20,
+      20,
+      10,
+      20
+    ]
+  },
+  "durationSeconds": 1,
+  "suggestedFps": 60,
+  "frames": [
+    {
+      "index": 0,
+      "image": "frames/back_crouch_to_dash_to_stand/00.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 0,
+      "sha256": "06589554a4c3d449abbd0388dba730734bfbc3cf64a68cd019d2982a18b2e7ef",
+      "pixelSha256": "f2e0e44d16f5c440c84e74473aa2cf70d1ea6c0c477e178ca62b74fd791aede6",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 1,
+      "image": "frames/back_crouch_to_dash_to_stand/01.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 1,
+      "sha256": "57157e770961c6b571430c4e0b7176471831fb39dc43b252f7ada6c28178f2e2",
+      "pixelSha256": "2af5de949d29869ecdc9f34f057506b45c75fc45fd7eb6f722cfc5d61a578c68",
+      "rect": {
+        "x": 256,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 2,
+      "image": "frames/back_crouch_to_dash_to_stand/02.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 2,
+      "sha256": "3c9a3976cdb4a533104df2974760248aca462591cd9aba21bee740e94d42de06",
+      "pixelSha256": "eec14a70857449a54e9f058adbd3781fa90fb1c245aae67f2cec4f41995bfa7c",
+      "rect": {
+        "x": 512,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 3,
+      "image": "frames/back_crouch_to_dash_to_stand/03.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 3,
+      "sha256": "3e0cfc4ab306daf8cb9be801c417d06b4a8cfde96d19dea5626a144858754741",
+      "pixelSha256": "a7e16e56b70ff7dbd7706b980e482c4b02b226c2941da9822388a2c147de36d6",
+      "rect": {
+        "x": 768,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 4,
+      "image": "frames/back_crouch_to_dash_to_stand/04.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 4,
+      "sha256": "a4341dcf5e21f0c93dfd496347b561e17805c5f791a1930257834c599345c507",
+      "pixelSha256": "45bdd8de4aaf9f9021d9b1f829403dc00a12cf2593a9680433b88e2973a54f90",
+      "rect": {
+        "x": 1024,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 5,
+      "image": "frames/back_crouch_to_dash_to_stand/05.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 5,
+      "sha256": "cca68741e64006df81ea721dcda63e084d0a6570b352745b984294440e858a74",
+      "pixelSha256": "f37add46fafc5073461b8eb7ac9c2fd28c0b54bb6c819fde6f976c125fa65faf",
+      "rect": {
+        "x": 1280,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 6,
+      "image": "frames/back_crouch_to_dash_to_stand/06.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 6,
+      "sha256": "47000bac6536391be2a0503fcee91f3de75b4bde7223db5a535c483d01d01f1b",
+      "pixelSha256": "81cbb77836cf42d31509d365b83528076b7a0cb37cca7798ceefeeb29af29027",
+      "rect": {
+        "x": 1536,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 7,
+      "image": "frames/back_crouch_to_dash_to_stand/07.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 7,
+      "sha256": "17255099b4a79b669f460f3b27f02579d488d3f282717091b8952640fed30773",
+      "pixelSha256": "555564bc2d25f5463c7148fa117f2b550f50dd4eeb11392dd4d83b3513e4c9b0",
+      "rect": {
+        "x": 1792,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 8,
+      "image": "frames/back_crouch_to_dash_to_stand/08.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 8,
+      "sha256": "70f7fbe4d70b362230821f1521538ddad149818ef5d4ca5765789b8d285ae4cb",
+      "pixelSha256": "e17580653f8aa9db7690c71b08d5ce11b5a28d86e6b72fd82470a025f545a151",
+      "rect": {
+        "x": 2048,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 9,
+      "image": "frames/back_crouch_to_dash_to_stand/09.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 9,
+      "sha256": "70b1d0ed8af6c9591d622eb760db8a46bda74846fa0e867ad9eb3d4cca4da98b",
+      "pixelSha256": "c5bd10b6e54a34ad78ef87493ca01db0436b76a1c5360467c8703b3d53d18169",
+      "rect": {
+        "x": 2304,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 10,
+      "image": "frames/back_crouch_to_dash_to_stand/10.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 10,
+      "sha256": "439a2989f0528aa750efece12f0d68ad9f527c60b99b3fc5233f2a6a64360361",
+      "pixelSha256": "79db94c59f036a9b8d85e498d3c46873cf048ca45e6441a5a51591e9fb334b60",
+      "rect": {
+        "x": 2560,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 11,
+      "image": "frames/back_crouch_to_dash_to_stand/11.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 11,
+      "sha256": "0435e3f2a6078fc8b03cf04f2bc8b313f45a238c24056343201f9591f9359de6",
+      "pixelSha256": "f056dec0541ca5642c303a4559a060032f0eb07b0de18de07df15344ee07675a",
+      "rect": {
+        "x": 2816,
+        "y": 0,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 12,
+      "image": "frames/back_crouch_to_dash_to_stand/12.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 12,
+      "sha256": "d52d9e594587ce2d6294f0931e584f316f0a55a6d186185ee4fe123ccf7c0ba6",
+      "pixelSha256": "2f642a273d5ae0852d5c8dee0bf131d61ea1d4ed10d6ed2faea5e0db377d11b9",
+      "rect": {
+        "x": 0,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 13,
+      "image": "frames/back_crouch_to_dash_to_stand/13.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 13,
+      "sha256": "8dff68beccddbded318aa4987841966d3f36241da78724ffd0e1dada9367ca05",
+      "pixelSha256": "52233d53973f4e3e7fa15a082d02ad4d727ef0279b064cff87e6fcc791fbc5d0",
+      "rect": {
+        "x": 256,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 14,
+      "image": "frames/back_crouch_to_dash_to_stand/14.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 14,
+      "sha256": "c40c3b5ede4ca12ebec6ab89a5a397ef539d334f68101e65f9a2df1eabb416e1",
+      "pixelSha256": "d3fb8f8f0dc5264b61250656415a52cdda0411b7dac024260cbc767510501d3d",
+      "rect": {
+        "x": 512,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 15,
+      "image": "frames/back_crouch_to_dash_to_stand/15.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 15,
+      "sha256": "cb846bf4fd9272c5e8b41be3c0e6ef8d501ad39cc95b0c1ebc3afd50edb598a1",
+      "pixelSha256": "60e4a8aad59639a983c5d890ab3038e4b9b8057f48435b403a261c3ee766ba04",
+      "rect": {
+        "x": 768,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 16,
+      "image": "frames/back_crouch_to_dash_to_stand/16.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 16,
+      "sha256": "52cf8b4505d2ed9d476b32a47106dcabbaf2438e8244e85d53f97dc4dd7063c5",
+      "pixelSha256": "36fd0a492b32c6392fc320a1491c27aa606adcdd89a634b52db4f34503b6a643",
+      "rect": {
+        "x": 1024,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 17,
+      "image": "frames/back_crouch_to_dash_to_stand/17.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 17,
+      "sha256": "b4aa95f6ca53f8ecf5a691bb8759378b2691c27a6c82cb57ed985a63e70ff177",
+      "pixelSha256": "8b905513b8194924c67446bd37c0e36037a159b5d8e76c5e353167646e44e436",
+      "rect": {
+        "x": 1280,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 18,
+      "image": "frames/back_crouch_to_dash_to_stand/18.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 18,
+      "sha256": "320173fc5b1b7dba0ce862f9d55a9cc6c40ff1743a84757a506e1bed2ee34a88",
+      "pixelSha256": "94ff301f7d28380368423a599483e901ffaf2e982938ebf93b7a202cbac6a780",
+      "rect": {
+        "x": 1536,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 19,
+      "image": "frames/back_crouch_to_dash_to_stand/19.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 19,
+      "sha256": "806cfa78af52a6e41db8525da0a355e683fa0914cae455ed0a2a560867872b5c",
+      "pixelSha256": "d4293fb0c258de24363dea4e8f1be368f5fb1c004e2553be5146676538867634",
+      "rect": {
+        "x": 1792,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 20,
+      "image": "frames/back_crouch_to_dash_to_stand/20.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 20,
+      "sha256": "04bb2c80dc6678b9849f3a19444eef41aefcda3dd978a0f7a040feed82e8858e",
+      "pixelSha256": "0279a65a56f652f384cb963e3c556b7c6603ebd1f7ca7b970d754324be05f926",
+      "rect": {
+        "x": 2048,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 21,
+      "image": "frames/back_crouch_to_dash_to_stand/21.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 21,
+      "sha256": "26c1151e887a2f5f52f9aa27244d71a89d29d72dbc42a57e7dbe0c7fe7c840de",
+      "pixelSha256": "eb0b374eb99cb72071fafb9188ea47e9ab5a1fa843670ae91c8e3e86fba6ca00",
+      "rect": {
+        "x": 2304,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 22,
+      "image": "frames/back_crouch_to_dash_to_stand/22.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 22,
+      "sha256": "01f7e0198f218262f3b8777bb8c1f32f4c049f7e5e1b4a9ca4265140f59e0c01",
+      "pixelSha256": "ea6b9cfa62edc05ff8464727882792474a715993126170f335ff95efe77bf746",
+      "rect": {
+        "x": 2560,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 23,
+      "image": "frames/back_crouch_to_dash_to_stand/23.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 23,
+      "sha256": "135be279ce78481842c1a6e249bcd590f184e15a5879f5d076da09368af3b329",
+      "pixelSha256": "a7d4c6d8f0e938940291ae17ce3e46aa031111fcc5e37aad61452957a7233fa6",
+      "rect": {
+        "x": 2816,
+        "y": 256,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 24,
+      "image": "frames/back_crouch_to_dash_to_stand/24.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 24,
+      "sha256": "5b4ed5258f5c766db8fa46ec20ee2fc6250af3cad033e03b7020638c841124ed",
+      "pixelSha256": "267379500901378e1d869e972237d4bf94f605c5f7a486662900a5fc3d054744",
+      "rect": {
+        "x": 0,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 25,
+      "image": "frames/back_crouch_to_dash_to_stand/25.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 25,
+      "sha256": "6d8f54d9dd140f2c38017a84a4c510a46582af5a877861f5fce521f01b10c2db",
+      "pixelSha256": "7250a56c35250e288da418364eaeb8833b88b7ee3c51ea632e4a0ebf58408418",
+      "rect": {
+        "x": 256,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 26,
+      "image": "frames/back_crouch_to_dash_to_stand/26.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 26,
+      "sha256": "cadcb25e8b2600fa5e666e3fec0c47d3d6811186f058757e5948d791c9827293",
+      "pixelSha256": "1bdf0b4f0ed50bc9dc9deb42dd368104c9fb3edcc6fdfb95fe628fa259f507d4",
+      "rect": {
+        "x": 512,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 27,
+      "image": "frames/back_crouch_to_dash_to_stand/27.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 27,
+      "sha256": "7f95f47939d96fa511edf5ecf670693020f957fef6953e813bdfe766cc2b28ca",
+      "pixelSha256": "a36bcf2baf0ccac8da9b3b8ae1599f1468e3defcbd6aed0ff5aadaf6556bce1a",
+      "rect": {
+        "x": 768,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 28,
+      "image": "frames/back_crouch_to_dash_to_stand/28.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 28,
+      "sha256": "384a7ec173650ff09a5e3f98e35a9053203d7ef3427ad5313c4d13e413f47a88",
+      "pixelSha256": "8ff4d32adefc70777612e8dadcdeb87143dcf650fecc14cedf1d0740b8c5dcef",
+      "rect": {
+        "x": 1024,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 29,
+      "image": "frames/back_crouch_to_dash_to_stand/29.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 29,
+      "sha256": "5e980699c5f3b8a736425f27431c55689cdf63c13299176f56f2ab213826cae0",
+      "pixelSha256": "8ecafd7a928dee4ad7bb078c2f96d8888a8475484d9e99e54b0213fb5ffe879c",
+      "rect": {
+        "x": 1280,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 30,
+      "image": "frames/back_crouch_to_dash_to_stand/30.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 30,
+      "sha256": "bd498bc048c16f60ecca3cb678bb4b37a0eaf7a08091b54e19ba8a6810af7f03",
+      "pixelSha256": "f5d2debeb774382745fa9e64e2edddf3b7fe67b7c419563fcf3553e4ce9d851b",
+      "rect": {
+        "x": 1536,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 31,
+      "image": "frames/back_crouch_to_dash_to_stand/31.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 31,
+      "sha256": "01cf8b1bdc834ba03a9688750ef3f3a0e97b23350679a51e979e7462ae5c0dd4",
+      "pixelSha256": "426275e93af6e097862dc90beca1837ad9ab7b095e0642d743dbe17bd9f2ddc4",
+      "rect": {
+        "x": 1792,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 32,
+      "image": "frames/back_crouch_to_dash_to_stand/32.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 32,
+      "sha256": "12cc2594f869e639d2540f221fe0331bd1f8ac26de4e57cc436eae175cf30307",
+      "pixelSha256": "aac652263536042b4700c9850c185b32e4d8f39b073dd817b2289f70da663886",
+      "rect": {
+        "x": 2048,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 33,
+      "image": "frames/back_crouch_to_dash_to_stand/33.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 33,
+      "sha256": "e5bd5c7d29cd22bc0528d96ea68ff74bbe23b3a2ce41f90255999d1cba5ee625",
+      "pixelSha256": "3adc6beaff82e127600c42e5bf22e4c98ecb5ae9ea419155b35ba3e1376e7cf0",
+      "rect": {
+        "x": 2304,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 34,
+      "image": "frames/back_crouch_to_dash_to_stand/34.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 34,
+      "sha256": "28fd17ddc9f2c37c8089c980bffaf998ef549dc7b2075abf05f2e79ae6349e4c",
+      "pixelSha256": "453b2cb1ec14ca4d1bc1a83598db8a64e7a21013fb9ac7db64dfc613b69b4451",
+      "rect": {
+        "x": 2560,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 35,
+      "image": "frames/back_crouch_to_dash_to_stand/35.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 35,
+      "sha256": "ef8959975bf294b784c0d2f2a82f153a7757c1f474217ce6dc0ac2018c200225",
+      "pixelSha256": "1125db7686891fd059409be009df89f4025f5fcd126291a0c047e524e3284e66",
+      "rect": {
+        "x": 2816,
+        "y": 512,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 36,
+      "image": "frames/back_crouch_to_dash_to_stand/36.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 36,
+      "sha256": "b9161c26a90c888285934099d413c79409961753b6a55e822043ac1eb1fc788e",
+      "pixelSha256": "bdd9902239c5faf385b54587d67c27518798a853e3a3a13ba8cf039bcefd67ea",
+      "rect": {
+        "x": 0,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 37,
+      "image": "frames/back_crouch_to_dash_to_stand/37.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 37,
+      "sha256": "58fa7673068e6a3a20670bc8c9b047d3a891342bca8c996181dbbab1d0214625",
+      "pixelSha256": "b094b2594d444899cf200e65c49087be90dafbffdf221095aa14497a2dc91bab",
+      "rect": {
+        "x": 256,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 38,
+      "image": "frames/back_crouch_to_dash_to_stand/38.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 38,
+      "sha256": "cf45c1600656d46a1f88b800aa8c7d21c95af29f0af78a903689b5a0ecc32cd6",
+      "pixelSha256": "c0e3810783354a6a0ac027397e12776c61137352d0749bf1521dd54718406990",
+      "rect": {
+        "x": 512,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 39,
+      "image": "frames/back_crouch_to_dash_to_stand/39.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 39,
+      "sha256": "e8c4191ee88eb263e8b0c6493cb143c0f8e923c1d4ac0ff0233019e86c28bcd5",
+      "pixelSha256": "317fe88da76d95d9dca1f7ee8d38331c5bdef5b99bbe12d9cdc91856e5d24c28",
+      "rect": {
+        "x": 768,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 40,
+      "image": "frames/back_crouch_to_dash_to_stand/40.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 40,
+      "sha256": "f505c9cf3d89fa042c08c56f83c2f08a9faa44199168a9086960d3de1d0ead15",
+      "pixelSha256": "f346fabee28bc40c23cae2a4a7cfeaf05efbf0b772e412f365a89233b3645ae6",
+      "rect": {
+        "x": 1024,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 41,
+      "image": "frames/back_crouch_to_dash_to_stand/41.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 41,
+      "sha256": "2521a0ba7aab64905f175201df9009c5d67a3dbb6b04ccde348e7a9e5c611844",
+      "pixelSha256": "38e9dbeaab0e7f29b1205d4e376561b054e584bc5b10a3f4938cecb3ad1cbab9",
+      "rect": {
+        "x": 1280,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 42,
+      "image": "frames/back_crouch_to_dash_to_stand/42.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 42,
+      "sha256": "e0d8d1169dc2ced72ec9527bd9931f04660b9fba37ddccb5e6431bde3e1ead12",
+      "pixelSha256": "6873aed28ea8a80ea42ec4922c5257c2429e4af9c2fd72bca94d22a13a3f910c",
+      "rect": {
+        "x": 1536,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 43,
+      "image": "frames/back_crouch_to_dash_to_stand/43.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 43,
+      "sha256": "affc37a3e38f7602f4c1a29d9c3e68cb4cfed272824be71049f47a12767c6fca",
+      "pixelSha256": "9efc3c7bab8e523d6773ae51df6b7f22505168c0a37fb05ba39537dd3e863555",
+      "rect": {
+        "x": 1792,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 44,
+      "image": "frames/back_crouch_to_dash_to_stand/44.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 44,
+      "sha256": "188477a9edec53e0c36b739c5f6f028c82e36ab0a31093b8c8822b4ecba47705",
+      "pixelSha256": "9a9e88f0b047144266485ab60f8640cafa5ede7f7adb4ff4f733892cea4f9310",
+      "rect": {
+        "x": 2048,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 45,
+      "image": "frames/back_crouch_to_dash_to_stand/45.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 45,
+      "sha256": "c95d9e766e155eedb34e70156c71aaa5ceb16681a930b34141c6077da14671ee",
+      "pixelSha256": "790835efe990a63cbeed09e3df9f1954ec0a94d73413407d008196839eac3724",
+      "rect": {
+        "x": 2304,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 46,
+      "image": "frames/back_crouch_to_dash_to_stand/46.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 46,
+      "sha256": "7fbac6c1968e1a683436cbb73d0d2f0fd46f7c43279de393fc511c02bb6c1a0d",
+      "pixelSha256": "604f332a4959d531116ff92a52bf4643ef094804baecce69e40c80bc6b2c61b4",
+      "rect": {
+        "x": 2560,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 47,
+      "image": "frames/back_crouch_to_dash_to_stand/47.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 47,
+      "sha256": "12e9be35951c702452363cd4144fc71f72e5ce5a92f56d2c2970b940f60b6a80",
+      "pixelSha256": "6ac7520139dc34a5ae639b05e4bd629a42950efcd59a2e8f9a83340c0395b5aa",
+      "rect": {
+        "x": 2816,
+        "y": 768,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 48,
+      "image": "frames/back_crouch_to_dash_to_stand/48.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 48,
+      "sha256": "105083ac0577b011f1ad33b70a8ab510a82e7a08e07957c38b209a2d7f756832",
+      "pixelSha256": "047b3caae8e35dda90a733e9eac224cfee4c2cf13a47a49fe1ed66773faac01d",
+      "rect": {
+        "x": 0,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 49,
+      "image": "frames/back_crouch_to_dash_to_stand/49.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 49,
+      "sha256": "185806049774f6f1a4d60b71178b3573834ff5318a5b53a162004ba27eec4643",
+      "pixelSha256": "e00f2ef8143537b8d07e51d61c4c297026ee78b97b9bb64148892cec942bb43f",
+      "rect": {
+        "x": 256,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 50,
+      "image": "frames/back_crouch_to_dash_to_stand/50.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 50,
+      "sha256": "18735182472d45958d665e9c886579cc355e52a060625285a17f1d13d41cbd81",
+      "pixelSha256": "b9337f67e2316708ef38535fe98af3c0a4654852226035988467a83661681c44",
+      "rect": {
+        "x": 512,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 51,
+      "image": "frames/back_crouch_to_dash_to_stand/51.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 51,
+      "sha256": "fc15560823a486f79d6cda1bbc2655b88eece6a8ec1846f64e7a5172308919de",
+      "pixelSha256": "2841a50c11a64ccb9107282a529ec670ae01c1d001f9c49988fdb5ce16d8cfd8",
+      "rect": {
+        "x": 768,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 52,
+      "image": "frames/back_crouch_to_dash_to_stand/52.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 52,
+      "sha256": "f9c7243ff369a366f9e87d5c4a06d4a8981857f28818004faffc1f7466ca331f",
+      "pixelSha256": "c20581a5c0362205a3676ecea079cfccf67236c04ada95fca9c2caad6c79fd62",
+      "rect": {
+        "x": 1024,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 53,
+      "image": "frames/back_crouch_to_dash_to_stand/53.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 53,
+      "sha256": "f157cad87cffc8846b5f87c0d1dd76b255e52fb2392117bdac733b1159d56d70",
+      "pixelSha256": "e159464a44bb91e71f4e2da2574bb90fd228c26c2a10718791fa8d16f2c4cc8d",
+      "rect": {
+        "x": 1280,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 54,
+      "image": "frames/back_crouch_to_dash_to_stand/54.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 54,
+      "sha256": "bb9d7468f540c5f1fc9f695bf29560bd5157d5d5ded6d4c0cad2515e7e405b7c",
+      "pixelSha256": "4a3d068a640273b583dcf1084242a26cb5cea24f179dd1469ee86f4bca03ecb9",
+      "rect": {
+        "x": 1536,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 55,
+      "image": "frames/back_crouch_to_dash_to_stand/55.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 55,
+      "sha256": "b5d2777337f9cb48374353a36bbb989936e15f5623ca16922fc08d763611f5dc",
+      "pixelSha256": "6a5d7e1e7116b9af5d5ced08f3845742f364493203a3c0db61c9a10efac918a1",
+      "rect": {
+        "x": 1792,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 56,
+      "image": "frames/back_crouch_to_dash_to_stand/56.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 56,
+      "sha256": "eb1e363d83da89f6b9b1739089d0e3ff7e907048c75c6448919c6e0812f38eae",
+      "pixelSha256": "89336717b8dd1f0e056ebd9a7a1b19e78c946db52438e108afeb85d5386ba449",
+      "rect": {
+        "x": 2048,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 57,
+      "image": "frames/back_crouch_to_dash_to_stand/57.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 57,
+      "sha256": "c1052a2a98c4f28606a82f1baed5dd493c6ed2abb31b46e3479b87d3fc4eea79",
+      "pixelSha256": "bfcd9f9843b443d9c8aca89916e1768785112abf9fbb0ce59bda4cde7d688f7d",
+      "rect": {
+        "x": 2304,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 58,
+      "image": "frames/back_crouch_to_dash_to_stand/58.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 58,
+      "sha256": "548a1f723367e32c405ca1bfdcb478a50f6471028dd00708af727213065de4c9",
+      "pixelSha256": "6032f4f1949e84224fdbb30ed219b40819cfea00298d9931e629b34a3872f3b0",
+      "rect": {
+        "x": 2560,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    },
+    {
+      "index": 59,
+      "image": "frames/back_crouch_to_dash_to_stand/59.png",
+      "sourceImage": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sourceFrame": 59,
+      "sha256": "2642dff15266558e0bd4ead1566bde9ebcc3c4cca8d47002f30435e7116f1c09",
+      "pixelSha256": "12ceaefae0d93395a288a19c830fd98f51fd8bc3bb2f1d4f9a8a2cfffd4e3aff",
+      "rect": {
+        "x": 2816,
+        "y": 1024,
+        "width": 256,
+        "height": 256
+      }
+    }
+  ],
+  "sources": [
+    {
+      "image": "raw/back_crouch_to_dash_to_stand-full.png",
+      "sha256": "f40c210554ee2fc8084f96146f425214e142e97d3e2f6454ce7b34880c7d8373",
+      "nativeWidth": 1536,
+      "nativeHeight": 1024,
+      "actualFigures": 60,
+      "selectedIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "rows": 5,
+      "rowCounts": [
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "method": "image_gen fresh redraw; no interpolation or repeated-frame padding"
+    }
+  ],
+  "verification": {
+    "sourceFigures": 60,
+    "distinctPixelFrames": 60,
+    "seamDifference": 0.0653289341440777,
+    "seamLimit": 0.05409620723409246,
+    "seamMetricPassed": true,
+    "visualContinuityVerified": false
+  }
+}

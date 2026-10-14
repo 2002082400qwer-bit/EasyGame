@@ -1,0 +1,11 @@
+{
+  "prompt": "Draw EXACTLY 15 freshly drawn distinct incremental full-body sprites, FIVE columns x 3 rows (last row only remaining figures), transparent RGBA, no text/shadow/grid, all bodies fully inside cells with wide margin. This is the closing 15 frames of the action. Reference2 is the preceding pose: start with only a tiny change from it. Reference3 is the destination pose: final frame must match this pose/scale/orientation; do not repeat or copy references, draw fresh each. Complete the motion gradually; consistent anatomy and outfit. NONLOOPING reach final destination. Action: turn_left_to_back. Keep orientation back. Reference3 defines the final destination pose. ",
+  "refs": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\三视图.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\raw\\anchors\\turn_left_to_back\\anchor-44.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\raw\\anchors\\turn_left_to_back\\anchor-51.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-5b3c01bf-8f25-45b6-b305-adeb251daf6d.png",
+  "method": "image_gen fresh redraw",
+  "created": "2026-10-14T05:36:47.763Z"
+}

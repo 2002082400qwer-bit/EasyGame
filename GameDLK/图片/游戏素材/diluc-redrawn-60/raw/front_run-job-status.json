@@ -1,0 +1,16 @@
+{
+  "id": "front_run",
+  "status": "packed",
+  "summary": {
+    "id": "front_run",
+    "frameCount": 60,
+    "verification": {
+      "sourceFigures": 63,
+      "distinctPixelFrames": 60,
+      "seamDifference": 0.03374544553599272,
+      "seamLimit": 0.062288931477398085,
+      "seamMetricPassed": true,
+      "visualContinuityVerified": false
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "prompt": "Use case: identity-preserve. Draw EXACTLY 20 complete freshly drawn unique incremental FULL BODY sprites in FIVE columns x 4 rows, transparent RGBA, no labels/grid/glow/shadow. All boots/legs/hair fully inside each cell with wide blank margins. Opaque character interior. Reference1 locks identity, black/red ornate coat, red ponytail, gems/chains/gloves/boots and crisp anime linework. Reference2 is the PRECEDING frame44. Reference3 is destination. This image ONLY covers the LAST15 frames of side_stand_to_jump, NOT the whole action. First drawing differs just slightly from reference2; last drawing settles to reference3. Maintain same physical body/head scale, orthographic camera and foot-root; NO action restart. Character is ALREADY AIRBORNE facing LEFT at reference2. Continue rising slightly then settle near apex, knees tucked, arms balanced. ALL drawings remain airborne; NO return to standing, NO second crouch or launch. Keep LEFT profile.",
+  "refs": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\三视图.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_stand_to_jump\\44.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_stand_to_jump\\59.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-302e0283-e99d-45a3-8e9a-458b45503f2d.png",
+  "method": "image_gen fresh tail repair",
+  "created": "2026-10-14T06:11:34.835Z"
+}

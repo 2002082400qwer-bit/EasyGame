@@ -1,0 +1,16 @@
+{
+  "id": "side_dash",
+  "status": "packed",
+  "summary": {
+    "id": "side_dash",
+    "frameCount": 60,
+    "verification": {
+      "sourceFigures": 60,
+      "distinctPixelFrames": 60,
+      "seamDifference": 0.023540692474236468,
+      "seamLimit": 0.05654723068642501,
+      "seamMetricPassed": true,
+      "visualContinuityVerified": false
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "prompt": "Use case: identity-preserve. Draw EXACTLY 15 complete freshly drawn unique incremental FULL BODY sprites in FIVE columns x 3 rows, transparent RGBA, no labels/grid/glow/shadow. All boots/legs/hair fully inside each cell with wide blank margins. Opaque character interior. Reference1 locks identity, black/red ornate coat, red ponytail, gems/chains/gloves/boots and crisp anime linework. Reference2 is the PRECEDING frame44. Reference3 is destination. This image ONLY covers the LAST15 frames of side_run, NOT the whole action. First drawing differs just slightly from reference2; last drawing settles to reference3. Maintain same physical body/head scale, orthographic camera and foot-root; NO action restart. LEFT-facing continuous running cycle closing phase. Continue motion from reference2, bring the leading lifted knee forward/down, support foot rolls to push-off, coordinate opposite arm swing and torso lean. Last drawing immediately before the exact run pose in reference3: match support/leading leg identities and arm positions, pony/coat wind direction, physical scale. Do NOT stop to idle, do not reverse run direction; complete gait phase gradually so frame00 follows smoothly.",
+  "refs": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_run\\00.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_run\\44.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_run\\00.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-187439ea-0fd4-4c21-a724-1f7e52b36787.png",
+  "method": "image_gen fresh tail repair",
+  "created": "2026-10-14T09:03:36.104Z"
+}

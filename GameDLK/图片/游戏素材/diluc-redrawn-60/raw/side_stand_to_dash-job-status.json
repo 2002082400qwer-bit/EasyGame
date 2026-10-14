@@ -1,0 +1,16 @@
+{
+  "id": "side_stand_to_dash",
+  "status": "packed",
+  "summary": {
+    "id": "side_stand_to_dash",
+    "frameCount": 60,
+    "verification": {
+      "sourceFigures": 65,
+      "distinctPixelFrames": 60,
+      "seamDifference": 0.060383946859851524,
+      "seamLimit": 0.04489943569818467,
+      "seamMetricPassed": true,
+      "visualContinuityVerified": false
+    }
+  }
+}

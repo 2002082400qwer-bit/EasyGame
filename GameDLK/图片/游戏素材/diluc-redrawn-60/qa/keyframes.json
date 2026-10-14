@@ -1,0 +1,115 @@
+[
+  {
+    "image": "qa/keyframes-1.png",
+    "ids": [
+      "back_crouch_to_dash_to_stand",
+      "back_crouch_to_stand",
+      "back_dash",
+      "back_idle",
+      "back_jump",
+      "back_run"
+    ],
+    "indices": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      59
+    ]
+  },
+  {
+    "image": "qa/keyframes-2.png",
+    "ids": [
+      "back_slow_walk",
+      "back_stand_to_dash",
+      "back_stand_to_jump",
+      "front_crouch_to_dash_to_stand",
+      "front_crouch_to_stand",
+      "front_dash"
+    ],
+    "indices": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      59
+    ]
+  },
+  {
+    "image": "qa/keyframes-3.png",
+    "ids": [
+      "front_idle",
+      "front_jump",
+      "front_run",
+      "front_slow_walk",
+      "front_stand_to_dash",
+      "front_stand_to_jump"
+    ],
+    "indices": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      59
+    ]
+  },
+  {
+    "image": "qa/keyframes-4.png",
+    "ids": [
+      "side_crouch_to_dash_to_stand",
+      "side_crouch_to_stand",
+      "side_dash",
+      "side_idle",
+      "side_jump",
+      "side_run"
+    ],
+    "indices": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      59
+    ]
+  },
+  {
+    "image": "qa/keyframes-5.png",
+    "ids": [
+      "side_slow_walk",
+      "side_stand_to_dash",
+      "side_stand_to_jump",
+      "turn_back_to_left",
+      "turn_back_to_right",
+      "turn_front_to_left"
+    ],
+    "indices": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      59
+    ]
+  },
+  {
+    "image": "qa/keyframes-6.png",
+    "ids": [
+      "turn_front_to_right",
+      "turn_left_to_back",
+      "turn_left_to_front",
+      "turn_right_to_back",
+      "turn_right_to_front"
+    ],
+    "indices": [
+      0,
+      12,
+      24,
+      36,
+      48,
+      59
+    ]
+  }
+]

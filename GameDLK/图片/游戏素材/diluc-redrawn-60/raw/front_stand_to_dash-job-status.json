@@ -1,0 +1,16 @@
+{
+  "id": "front_stand_to_dash",
+  "status": "packed",
+  "summary": {
+    "id": "front_stand_to_dash",
+    "frameCount": 60,
+    "verification": {
+      "sourceFigures": 60,
+      "distinctPixelFrames": 60,
+      "seamDifference": 0.044917002453891554,
+      "seamLimit": 0.04968314233389168,
+      "seamMetricPassed": true,
+      "visualContinuityVerified": false
+    }
+  }
+}
