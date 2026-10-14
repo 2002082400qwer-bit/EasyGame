@@ -22,6 +22,13 @@
       "old": "comparison/front_jump.png",
       "old_frame": 7,
       "old_sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/front_idle.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "10c13212a0ec331fd3e85e6db06c929ddd1ac37cf79aba5946b6a02f37b27e22"
+      },
       "redrawn": {
         "path": "comparison/redrawn60/front_idle.png",
         "frame_count": 60,
@@ -50,7 +57,14 @@
       "animation": "animations/front_slow_walk.json",
       "old": "comparison/front_slow_walk.png",
       "old_frame": null,
-      "old_sha256": "b47c00d644a6ece5b216140bf46af12567e4dfa03449e6029aeeee80a7850d33"
+      "old_sha256": "b47c00d644a6ece5b216140bf46af12567e4dfa03449e6029aeeee80a7850d33",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/front_slow_walk.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "f90fddbc9edbce4fbd769ad258f3c38ccedf210d6922397a104955b51449b45e"
+      }
     },
     {
       "id": "front_run",
@@ -71,7 +85,14 @@
       "animation": "animations/front_run.json",
       "old": "comparison/front_run.png",
       "old_frame": null,
-      "old_sha256": "2c7fc0b213e25ae175020be35ab3b06134e25f4dd2b24123dd9a2fa60343f700"
+      "old_sha256": "2c7fc0b213e25ae175020be35ab3b06134e25f4dd2b24123dd9a2fa60343f700",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/front_run.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "45110087b0b62a7fb3bd2a33b92064bf28a322ecd15ca1c12d7ec2c5be05bb91"
+      }
     },
     {
       "id": "front_jump",
@@ -92,7 +113,14 @@
       "animation": "animations/front_jump.json",
       "old": "comparison/front_jump.png",
       "old_frame": null,
-      "old_sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c"
+      "old_sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/front_jump.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "8bda6fb85dbcd84c874fbf025003e8e9b1320d7f16e39507b6df371f35f89cae"
+      }
     },
     {
       "id": "front_dash",
@@ -113,7 +141,14 @@
       "animation": "animations/front_dash.json",
       "old": "comparison/front_dash.png",
       "old_frame": null,
-      "old_sha256": "2f38a5b2af053a1b16dc07c06fd0dd2e1a56aa1a9e0597e99a379faaa4e825bf"
+      "old_sha256": "2f38a5b2af053a1b16dc07c06fd0dd2e1a56aa1a9e0597e99a379faaa4e825bf",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/front_dash.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "b0d36bc7ecf0d59179701fc448dd684d9ea40e557ec70218e05475881aebb991"
+      }
     },
     {
       "id": "front_crouch",
@@ -134,7 +169,14 @@
       "animation": "animations/front_crouch.json",
       "old": "comparison/front_jump.png",
       "old_frame": 0,
-      "old_sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c"
+      "old_sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/front_crouch.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "7dba79be5f4dbbc9e74fd24e29420ec95515ff1077201ae1ee0aa851cf96a8e3"
+      }
     },
     {
       "id": "side_idle",
@@ -156,6 +198,13 @@
       "old": "comparison/side_jump.png",
       "old_frame": 7,
       "old_sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/side_idle.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "57c9d712c00e6b61f9784eefa20c395b9cbc2bf54e14e3091c76bbec73f90b65"
+      },
       "redrawn": {
         "path": "comparison/redrawn60/side_idle.png",
         "frame_count": 60,
@@ -185,6 +234,13 @@
       "old": "comparison/side_slow_walk.png",
       "old_frame": null,
       "old_sha256": "7df72506625ea86b2bd5fde06a27271c91147d48e83df33bf6eb06a19379f2a9",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/side_slow_walk.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "2f7233193f60c398270c6d24c7dc7295a636c89013f9009735239c111dc82bba"
+      },
       "redrawn": {
         "path": "comparison/redrawn60/side_slow_walk.png",
         "frame_count": 60,
@@ -213,7 +269,14 @@
       "animation": "animations/side_run.json",
       "old": "comparison/side_run.png",
       "old_frame": null,
-      "old_sha256": "c3e2ad15b4cff7a6369a68d0ceec633fcc6754e9be697b0e9c48514c4efe3d71"
+      "old_sha256": "c3e2ad15b4cff7a6369a68d0ceec633fcc6754e9be697b0e9c48514c4efe3d71",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/side_run.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "f1991e26cbf680746303634639bf81c960e9bd8dc3441ee2a093e6fe8741084d"
+      }
     },
     {
       "id": "side_jump",
@@ -234,7 +297,14 @@
       "animation": "animations/side_jump.json",
       "old": "comparison/side_jump.png",
       "old_frame": null,
-      "old_sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839"
+      "old_sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/side_jump.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "2ee5faeeb366bf63e700d313328e5790d7da2bbf6db103dd397e284d8e71c9e2"
+      }
     },
     {
       "id": "side_dash",
@@ -255,7 +325,14 @@
       "animation": "animations/side_dash.json",
       "old": "comparison/side_dash.png",
       "old_frame": null,
-      "old_sha256": "3543cc09e2dd796c35826d8a3fba59659c7548f05c1efee39403e53ad6facce5"
+      "old_sha256": "3543cc09e2dd796c35826d8a3fba59659c7548f05c1efee39403e53ad6facce5",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/side_dash.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "fc3d201fa03c71e3e77c016ca787bb6606b5a65e83aefd243b317e0be49247ea"
+      }
     },
     {
       "id": "side_crouch",
@@ -276,7 +353,14 @@
       "animation": "animations/side_crouch.json",
       "old": "comparison/side_jump.png",
       "old_frame": 0,
-      "old_sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839"
+      "old_sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/side_crouch.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "fac3e7c2815c23ae63367ae552a5eaeef08a9f7de5ceaf793519fa0273b2b772"
+      }
     },
     {
       "id": "back_idle",
@@ -298,6 +382,13 @@
       "old": "comparison/back_jump.png",
       "old_frame": 7,
       "old_sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/back_idle.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "0ed99a6a89e48cc360c8408da4c6b8f2c903221496a82ada87c9ec56a5916d21"
+      },
       "redrawn": {
         "path": "comparison/redrawn60/back_idle.png",
         "frame_count": 60,
@@ -326,7 +417,14 @@
       "animation": "animations/back_slow_walk.json",
       "old": "comparison/back_slow_walk.png",
       "old_frame": null,
-      "old_sha256": "bf773aecdb43df52a79f3515b5539f5b332deb52c1b73fa5e619019a00144fe6"
+      "old_sha256": "bf773aecdb43df52a79f3515b5539f5b332deb52c1b73fa5e619019a00144fe6",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/back_slow_walk.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "ca3b73abfb1757374dc0485a3f7de56f0dfe6160db6ab71bafc164afac1a4eb4"
+      }
     },
     {
       "id": "back_run",
@@ -347,7 +445,14 @@
       "animation": "animations/back_run.json",
       "old": "comparison/back_run.png",
       "old_frame": null,
-      "old_sha256": "8d5345f28c238feb1ca385cbd385356eaa01c986e2637750bc805fab3b3a9a29"
+      "old_sha256": "8d5345f28c238feb1ca385cbd385356eaa01c986e2637750bc805fab3b3a9a29",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/back_run.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "08d2b8948954b92bf89232c59a0e2e36386681e7042a498cf49d2cf23d7145f2"
+      }
     },
     {
       "id": "back_jump",
@@ -368,7 +473,14 @@
       "animation": "animations/back_jump.json",
       "old": "comparison/back_jump.png",
       "old_frame": null,
-      "old_sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f"
+      "old_sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/back_jump.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "6b308ee217f107299aca17a57564679443c906b05531a38ba21c038a68ee13ea"
+      }
     },
     {
       "id": "back_dash",
@@ -389,7 +501,14 @@
       "animation": "animations/back_dash.json",
       "old": "comparison/back_dash.png",
       "old_frame": null,
-      "old_sha256": "52a96729ec0b65602a946c4757c73c16606cece90f700fdcf4c7dfdcf5f70a5a"
+      "old_sha256": "52a96729ec0b65602a946c4757c73c16606cece90f700fdcf4c7dfdcf5f70a5a",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/back_dash.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "e6c057fd528e578ff52153a782591f196eb252380a10b2b599db2bc586880f08"
+      }
     },
     {
       "id": "back_crouch",
@@ -410,7 +529,14 @@
       "animation": "animations/back_crouch.json",
       "old": "comparison/back_jump.png",
       "old_frame": 0,
-      "old_sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f"
+      "old_sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f",
+      "previous": {
+        "path": "comparison/before-gait-fix/atlases/256/back_crouch.png",
+        "frame_count": 60,
+        "columns": 12,
+        "scale": 1.0,
+        "sha256": "c7123add74a5cad85f6b4af5abd42eaa3e972166ada141e116d27059f567a0bf"
+      }
     }
   ],
   "part_count": 48,

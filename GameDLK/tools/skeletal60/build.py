@@ -163,13 +163,31 @@ def sample_previews() -> None:
         print('sample', view, flush=True)
 
 
-def export_all() -> None:
-    """逐组输出60张PNG、图集、姿势数据和对照来源；无参数。"""
+def save_previous_version() -> None:
+    """首次修复步态时保留旧版图集、骨骼与姿势数据；已保存的旧版不再覆盖。"""
+    previous = OUTPUT / 'comparison/before-gait-fix'  # 此次步态修复前的固定对照目录
+    for view in VIEWS:  # 当前视角
+        for relative in [f'rigs/{view}.json'] + [f'{kind}/{view}_{action}.{suffix}' for action in ACTIONS
+                                                for kind, suffix in (('atlases/256', 'png'), ('animations', 'json'))]:  # 当前视角的图集与可重放源数据
+            source = OUTPUT / relative  # 尚未被重新导出的旧版文件
+            target = previous / relative  # 保持相对路径的固定快照
+            if source.exists() and not target.exists():
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source, target)
+
+
+def export_all(rebuild_actions: tuple[str, ...] = ACTIONS) -> None:
+    """输出60帧成品；rebuild_actions为要重新导出的动作，其他动作保留已经验证的索引。"""
     clips = []  # 所有正式动作的元数据
+    manifest_path = OUTPUT / 'manifest.json'  # 已存在的正式动作索引
+    existing = {clip['id']: clip for clip in json.loads(manifest_path.read_text(encoding='utf-8'))['clips']} if manifest_path.exists() else {}  # 增量导出时保留未修改的动作
     for view in VIEWS:  # 当前方向
         parts, rig = load_view(view)  # 本方向部件与骨架
         for action in ACTIONS:  # 当前动作
             clip_id = f'{view}_{action}'  # 独立动作标识
+            if action not in rebuild_actions:
+                clips.append(existing[clip_id])
+                continue
             poses = [sample_pose(action, index, view) for index in range(60)]  # 本动作60个独立骨骼姿势
             frames = [render_pose(parts, rig, pose) for pose in poses]  # 当前动作512透明帧
             for size in (512, 256):  # 正式输出的两种分辨率
@@ -199,6 +217,10 @@ def export_all() -> None:
                           'atlas512': f'atlases/512/{clip_id}.png', 'animation': f'animations/{clip_id}.json',
                           'old': f'comparison/{old_id}.png', 'old_frame': 7 if action == 'idle' else 0 if action == 'crouch' else None,
                           'old_sha256': digest(old_source)})
+            previous = OUTPUT / f'comparison/before-gait-fix/atlases/256/{clip_id}.png'  # 同尺寸同帧数的修正前骨骼素材
+            if previous.exists():
+                clips[-1]['previous'] = {'path': previous.relative_to(OUTPUT).as_posix(), 'frame_count': 60,
+                                         'columns': 12, 'scale': 1.0, 'sha256': digest(previous)}
             candidate = REDRAWN / f'atlases/{clip_id}.png'  # 已完成重绘组的候选图集
             candidate_meta = candidate.with_suffix('.json')  # 对应的完整帧索引
             if candidate.exists() and candidate_meta.exists():
@@ -255,18 +277,47 @@ def export_auxiliary_gif() -> None:
                    duration=[30, 30, 40] * 20, loop=0, disposal=2, optimize=False)
 
 
+def export_gait_comparison() -> None:
+    """导出正常速度的修正前后走跑冲刺GIF，辅助预览采用30FPS，正式PNG仍各60帧。"""
+    frames = []  # 30张正常速度对照画面
+    actions = ('slow_walk', 'run', 'dash')  # 用户指出问题的三类动作
+    if not all((OUTPUT / f'comparison/before-gait-fix/atlases/256/side_{action}.png').exists() for action in actions):
+        return
+    cell = 192  # 对照中每个人物的显示宽度
+    for index in range(0, 60, 2):  # 从正式60帧每隔一帧取样，保持一秒周期
+        canvas = Image.new('RGB', (cell * 3, (cell + 32) * 2 + 42), '#142733')  # 两行三列的对照画布
+        draw = ImageDraw.Draw(canvas)  # 中文标签绘制器
+        draw.text((10, 7), '同尺寸 · 正常速度 · 上排修正前 / 下排修正后', font=font(16), fill='#eef5f7')
+        for row in (0, 1):  # 上行为旧版，下行为新版
+            for column, action in enumerate(actions):  # 当前动作列
+                source = OUTPUT / (f'comparison/before-gait-fix/atlases/256/side_{action}.png' if row == 0 else f'atlases/256/side_{action}.png')  # 当前对照图集
+                atlas = Image.open(source)  # 当前动作的透明图集
+                sx, sy = (index % 12) * 256, (index // 12) * 256  # 当前帧在图集中的位置
+                image = atlas.crop((sx, sy, sx + 256, sy + 256)).resize((cell, cell), Image.Resampling.LANCZOS)  # 保持相同尺度的预览帧
+                x, y = column * cell, row * (cell + 32) + 42  # 当前展示格坐标
+                canvas.paste(image, (x, y), image)
+                draw.line((x + 4, y + cell * .92, x + cell - 4, y + cell * .92), fill='#648d84')
+                draw.text((x + 8, y + cell), ('修正前 ' if row == 0 else '修正后 ') + NAMES[action], font=font(16), fill='#e4a09b' if row == 0 else '#8ce2c9')
+        frames.append(canvas)
+    frames[0].save(OUTPUT / 'previews/gait_comparison_normal_speed.gif', save_all=True, append_images=frames[1:],
+                   duration=[30, 30, 40] * 10, loop=0, disposal=2, optimize=False)
+
+
 def main() -> None:
     """解析导出模式并执行；--all正式导出全部动作，默认只导出抽样。"""
     parser = argparse.ArgumentParser(description=__doc__)  # 命令行参数解析器
     parser.add_argument('--all', action='store_true')
     parser.add_argument('--reuse-parts', action='store_true')
     args = parser.parse_args()  # 用户选择的导出模式
+    if args.all:
+        save_previous_version()
     if not args.reuse_parts:
         extract_parts()
     sample_previews()
     if args.all:
         export_all()
         export_auxiliary_gif()
+        export_gait_comparison()
 
 
 if __name__ == '__main__':

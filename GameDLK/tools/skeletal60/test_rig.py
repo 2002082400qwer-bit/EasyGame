@@ -118,13 +118,16 @@ class RigTests(unittest.TestCase):
                                (1 - side["foot_l"]["pivot"][1] / 100), 20, delta=2)
 
     def test_every_action_starts_and_ends_on_same_ankle_baseline(self):
-        """不同动作的首尾靴底共享451脚踝基线。"""
+        """非循环动作首尾双脚回地，循环步态的周期边界至少一脚接地。"""
         # self：当前测试实例。
         for view in ("front", "side", "back"):  # view：当前视角。
             rig = build_rig(view, {name: (64, 64) for name in PART_ORDER})  # rig：当前视角骨架。
             for action in ("idle", "slow_walk", "run", "jump", "dash", "crouch"):  # action：当前动作。
                 for frame in (0, 59):  # frame：动作首帧或末帧。
                     joints = world_transforms(rig, sample_pose(action, frame, view))  # joints：当前关节位置。
+                    if action in ("slow_walk", "run"):
+                        self.assertLess(min(abs(joints["foot_l"][1] - 451), abs(joints["foot_r"][1] - 451)), 1)
+                        continue
                     for side in ("l", "r"):  # side：待检查的脚。
                         self.assertAlmostEqual(joints[f"foot_{side}"][1], 451, delta=1,
                                                msg=(view, action, frame, side))

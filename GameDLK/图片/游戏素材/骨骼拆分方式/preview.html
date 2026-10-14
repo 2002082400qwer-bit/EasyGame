@@ -4,10 +4,10 @@
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0e1820;color:#e4edf2;font:16px/1.6 'Microsoft YaHei',sans-serif}main{max-width:1120px;margin:auto;padding:30px 24px}h1{margin:0;font-size:28px}p{color:#9fb3bd;margin:8px 0 20px}.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:20px 0}select,button{font:inherit;background:#263b49;color:#fff;border:1px solid #48616e;padding:8px 14px;border-radius:7px;cursor:pointer}button:hover{background:#355563}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:#172831;border:1px solid #31434d;border-radius:12px;overflow:hidden}.card h2{font-size:17px;margin:12px 18px}canvas{display:block;width:100%;height:auto}.seek{width:100%;accent-color:#ee665e}.info{padding:14px 18px;color:#afc1ca;font-size:14px}.tag{color:#ff948b}.row{display:flex;gap:12px;align-items:center}.status{min-height:28px}a{color:#72d7c2}@media(max-width:700px){.grid{grid-template-columns:1fr}main{padding:18px}h1{font-size:23px}}
 </style>
-<main><h1>固定拆件，60 帧动作</h1><p>同一动作周期、统一脚底基线。左侧可选原8帧或已完成的逐帧重绘60帧，右侧由固定部件与骨骼生成60个采样姿势。</p>
+<main><h1>交叉摆臂，60 帧动作对比</h1><p>默认左侧为修正前、右侧为修正后。保持相同人物大小、脚底基线与动作周期，直接比较步幅和手脚配合。</p>
 <div class="controls"><label>方向 <select id="view"><option value="side">侧面</option><option value="front">正面</option><option value="back">背面</option></select></label><label>动作 <select id="action"><option value="slow_walk">慢走</option><option value="run">跑步</option><option value="jump">跳跃</option><option value="dash">冲刺</option><option value="idle">待机</option><option value="crouch">下蹲</option></select></label><button id="play">暂停</button><button id="step">下一帧</button><label>速度 <select id="speed"><option value="1">1×</option><option value="0.5">0.5×</option><option value="0.25">0.25×</option></select></label><label><input type="checkbox" id="bones"> 骨骼</label><label><input type="checkbox" id="light"> 浅色背景</label></div>
-<div class="controls"><label>左侧对照 <select id="compare"><option value="redrawn">逐帧重绘60帧（已完成组）</option><option value="old">原8帧素材</option></select></label></div>
-<div class="grid"><section class="card"><h2>逐帧素材 <span class="tag" id="comparisonTag">等待加载</span></h2><canvas id="old" width="512" height="530"></canvas><div class="info" id="oldInfo"></div></section><section class="card"><h2>骨骼拆分 <span class="tag">60张独立PNG</span></h2><canvas id="fresh" width="512" height="530"></canvas><div class="info" id="newInfo">固定拆件 + 连续骨骼姿势采样 + 接地修正</div></section></div>
+<div class="controls"><label>左侧对照 <select id="compare"><option value="previous">修正前骨骼60帧</option><option value="redrawn">逐帧重绘60帧（已完成组）</option><option value="old">原8帧素材</option></select></label></div>
+<div class="grid"><section class="card"><h2>对照素材 <span class="tag" id="comparisonTag">等待加载</span></h2><canvas id="old" width="512" height="530"></canvas><div class="info" id="oldInfo"></div></section><section class="card"><h2>修正后骨骼 <span class="tag">60张独立PNG</span></h2><canvas id="fresh" width="512" height="530"></canvas><div class="info" id="newInfo">交叉摆臂 · 加大步幅抬腿 · 支撑脚接地</div></section></div>
 <div class="controls"><input class="seek" type="range" id="seek" min="0" max="59" value="0"><div class="status" id="status">准备加载</div></div>
 <p>跳跃、冲刺、下蹲每次演示后重新播放，文件中的动作本身标记为非循环。选择原8帧对照时，待机和下蹲左侧展示游戏此前借用的跳跃恢复帧/蓄力帧。GIF无法精确表达60 FPS，本页为60 FPS计时预览。</p><p><a href="README.md">素材说明</a> · <a href="manifest.json">动作索引</a> · <a href="三视图参考.png">三视图参考</a> · <a href="previews/side_samples.png">侧面动作抽样</a></p></main>
 <script src="data.js"></script><script>
@@ -17,7 +17,7 @@ const data = window.SKELETAL_DATA; // 随素材包携带的索引和骨骼快照
 let current = null; // 当前选择的动作元数据
 let newImage = null, oldImage = null; // 两侧已经加载的图集
 let paused = false, position = 0, previous = null, loadVersion = 0; // 播放状态、连续帧位置、计时与加载竞态序号
-let usingRedrawn = false; // 当前左侧是否显示完整60帧重绘快照
+let comparisonMode = 'old'; // 左侧对照类型：修正前骨骼、重绘60帧或原8帧
 
 /** 加载图片；url为素材包内相对路径，失败时拒绝以显示缺图错误。 */
 function loadImage(url){
@@ -34,16 +34,19 @@ async function selectClip(){
   const version = ++loadVersion; // 本轮加载序号，防止快切时旧结果覆盖新结果
   const clip = data.manifest.clips.find(item=>item.view===ui.view.value&&item.action===ui.action.value); // 当前动作索引
   const useRedrawn = Boolean(clip.redrawn)&&ui.compare.value==='redrawn'; // 本轮选择的对照来源
-  ui.compare.options[0].disabled=!clip.redrawn;
-  ui.compare.options[0].textContent=clip.redrawn?'逐帧重绘60帧（已完成组）':'该组尚无已完成的重绘60帧';
-  if(!clip.redrawn)ui.compare.value='old';
+  const usePrevious = Boolean(clip.previous)&&ui.compare.value==='previous'; // 是否比较修正前后的同一套部件
+  const redrawnOption = ui.compare.querySelector('option[value="redrawn"]'); // 重绘60帧选项
+  const previousOption = ui.compare.querySelector('option[value="previous"]'); // 修正前骨骼选项
+  redrawnOption.disabled=!clip.redrawn;previousOption.disabled=!clip.previous;
+  redrawnOption.textContent=clip.redrawn?'逐帧重绘60帧（已完成组）':'该组尚无已完成的重绘60帧';
+  if(!usePrevious&&!useRedrawn)ui.compare.value='old';
   ui.status.textContent='正在加载…';
   try{
-    const pictures = await Promise.all([loadImage(clip.atlas),loadImage(useRedrawn?clip.redrawn.path:clip.old)]); // 同时加载对照图和新图
+    const pictures = await Promise.all([loadImage(clip.atlas),loadImage(usePrevious?clip.previous.path:useRedrawn?clip.redrawn.path:clip.old)]); // 同时加载对照图和新图
     if(version!==loadVersion)return;
-    current=clip; [newImage,oldImage]=pictures; position=0;usingRedrawn=useRedrawn;
-    ui.comparisonTag.textContent=useRedrawn?'逐帧重绘 · 60帧':'原素材 · 8个姿势';
-    ui.oldInfo.textContent=useRedrawn?'工程已完成重绘组的独立快照，与骨骼60帧同步比较':clip.old_frame===null?'8帧按姿势保持播放，周期统一为1秒':'此前临时借用的跳跃第'+clip.old_frame+'帧';
+    current=clip; [newImage,oldImage]=pictures; position=0;comparisonMode=usePrevious?'previous':useRedrawn?'redrawn':'old';
+    ui.comparisonTag.textContent=usePrevious?'修正前骨骼 · 60帧':useRedrawn?'逐帧重绘 · 60帧':'原素材 · 8个姿势';
+    ui.oldInfo.textContent=usePrevious?'相同人物大小，检查手脚是否交叉以及动作幅度的变化':useRedrawn?'工程已完成重绘组的独立快照，与骨骼60帧同步比较':clip.old_frame===null?'8帧按姿势保持播放，周期统一为1秒':'此前临时借用的跳跃第'+clip.old_frame+'帧';
     redraw();
   }catch(error){ui.status.textContent=error.message;} // error为加载异常
 }
@@ -61,13 +64,13 @@ function backdrop(context){
 function redraw(){
   if(!current||!newImage||!oldImage)return;
   const frame = Math.min(59,Math.floor(position)); // 当前新素材帧序号
-  const oldFrame = usingRedrawn?frame:current.old_frame===null?Math.min(7,Math.floor(frame/60*8)):current.old_frame; // 对照对应的帧或保持姿势
+  const oldFrame = comparisonMode!=='old'?frame:current.old_frame===null?Math.min(7,Math.floor(frame/60*8)):current.old_frame; // 对照对应的帧或保持姿势
   const a = ui.fresh.getContext('2d'), b=ui.old.getContext('2d'); // 新旧画布绘制上下文
   backdrop(a);backdrop(b);a.imageSmoothingEnabled=true;b.imageSmoothingEnabled=true;
   a.drawImage(newImage,frame%12*256,Math.floor(frame/12)*256,256,256,0,0,512,512);
-  const scale = usingRedrawn?current.redrawn.scale:data.comparisonScale[current.view]; // 对照素材按站姿校准后的显示尺度
+  const scale = comparisonMode==='previous'?1:comparisonMode==='redrawn'?current.redrawn.scale:data.comparisonScale[current.view]; // 修正前后严格同大小，其余按站姿对齐
   const width = 512*scale; // 原素材完整帧显示宽度
-  const columns = usingRedrawn?12:4; // 对照图集的列数
+  const columns = comparisonMode!=='old'?12:4; // 对照图集的列数
   b.drawImage(oldImage,oldFrame%columns*256,Math.floor(oldFrame/columns)*256,256,256,256-width/2,471-235.52*2*scale,width,width);
   if(ui.bones.checked){
     const track = data.tracks[current.id][frame]; // 当前帧世界骨骼坐标
@@ -81,7 +84,7 @@ function redraw(){
       a.beginPath();a.arc(point[0],point[1],3,0,Math.PI*2);a.fill();
     }
   }
-  ui.seek.value=frame;ui.status.textContent='骨骼 '+String(frame).padStart(2,'0')+' / 59　·　逐帧 '+oldFrame+' / '+(usingRedrawn?'59':'7')+'　·　60 FPS × '+ui.speed.value;
+  ui.seek.value=frame;ui.status.textContent='修正后 '+String(frame).padStart(2,'0')+' / 59　·　对照 '+oldFrame+' / '+(comparisonMode!=='old'?'59':'7')+'　·　60 FPS × '+ui.speed.value;
 }
 
 /** 用浏览器时间戳驱动60FPS动作采样；time为requestAnimationFrame毫秒时刻。 */

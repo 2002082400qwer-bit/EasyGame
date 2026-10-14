@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "page": "preview.html",
+  "offline": true,
+  "scenes": [
+    {
+      "action": "slow_walk",
+      "compared_frame": 21,
+      "next_frame": 22,
+      "comparison": "previous"
+    },
+    {
+      "action": "run",
+      "compared_frame": 21,
+      "next_frame": 22,
+      "comparison": "previous"
+    },
+    {
+      "action": "dash",
+      "compared_frame": 21,
+      "next_frame": 22,
+      "comparison": "previous"
+    }
+  ],
+  "old8_switch": true,
+  "page_errors": []
+}

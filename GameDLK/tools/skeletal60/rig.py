@@ -108,15 +108,22 @@ def _leg_angles(dx: float, dy: float, bend: float) -> tuple[float, float, float]
     return thigh, shin_global - thigh, -shin_global
 
 
-def _gait_target(phase: float, stride: float, lift: float, direction: float) -> tuple[float, float]:
-    """生成一只脚的循环目标；phase为0至1步态相位，stride为半步幅，lift为抬脚高度，direction为行走朝向。"""
-    contact = 0.60  # contact：脚贴地的周期比例。
+def _gait_target(phase: float, stride: float, lift: float, direction: float, contact: float = 0.60) -> tuple[float, float]:
+    """生成脚目标；phase为相位，stride为半步幅，lift为抬脚量，direction为朝向，contact为接地比例。"""
     if phase < contact:
         progress = phase / contact  # progress：支撑期内的进度。
         return direction * stride * (1.0 - 2.0 * progress), 0.0
     progress = (phase - contact) / (1.0 - contact)  # progress：摆腿期内的进度。
     across = _smoothstep(progress)  # across：平滑前摆量。
     return direction * stride * (-1.0 + 2.0 * across), -lift * math.sin(math.pi * progress) ** 2
+
+
+def _opposed_arm(forward: float, amplitude: float, elbow: float, torso: float) -> tuple[float, float]:
+    """侧面交叉摆臂；forward为同侧脚前后量，amplitude为摆幅，elbow为屈肘角，torso为胸部世界角。"""
+    upper_length = 56.0  # 肩到肘的实际绑定距离
+    lower_length = 68.4  # 肘到前臂含手末端的实际绑定距离
+    center = -math.atan2(lower_length * math.sin(elbow), upper_length + lower_length * math.cos(elbow))  # 抵消屈肘本身的向前偏移
+    return center - forward * amplitude - torso, elbow
 
 
 def sample_pose(action: str, frame: int, view: str) -> dict:
@@ -146,33 +153,49 @@ def sample_pose(action: str, frame: int, view: str) -> dict:
         angles["forearm_l"] = 0.035
         angles["forearm_r"] = -0.035
     elif action in ("slow_walk", "run"):
-        stride = 19.0 if action == "slow_walk" else 31.0  # stride：脚踝相对髋的半步幅。
-        lift = 16.0 if action == "slow_walk" else 28.0  # lift：摆腿期脚踝抬高量。
-        root_y = (1.5 if action == "slow_walk" else 3.1) * (1.0 - math.cos(2.0 * cycle)) / 2.0
-        angles["torso"] = direction * (0.025 if action == "slow_walk" else 0.10) + 0.012 * tiny
+        stride = 52.0 if action == "slow_walk" else 82.0  # stride：放大后仍在腿可达范围内的半步幅。
+        lift = 36.0 if action == "slow_walk" else 74.0  # lift：走路抬脚和跑步收腿的可见高度。
+        contact = 0.60 if action == "slow_walk" else 0.42  # contact：跑步缩短接地期，包含双脚腾空阶段。
+        targets = {}  # targets：以同一脚步相位同时驱动手臂和腿的目标。
+        for side, offset in (("l", 0.0), ("r", 0.5)):  # side/offset：左右腿及半周相差。
+            targets[side] = _gait_target((phase + offset) % 1.0, stride, lift, direction, contact)
+        if view == "side":
+            reach = 2.0 * LEG_LENGTH - 1.0  # reach：保留关节余量的最大腿长。
+            required_drop = max(ANKLE_Y + target_y - HIP_Y - math.sqrt(reach * reach - target_x * target_x)
+                                for target_x, target_y in targets.values())  # required_drop：大步幅下仍能让支撑脚接地的骨盆高度。
+            root_y = required_drop + 2.0 + (2.0 if action == "slow_walk" else 6.0) * (1.0 - math.cos(2.0 * cycle)) / 2.0
+        else:
+            root_y = (3.0 if action == "slow_walk" else 6.0) * (1.0 - math.cos(2.0 * cycle)) / 2.0
+        angles["torso"] = direction * ((0.075 if action == "slow_walk" else 0.20) if view == "side" else 0.035) + 0.012 * tiny
         angles["head"] = -angles["torso"] * 0.45
-        arm = (0.22 if action == "slow_walk" else 0.49) if view == "side" else (0.08 if action == "slow_walk" else 0.16)  # arm：当前视角的手臂摆幅。
-        angles["upper_arm_l"] = arm * math.sin(cycle + math.pi)
-        angles["upper_arm_r"] = arm * math.sin(cycle)
-        angles["forearm_l"] = -0.12 - 0.08 * max(0.0, math.sin(cycle))
-        angles["forearm_r"] = 0.12 + 0.08 * max(0.0, -math.sin(cycle))
         for side, offset in (("l", 0.0), ("r", 0.5)):  # side/offset：左右腿及半周相位差。
             foot_phase = (phase + offset) % 1.0  # foot_phase：当前脚的周期相位。
+            target_x, target_y = targets[side]  # target_x/y：该脚本帧的统一目标。
+            forward = direction * target_x / stride  # forward：同侧脚向前为正、向后为负的归一化相位。
             if view == "side":
-                target_x, target_y = _gait_target(foot_phase, stride, lift, direction)  # target_x/y：侧面脚踝目标。
                 thigh, shin, foot = _leg_angles(target_x, ANKLE_Y + target_y - HIP_Y - root_y, 1.0)  # thigh等：侧面腿角。
                 angles[f"thigh_{side}"] = thigh
                 angles[f"shin_{side}"] = shin
                 angles[f"foot_{side}"] = foot
+                upper, forearm = _opposed_arm(forward, 0.52 if action == "slow_walk" else 0.92,
+                                              0.45 if action == "slow_walk" else 1.35, angles["torso"])  # upper/forearm：同侧脚前时手后，两侧肘均朝前弯。
+                angles[f"upper_arm_{side}"] = upper
+                angles[f"forearm_{side}"] = forearm
             else:
-                swing = max(0.0, (foot_phase - 0.60) / 0.40)  # swing：正背面摆腿阶段的进度。
-                raised = (12.0 if action == "slow_walk" else 20.0) * math.sin(math.pi * swing) ** 2  # raised：通过缩短腿段表现的抬脚高度。
+                swing = max(0.0, (foot_phase - contact) / (1.0 - contact))  # swing：正背面摆腿阶段的进度。
+                raised = (30.0 if action == "slow_walk" else 56.0) * math.sin(math.pi * swing) ** 2  # raised：正背面不靠横向劈叉来增加抬脚可见度。
                 segment_scale = (ANKLE_Y - HIP_Y - root_y - raised) / (2.0 * LEG_LENGTH)  # segment_scale：使脚踝到达目标地面的腿段纵向比例。
                 scales[f"thigh_{side}"] = segment_scale
                 scales[f"shin_{side}"] = segment_scale
-                sway = 0.015 * math.sin(2.0 * math.pi * foot_phase)  # sway：避免完全静止的轻微腿摆。
+                sway = 0.025 * math.sin(2.0 * math.pi * foot_phase)  # sway：控制轻微腿摆，保持正背面朝向。
                 angles[f"thigh_{side}"] = sway
                 angles[f"shin_{side}"] = -sway
+                arm_depth = -forward  # arm_depth：前摆的手对应后摆的同侧腿。
+                outward = 1.0 if side == "l" else -1.0  # outward：左右手少量外展的画面方向。
+                angles[f"upper_arm_{side}"] = outward * (0.06 + (0.14 if action == "slow_walk" else 0.24) * abs(arm_depth))
+                angles[f"forearm_{side}"] = -outward * (0.10 + 0.12 * max(0.0, -arm_depth))
+                scales[f"upper_arm_{side}"] = 1.0 - 0.10 * max(0.0, arm_depth)
+                scales[f"forearm_{side}"] = 1.0 - (0.40 if action == "slow_walk" else 0.58) * max(0.0, arm_depth)
     else:
         progress = frame / 59.0  # progress：非循环动作的首尾封闭进度。
         arch = math.sin(math.pi * progress)  # arch：首尾为零的动作包络。
@@ -197,19 +220,28 @@ def sample_pose(action: str, frame: int, view: str) -> dict:
         elif action == "dash":
             drive = _smoothstep(min(progress * 10.0, (1.0 - progress) * 10.0))  # drive：快速进入和退出冲刺的强度。
             root_x = direction * 3.0 * drive * math.sin(cycle)
-            root_y = -3.0 + 3.0 * drive
-            angles["torso"] = direction * 0.28 * drive
+            root_y = -3.0 + (12.0 if view == "side" else 18.0) * drive
+            angles["torso"] = direction * (0.58 if view == "side" else 0.10) * drive
             angles["head"] = -angles["torso"] * 0.45
             for side in ("l", "r"):  # side：冲刺支撑腿或摆动腿。
                 bend = 1.0 if view == "side" else (1.0 if side == "l" else -1.0)  # bend：膝盖弯曲方向。
-                target_x = direction * (25.0 if side == "l" else -36.0) * drive  # target_x：前脚与后脚的水平伸展。
-                target_y = ANKLE_Y - (0.0 if side == "l" else 22.0 * drive)  # target_y：前脚贴地、后脚抬起的高度。
+                target_x = (direction * (62.0 if side == "l" else -78.0) if view == "side" else (-8.0 if side == "l" else 8.0)) * drive  # target_x：侧面前后大幅伸腿，正背面只少量外展。
+                target_y = ANKLE_Y - (0.0 if side == "l" else 60.0 * drive)  # target_y：前脚贴地、后腿明显收起。
                 thigh, shin, foot = _leg_angles(target_x, target_y - HIP_Y - root_y, bend)  # thigh等：按目标脚踝求出的腿角。
-                angles[f"thigh_{side}"] = thigh * drive
-                angles[f"shin_{side}"] = shin * drive
-                angles[f"foot_{side}"] = foot * drive
-            angles["upper_arm_l"] = -direction * 0.42 * drive + 0.12 * drive * math.sin(cycle)
-            angles["upper_arm_r"] = direction * 0.58 * drive - 0.12 * drive * math.sin(cycle)
+                angles[f"thigh_{side}"] = thigh
+                angles[f"shin_{side}"] = shin
+                angles[f"foot_{side}"] = foot
+                if view == "side":
+                    upper, forearm = _opposed_arm(1.0 if side == "l" else -1.0,
+                                                  (0.90 + 0.06 * math.sin(cycle)) * drive,
+                                                  1.40 * drive, angles["torso"])  # upper/forearm：前脚配后手、后脚配前手的冲刺发力姿势。
+                    angles[f"upper_arm_{side}"] = upper
+                    angles[f"forearm_{side}"] = forearm
+                else:
+                    outward = 1.0 if side == "l" else -1.0  # outward：正背面手臂少量外展方向。
+                    angles[f"upper_arm_{side}"] = outward * 0.30 * drive
+                    angles[f"forearm_{side}"] = -outward * 0.18 * drive
+                    scales[f"forearm_{side}"] = 1.0 - (0.15 if side == "l" else 0.60) * drive
         else:
             depth = _smoothstep(min(progress * 4.0, (1.0 - progress) * 4.0))  # depth：下蹲压低与起身强度。
             root_y = 85.0 * depth + 0.55 * depth * (1.0 - math.cos(cycle))
@@ -237,6 +269,12 @@ def sample_pose(action: str, frame: int, view: str) -> dict:
     angles["hair"] = -0.38 * angles["head"] + 0.025 * math.sin(cycle - 0.45)
     angles["coat_l"] = -0.22 * angles["torso"] + 0.035 * math.sin(cycle - 0.65)
     angles["coat_r"] = -0.22 * angles["torso"] - 0.035 * math.sin(cycle - 0.65)
+    if action in ("slow_walk", "run", "dash"):
+        strength = (0.55 if action == "slow_walk" else 1.0) if action != "dash" else drive  # strength：动作发力程度，冲刺首尾平滑恢复。
+        wind = (-0.18 if view == "side" else 0.0) * strength  # wind：侧面前进时头发与衣摆向后拖动。
+        angles["hair"] += wind + 0.07 * strength * math.sin(cycle - 0.55)
+        angles["coat_l"] += wind + 0.15 * strength * math.sin(cycle - 0.50)
+        angles["coat_r"] += wind - 0.15 * strength * math.sin(cycle - 0.50)
     return {"root": [root_x, root_y], "angles": angles, "scales": scales, "phase": phase}
 
 
