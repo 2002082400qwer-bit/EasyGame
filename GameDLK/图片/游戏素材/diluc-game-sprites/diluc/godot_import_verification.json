@@ -1,0 +1,114 @@
+{
+  "animations": 24,
+  "engine": "4.5.1-stable (official)",
+  "errors": [],
+  "passed": true,
+  "textures": 192,
+  "assets": [
+    {
+      "path": "atlases/256/back_dash.png",
+      "sha256": "52a96729ec0b65602a946c4757c73c16606cece90f700fdcf4c7dfdcf5f70a5a"
+    },
+    {
+      "path": "atlases/256/back_jump.png",
+      "sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f"
+    },
+    {
+      "path": "atlases/256/back_run.png",
+      "sha256": "8d5345f28c238feb1ca385cbd385356eaa01c986e2637750bc805fab3b3a9a29"
+    },
+    {
+      "path": "atlases/256/back_slow_walk.png",
+      "sha256": "bf773aecdb43df52a79f3515b5539f5b332deb52c1b73fa5e619019a00144fe6"
+    },
+    {
+      "path": "atlases/256/front_dash.png",
+      "sha256": "2f38a5b2af053a1b16dc07c06fd0dd2e1a56aa1a9e0597e99a379faaa4e825bf"
+    },
+    {
+      "path": "atlases/256/front_jump.png",
+      "sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c"
+    },
+    {
+      "path": "atlases/256/front_run.png",
+      "sha256": "2c7fc0b213e25ae175020be35ab3b06134e25f4dd2b24123dd9a2fa60343f700"
+    },
+    {
+      "path": "atlases/256/front_slow_walk.png",
+      "sha256": "b47c00d644a6ece5b216140bf46af12567e4dfa03449e6029aeeee80a7850d33"
+    },
+    {
+      "path": "atlases/256/side_dash.png",
+      "sha256": "3543cc09e2dd796c35826d8a3fba59659c7548f05c1efee39403e53ad6facce5"
+    },
+    {
+      "path": "atlases/256/side_jump.png",
+      "sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839"
+    },
+    {
+      "path": "atlases/256/side_run.png",
+      "sha256": "c3e2ad15b4cff7a6369a68d0ceec633fcc6754e9be697b0e9c48514c4efe3d71"
+    },
+    {
+      "path": "atlases/256/side_slow_walk.png",
+      "sha256": "7df72506625ea86b2bd5fde06a27271c91147d48e83df33bf6eb06a19379f2a9"
+    },
+    {
+      "path": "atlases/512/back_dash.png",
+      "sha256": "232ca84861ebe6c57f4b149f38ae6f0b5e5c8254d57910b5b4dda3592307370a"
+    },
+    {
+      "path": "atlases/512/back_jump.png",
+      "sha256": "5d7a6de16b72f9177e4d13a098dcf2d7cb6bde8774dcfb794098bdfec1ae91f3"
+    },
+    {
+      "path": "atlases/512/back_run.png",
+      "sha256": "960ad2c30ab666fb855dc36f51de14ffd177f5d6b24cd43d877f5c6d94de82f4"
+    },
+    {
+      "path": "atlases/512/back_slow_walk.png",
+      "sha256": "2ede726a00125b9f238314c99c66fbc48d4d06e4e67b39704f4786f32e36933a"
+    },
+    {
+      "path": "atlases/512/front_dash.png",
+      "sha256": "e11953c9775269d2f371a65b705f05150cff4118a0ef21d7b1fcceda1d62fa37"
+    },
+    {
+      "path": "atlases/512/front_jump.png",
+      "sha256": "fef76a4261cb212b596dc79332575391194161e5af9d41d193665d17d2cfb018"
+    },
+    {
+      "path": "atlases/512/front_run.png",
+      "sha256": "ab2bdf7bfb73e7ef2bb36e1e14693a8cb3e0bb6723f98dbe96040b7e89befa26"
+    },
+    {
+      "path": "atlases/512/front_slow_walk.png",
+      "sha256": "50e94a2df0c60140478b6b1b08a30b8e17095a89148ade6ebe3ff6fb0b83b214"
+    },
+    {
+      "path": "atlases/512/side_dash.png",
+      "sha256": "13eeb4a95b3dba6cba631dc613ed0121891710056c00bf7991cc29221de4eb3a"
+    },
+    {
+      "path": "atlases/512/side_jump.png",
+      "sha256": "f04282238cd36bfc5468d87f25bb28408bfe1804ee6773ca763aecd3b4b3c32b"
+    },
+    {
+      "path": "atlases/512/side_run.png",
+      "sha256": "da593fa1acce180418591f003a88603b64017725c372953bf81878e0645301c1"
+    },
+    {
+      "path": "atlases/512/side_slow_walk.png",
+      "sha256": "bbb965cfe1cbc101165cafc15c2143ff7fa7f87d171097119afe5204f6357456"
+    },
+    {
+      "path": "godot/diluc_256.tres",
+      "sha256": "e1ca9171dc3859f7847d49d6bbaf6ade5daff94832fcfc4baf715e7e6a310a20"
+    },
+    {
+      "path": "godot/diluc_512.tres",
+      "sha256": "f170e4c393301f6a65b72ede77c26b9d2fca00a13b073f33ac0b4744ec1e5d68"
+    }
+  ],
+  "targetGameProjectIntegrated": false
+}

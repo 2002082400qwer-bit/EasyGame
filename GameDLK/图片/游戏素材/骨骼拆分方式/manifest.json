@@ -1,0 +1,428 @@
+{
+  "version": 1,
+  "method": "fixed-cutout-skeletal",
+  "clips": [
+    {
+      "id": "front_idle",
+      "view": "front",
+      "action": "idle",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": true,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/front_idle.png",
+      "atlas512": "atlases/512/front_idle.png",
+      "animation": "animations/front_idle.json",
+      "old": "comparison/front_jump.png",
+      "old_frame": 7,
+      "old_sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c",
+      "redrawn": {
+        "path": "comparison/redrawn60/front_idle.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "82ad10e43f15a0463b110d3917c57ab68f034d04470c01f2f5051e120bd5dde0",
+        "scale": 0.8127853881278538,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/front_idle.png"
+      }
+    },
+    {
+      "id": "front_slow_walk",
+      "view": "front",
+      "action": "slow_walk",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": true,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/front_slow_walk.png",
+      "atlas512": "atlases/512/front_slow_walk.png",
+      "animation": "animations/front_slow_walk.json",
+      "old": "comparison/front_slow_walk.png",
+      "old_frame": null,
+      "old_sha256": "b47c00d644a6ece5b216140bf46af12567e4dfa03449e6029aeeee80a7850d33"
+    },
+    {
+      "id": "front_run",
+      "view": "front",
+      "action": "run",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": true,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/front_run.png",
+      "atlas512": "atlases/512/front_run.png",
+      "animation": "animations/front_run.json",
+      "old": "comparison/front_run.png",
+      "old_frame": null,
+      "old_sha256": "2c7fc0b213e25ae175020be35ab3b06134e25f4dd2b24123dd9a2fa60343f700"
+    },
+    {
+      "id": "front_jump",
+      "view": "front",
+      "action": "jump",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": false,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/front_jump.png",
+      "atlas512": "atlases/512/front_jump.png",
+      "animation": "animations/front_jump.json",
+      "old": "comparison/front_jump.png",
+      "old_frame": null,
+      "old_sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c"
+    },
+    {
+      "id": "front_dash",
+      "view": "front",
+      "action": "dash",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": false,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/front_dash.png",
+      "atlas512": "atlases/512/front_dash.png",
+      "animation": "animations/front_dash.json",
+      "old": "comparison/front_dash.png",
+      "old_frame": null,
+      "old_sha256": "2f38a5b2af053a1b16dc07c06fd0dd2e1a56aa1a9e0597e99a379faaa4e825bf"
+    },
+    {
+      "id": "front_crouch",
+      "view": "front",
+      "action": "crouch",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": false,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/front_crouch.png",
+      "atlas512": "atlases/512/front_crouch.png",
+      "animation": "animations/front_crouch.json",
+      "old": "comparison/front_jump.png",
+      "old_frame": 0,
+      "old_sha256": "16fef685f15d2b5a90e5a0eaa1c703839794edf786b9bf19b80600be81c5d98c"
+    },
+    {
+      "id": "side_idle",
+      "view": "side",
+      "action": "idle",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": true,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/side_idle.png",
+      "atlas512": "atlases/512/side_idle.png",
+      "animation": "animations/side_idle.json",
+      "old": "comparison/side_jump.png",
+      "old_frame": 7,
+      "old_sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839",
+      "redrawn": {
+        "path": "comparison/redrawn60/side_idle.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "af3bfd98ff78eabdf54282ed4aa2422f991e104d4adeb8be4f3d6bd28201ade3",
+        "scale": 0.7807017543859649,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/side_idle.png"
+      }
+    },
+    {
+      "id": "side_slow_walk",
+      "view": "side",
+      "action": "slow_walk",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": true,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/side_slow_walk.png",
+      "atlas512": "atlases/512/side_slow_walk.png",
+      "animation": "animations/side_slow_walk.json",
+      "old": "comparison/side_slow_walk.png",
+      "old_frame": null,
+      "old_sha256": "7df72506625ea86b2bd5fde06a27271c91147d48e83df33bf6eb06a19379f2a9",
+      "redrawn": {
+        "path": "comparison/redrawn60/side_slow_walk.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "4e712b57932f273b3f16b9b61dd8a3425483ce34356b9e22b01b3c8884c2309e",
+        "scale": 0.7807017543859649,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/side_slow_walk.png"
+      }
+    },
+    {
+      "id": "side_run",
+      "view": "side",
+      "action": "run",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": true,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/side_run.png",
+      "atlas512": "atlases/512/side_run.png",
+      "animation": "animations/side_run.json",
+      "old": "comparison/side_run.png",
+      "old_frame": null,
+      "old_sha256": "c3e2ad15b4cff7a6369a68d0ceec633fcc6754e9be697b0e9c48514c4efe3d71"
+    },
+    {
+      "id": "side_jump",
+      "view": "side",
+      "action": "jump",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": false,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/side_jump.png",
+      "atlas512": "atlases/512/side_jump.png",
+      "animation": "animations/side_jump.json",
+      "old": "comparison/side_jump.png",
+      "old_frame": null,
+      "old_sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839"
+    },
+    {
+      "id": "side_dash",
+      "view": "side",
+      "action": "dash",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": false,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/side_dash.png",
+      "atlas512": "atlases/512/side_dash.png",
+      "animation": "animations/side_dash.json",
+      "old": "comparison/side_dash.png",
+      "old_frame": null,
+      "old_sha256": "3543cc09e2dd796c35826d8a3fba59659c7548f05c1efee39403e53ad6facce5"
+    },
+    {
+      "id": "side_crouch",
+      "view": "side",
+      "action": "crouch",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": false,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/side_crouch.png",
+      "atlas512": "atlases/512/side_crouch.png",
+      "animation": "animations/side_crouch.json",
+      "old": "comparison/side_jump.png",
+      "old_frame": 0,
+      "old_sha256": "1d5fee4d244aa1b5c569bc71d373a65450946d250f1bf3138b58a01e16ed3839"
+    },
+    {
+      "id": "back_idle",
+      "view": "back",
+      "action": "idle",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": true,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/back_idle.png",
+      "atlas512": "atlases/512/back_idle.png",
+      "animation": "animations/back_idle.json",
+      "old": "comparison/back_jump.png",
+      "old_frame": 7,
+      "old_sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f",
+      "redrawn": {
+        "path": "comparison/redrawn60/back_idle.png",
+        "frame_count": 60,
+        "columns": 12,
+        "sha256": "8f599072ffc8951b1d99872a1b5088fb07ea1674244493bec98f28f64530b838",
+        "scale": 0.7606837606837606,
+        "source": "图片/游戏素材/diluc-redrawn-60/atlases/back_idle.png"
+      }
+    },
+    {
+      "id": "back_slow_walk",
+      "view": "back",
+      "action": "slow_walk",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": true,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/back_slow_walk.png",
+      "atlas512": "atlases/512/back_slow_walk.png",
+      "animation": "animations/back_slow_walk.json",
+      "old": "comparison/back_slow_walk.png",
+      "old_frame": null,
+      "old_sha256": "bf773aecdb43df52a79f3515b5539f5b332deb52c1b73fa5e619019a00144fe6"
+    },
+    {
+      "id": "back_run",
+      "view": "back",
+      "action": "run",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": true,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/back_run.png",
+      "atlas512": "atlases/512/back_run.png",
+      "animation": "animations/back_run.json",
+      "old": "comparison/back_run.png",
+      "old_frame": null,
+      "old_sha256": "8d5345f28c238feb1ca385cbd385356eaa01c986e2637750bc805fab3b3a9a29"
+    },
+    {
+      "id": "back_jump",
+      "view": "back",
+      "action": "jump",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": false,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/back_jump.png",
+      "atlas512": "atlases/512/back_jump.png",
+      "animation": "animations/back_jump.json",
+      "old": "comparison/back_jump.png",
+      "old_frame": null,
+      "old_sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f"
+    },
+    {
+      "id": "back_dash",
+      "view": "back",
+      "action": "dash",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": false,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/back_dash.png",
+      "atlas512": "atlases/512/back_dash.png",
+      "animation": "animations/back_dash.json",
+      "old": "comparison/back_dash.png",
+      "old_frame": null,
+      "old_sha256": "52a96729ec0b65602a946c4757c73c16606cece90f700fdcf4c7dfdcf5f70a5a"
+    },
+    {
+      "id": "back_crouch",
+      "view": "back",
+      "action": "crouch",
+      "frame_count": 60,
+      "fps": 60,
+      "duration": 1.0,
+      "loop": false,
+      "columns": 12,
+      "rows": 5,
+      "pivot": {
+        "x": 0.5,
+        "y": 0.92
+      },
+      "atlas": "atlases/256/back_crouch.png",
+      "atlas512": "atlases/512/back_crouch.png",
+      "animation": "animations/back_crouch.json",
+      "old": "comparison/back_jump.png",
+      "old_frame": 0,
+      "old_sha256": "69586d2f5fd7bda25a45bc1146a2a739f6db8df649cf83f3503f30e513b20a8f"
+    }
+  ],
+  "part_count": 48,
+  "frame_count_per_resolution": 1080,
+  "resolutions": [
+    256,
+    512
+  ],
+  "reference": "三视图参考.png",
+  "rigs": {
+    "front": "rigs/front.json",
+    "side": "rigs/side.json",
+    "back": "rigs/back.json"
+  }
+}

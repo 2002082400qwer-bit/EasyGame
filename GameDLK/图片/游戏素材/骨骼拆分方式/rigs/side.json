@@ -1,0 +1,303 @@
+{
+  "view": "side",
+  "canvas_size": 512,
+  "root": [
+    256,
+    247
+  ],
+  "render_scale": 0.8,
+  "render_anchor": [
+    256,
+    471
+  ],
+  "bones": [
+    {
+      "name": "head",
+      "parent": "torso",
+      "x": 0,
+      "y": -98,
+      "length": 0.0,
+      "rest_angle": 0.0,
+      "draw_order": 14,
+      "part": "head",
+      "pivot": [
+        98.5,
+        179.82
+      ],
+      "display_size": [
+        65,
+        90
+      ]
+    },
+    {
+      "name": "torso",
+      "parent": "pelvis",
+      "x": 0,
+      "y": -52,
+      "length": 0.0,
+      "rest_angle": 0.0,
+      "draw_order": 7,
+      "part": "torso",
+      "pivot": [
+        73.0,
+        172.5
+      ],
+      "display_size": [
+        58,
+        120
+      ]
+    },
+    {
+      "name": "pelvis",
+      "parent": null,
+      "x": 256,
+      "y": 247,
+      "length": 0.0,
+      "rest_angle": 0.0,
+      "draw_order": 6,
+      "part": "pelvis",
+      "pivot": [
+        99.0,
+        83.7
+      ],
+      "display_size": [
+        48,
+        44
+      ]
+    },
+    {
+      "name": "hair",
+      "parent": "head",
+      "x": 26,
+      "y": -36,
+      "length": 0.0,
+      "rest_angle": 0.0,
+      "draw_order": 7.5,
+      "part": "hair",
+      "pivot": [
+        216.0,
+        84.3
+      ],
+      "display_size": [
+        86,
+        190
+      ]
+    },
+    {
+      "name": "upper_arm_l",
+      "parent": "torso",
+      "x": -5,
+      "y": -48,
+      "length": 0.0,
+      "rest_angle": 0.0,
+      "draw_order": 4,
+      "part": "upper_arm_l",
+      "pivot": [
+        64.5,
+        26.700000000000003
+      ],
+      "display_size": [
+        32,
+        72
+      ]
+    },
+    {
+      "name": "upper_arm_r",
+      "parent": "torso",
+      "x": 5,
+      "y": -48,
+      "length": 0.0,
+      "rest_angle": 0.0,
+      "draw_order": 12,
+      "part": "upper_arm_r",
+      "pivot": [
+        62.0,
+        26.700000000000003
+      ],
+      "display_size": [
+        32,
+        72
+      ]
+    },
+    {
+      "name": "forearm_l",
+      "parent": "upper_arm_l",
+      "x": 0,
+      "y": 56,
+      "length": 0.0,
+      "rest_angle": 0.0,
+      "draw_order": 3,
+      "part": "forearm_l",
+      "pivot": [
+        51.0,
+        25.5
+      ],
+      "display_size": [
+        30,
+        76
+      ]
+    },
+    {
+      "name": "forearm_r",
+      "parent": "upper_arm_r",
+      "x": 0,
+      "y": 56,
+      "length": 0.0,
+      "rest_angle": 0.0,
+      "draw_order": 13,
+      "part": "forearm_r",
+      "pivot": [
+        50.5,
+        25.5
+      ],
+      "display_size": [
+        30,
+        76
+      ]
+    },
+    {
+      "name": "thigh_l",
+      "parent": "pelvis",
+      "x": -3,
+      "y": 7,
+      "length": 100.0,
+      "rest_angle": 0.0,
+      "draw_order": 2,
+      "part": "thigh_l",
+      "pivot": [
+        57.5,
+        18.340000000000003
+      ],
+      "display_size": [
+        34,
+        115
+      ]
+    },
+    {
+      "name": "thigh_r",
+      "parent": "pelvis",
+      "x": 3,
+      "y": 7,
+      "length": 100.0,
+      "rest_angle": 0.0,
+      "draw_order": 8,
+      "part": "thigh_r",
+      "pivot": [
+        61.0,
+        18.48
+      ],
+      "display_size": [
+        34,
+        115
+      ]
+    },
+    {
+      "name": "shin_l",
+      "parent": "thigh_l",
+      "x": 0,
+      "y": 100.0,
+      "length": 100.0,
+      "rest_angle": 0.0,
+      "draw_order": 1,
+      "part": "shin_l",
+      "pivot": [
+        51.5,
+        17.57
+      ],
+      "display_size": [
+        31,
+        115
+      ]
+    },
+    {
+      "name": "shin_r",
+      "parent": "thigh_r",
+      "x": 0,
+      "y": 100.0,
+      "length": 100.0,
+      "rest_angle": 0.0,
+      "draw_order": 9,
+      "part": "shin_r",
+      "pivot": [
+        52.5,
+        17.71
+      ],
+      "display_size": [
+        31,
+        115
+      ]
+    },
+    {
+      "name": "foot_l",
+      "parent": "shin_l",
+      "x": 0,
+      "y": 100.0,
+      "length": 0.0,
+      "rest_angle": 0.0,
+      "draw_order": 0,
+      "part": "foot_l",
+      "pivot": [
+        138.96,
+        93.27272727272727
+      ],
+      "display_size": [
+        54,
+        44
+      ]
+    },
+    {
+      "name": "foot_r",
+      "parent": "shin_r",
+      "x": 0,
+      "y": 100.0,
+      "length": 0.0,
+      "rest_angle": 0.0,
+      "draw_order": 10,
+      "part": "foot_r",
+      "pivot": [
+        133.2,
+        98.18181818181817
+      ],
+      "display_size": [
+        54,
+        44
+      ]
+    },
+    {
+      "name": "coat_l",
+      "parent": "pelvis",
+      "x": 10,
+      "y": -20,
+      "length": 0.0,
+      "rest_angle": 0.0,
+      "draw_order": 5,
+      "part": "coat_l",
+      "pivot": [
+        136.5,
+        26.64
+      ],
+      "display_size": [
+        60,
+        176
+      ]
+    },
+    {
+      "name": "coat_r",
+      "parent": "pelvis",
+      "x": 14,
+      "y": -20,
+      "length": 0.0,
+      "rest_angle": 0.0,
+      "draw_order": 11,
+      "part": "coat_r",
+      "pivot": [
+        126.0,
+        26.91
+      ],
+      "display_size": [
+        60,
+        176
+      ]
+    }
+  ]
+}
