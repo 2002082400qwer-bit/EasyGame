@@ -8,3 +8,8 @@ New-Item -ItemType Directory -Path (Join-Path $projectRoot 'build') -Force | Out
 if ($LASTEXITCODE -ne 0) { throw '行为测试编译失败。' }
 & $testExecutable
 if ($LASTEXITCODE -ne 0) { throw '行为测试失败。' }
+$animationExecutable = Join-Path $projectRoot 'build\animation_tests.exe' # 独立动画行为测试程序
+& $compilerPath -std=c99 -Wall -Wextra -Werror -O2 -static -I (Join-Path $projectRoot 'src') (Join-Path $projectRoot 'tests\animation_tests.c') (Join-Path $projectRoot 'src\animation.c') (Join-Path $projectRoot 'src\player.c') -o $animationExecutable
+if ($LASTEXITCODE -ne 0) { throw '动画测试编译失败。' }
+& $animationExecutable
+if ($LASTEXITCODE -ne 0) { throw '动画行为测试失败。' }

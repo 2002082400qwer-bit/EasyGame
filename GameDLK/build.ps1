@@ -13,6 +13,7 @@ $compileArguments = @( # 游戏编译及静态链接参数
     '-finput-charset=UTF-8', '-fexec-charset=UTF-8',
     '-I', (Join-Path $projectRoot 'src'), '-I', (Join-Path $raylibRoot 'include'),
     (Join-Path $projectRoot 'src\main.c'), (Join-Path $projectRoot 'src\player.c'),
+    (Join-Path $projectRoot 'src\animation.c'),
     '-L', (Join-Path $raylibRoot 'lib'), '-lraylib', '-lopengl32', '-lgdi32', '-lwinmm',
     '-o', (Join-Path $buildDirectory 'MX002.exe')
 )

@@ -4,12 +4,14 @@
 #include <stdbool.h>
 
 #define PLAYER_WALK_SPEED 260.0f // 正常行走速度，单位像素每秒
+#define PLAYER_RUN_SPEED 420.0f // 按住跑步键时的移动速度
 #define PLAYER_CROUCH_SPEED 95.0f // 下蹲移动速度，单位像素每秒
 #define PLAYER_JUMP_SPEED 680.0f // 起跳速度的绝对值
 #define PLAYER_GRAVITY 1800.0f // 向下的重力加速度
 #define PLAYER_DASH_SPEED 900.0f // 冲刺水平速度
 #define PLAYER_DASH_DURATION 0.18f // 每次冲刺的持续秒数
 #define PLAYER_DASH_COOLDOWN 0.60f // 从开始冲刺计算的冷却秒数
+#define PLAYER_LAND_DURATION 0.18f // 真实落地后的姿态恢复时间
 #define PLAYER_WIDTH 48.0f // 角色碰撞框宽度
 #define PLAYER_STAND_HEIGHT 156.0f // 站立碰撞框高度
 #define PLAYER_CROUCH_HEIGHT 98.0f // 下蹲碰撞框高度
@@ -17,6 +19,7 @@
 typedef enum PlayerAction {
     ACTION_IDLE, // 原地待机
     ACTION_WALK, // 正常行走
+    ACTION_RUN, // 加速跑步
     ACTION_JUMP, // 空中跳跃或下落
     ACTION_CROUCH, // 地面下蹲及蹲行
     ACTION_DASH, // 水平冲刺
@@ -35,6 +38,7 @@ typedef struct PlayerInput {
     bool jump; // 本次物理更新是否有新的跳跃按键事件
     bool crouch; // 是否持续按住下蹲键
     bool dash; // 本次物理更新是否有新的冲刺按键事件
+    bool run; // 是否持续按住跑步键
 } PlayerInput;
 
 typedef struct Player {
@@ -43,10 +47,13 @@ typedef struct Player {
     float vx; // 当前水平速度
     float vy; // 当前垂直速度
     int facing; // 面向左为-1，面向右为1
+    int move_intent; // 最近一次归一化移动输入，即使被边界挡住仍保留转向意图
     int dash_direction; // 本次冲刺锁定的水平朝向
     bool grounded; // 脚底是否接触地面
     bool crouching; // 是否采用下蹲碰撞框
     bool air_dash_used; // 本次离地期间是否已使用空中冲刺
+    bool dash_from_crouch; // 最近一次冲刺是否由蹲姿发起
+    bool crouch_locked; // 蹲姿冲刺后，释放蹲键前禁止自动重新下蹲
     float dash_remaining; // 冲刺剩余时间
     float dash_cooldown; // 冲刺冷却剩余时间
     float landing_remaining; // 落地动画剩余时间
@@ -61,8 +68,6 @@ void PlayerInit(Player *player, const PlayerWorld *world);
 void PlayerUpdate(Player *player, PlayerInput input, const PlayerWorld *world, float dt);
 /* 返回碰撞框高度：player 指向需要查询的角色。 */
 float PlayerHeight(const Player *player);
-/* 返回当前图集帧索引：player 提供动作、速度和动作时间。 */
-int PlayerFrame(const Player *player);
 /* 返回动作名称：action 为需要显示的动作标识。 */
 const char *PlayerActionName(PlayerAction action);
 

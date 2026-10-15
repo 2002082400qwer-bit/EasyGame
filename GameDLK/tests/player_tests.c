@@ -44,7 +44,6 @@ static void TestWalk(void)
     Check(Near(player.x, 640.0f) && player.facing == 1, "walk right mirrors direction");
     Step(&player, (PlayerInput){0}, 1, 1.0f / 120.0f);
     Check(player.vx == 0.0f && player.action == ACTION_IDLE, "release movement stops immediately");
-    Check(PlayerFrame(&player) == 7, "idle uses standing recovery frame");
 }
 
 /* 测试跳跃和真实落地：空中再次跳跃不能重置垂直速度。 */
@@ -54,24 +53,27 @@ static void TestJump(void)
     PlayerInit(&player, &world);
     Step(&player, (PlayerInput){.jump = true}, 12, 1.0f / 120.0f);
     Check(!player.grounded && player.y < world.ground && player.vy < 0, "jump takes off under gravity");
-    Check(player.action == ACTION_JUMP && PlayerFrame(&player) >= 1, "jump uses airborne frames");
+    Check(player.action == ACTION_JUMP, "jump reports airborne state");
     const float before = player.vy; // 空中再次按跳跃前的垂直速度
     Step(&player, (PlayerInput){.jump = true}, 1, 1.0f / 120.0f);
     Check(player.vy > before, "no double jump while airborne");
     Step(&player, (PlayerInput){0}, 120, 1.0f / 120.0f);
     Check(player.grounded && Near(player.y, world.ground) && player.vy == 0, "jump lands without sinking");
     Check(!player.air_dash_used && player.action == ACTION_IDLE, "landing restores grounded idle");
+    PlayerInit(&player, &world);
+    Step(&player, (PlayerInput){.move = 1, .jump = true}, 94, 1.0f / 120.0f);
+    Check(player.grounded && player.action == ACTION_LAND, "moving jump keeps landing recovery before walking");
 }
 
-/* 测试下蹲：脚底位置不变、碰撞高度降低、蹲行变慢并阻止起跳和冲刺。 */
+/* 测试下蹲：脚底位置不变、碰撞高度降低、蹲行变慢并阻止直接起跳。 */
 static void TestCrouch(void)
 {
     Player player; // 当前测试角色
     PlayerInit(&player, &world);
-    Step(&player, (PlayerInput){.move = 1, .crouch = true, .jump = true, .dash = true}, 60, 1.0f / 120.0f);
-    Check(player.crouching && player.action == ACTION_CROUCH, "crouch overrides grounded jump and dash");
+    Step(&player, (PlayerInput){.move = 1, .crouch = true, .jump = true}, 60, 1.0f / 120.0f);
+    Check(player.crouching && player.action == ACTION_CROUCH, "crouch overrides grounded jump");
     Check(Near(PlayerHeight(&player), PLAYER_CROUCH_HEIGHT) && Near(player.y, world.ground), "crouch keeps feet and reduces collider");
-    Check(Near(player.x, 687.5f) && PlayerFrame(&player) == 0, "crouch movement is slower and uses anticipation pose");
+    Check(Near(player.x, 687.5f), "crouch movement is slower");
     Step(&player, (PlayerInput){0}, 1, 1.0f / 120.0f);
     Check(!player.crouching && Near(PlayerHeight(&player), PLAYER_STAND_HEIGHT), "release crouch restores standing height");
 }
@@ -93,6 +95,34 @@ static void TestDash(void)
     Step(&player, (PlayerInput){0}, 80, 1.0f / 120.0f);
     Step(&player, (PlayerInput){.dash = true}, 1, 1.0f / 120.0f);
     Check(player.action == ACTION_DASH, "dash can restart after cooldown");
+}
+
+/* 验证蹲姿冲刺：触发后恢复站立，按住蹲键不应在冲刺结束时再次蹲下。 */
+static void TestCrouchDash(void)
+{
+    Player player; // 接受蹲姿冲刺输入的角色
+    PlayerInit(&player, &world);
+    Step(&player, (PlayerInput){.crouch = true}, 30, 1.0f / 120.0f);
+    Step(&player, (PlayerInput){.crouch = true, .dash = true}, 1, 1.0f / 120.0f);
+    Check(player.action == ACTION_DASH, "crouch can launch a dash");
+    Step(&player, (PlayerInput){.crouch = true}, 90, 1.0f / 120.0f);
+    Check(player.action == ACTION_IDLE && !player.crouching, "crouch dash ends standing even while crouch held");
+    Step(&player, (PlayerInput){0}, 1, 1.0f / 120.0f);
+    Step(&player, (PlayerInput){.crouch = true}, 1, 1.0f / 120.0f);
+    Check(player.crouching, "releasing and pressing crouch re-arms crouching");
+}
+
+/* 验证跑步：按住跑步键加速，松开立即回到走路，下蹲时仍使用蹲行速度。 */
+static void TestRun(void)
+{
+    Player player; // 当前测试角色
+    PlayerInit(&player, &world);
+    Step(&player, (PlayerInput){.move = 1, .run = true}, 60, 1.0f / 120.0f);
+    Check(Near(player.x, 850.0f) && player.action == ACTION_RUN, "running moves 210 pixels in half a second");
+    Step(&player, (PlayerInput){.move = 1}, 1, 1.0f / 120.0f);
+    Check(player.action == ACTION_WALK && Near(player.vx, PLAYER_WALK_SPEED), "release run returns to walking");
+    Step(&player, (PlayerInput){.move = 1, .run = true, .crouch = true}, 1, 1.0f / 120.0f);
+    Check(player.action == ACTION_CROUCH && Near(player.vx, PLAYER_CROUCH_SPEED), "crouch takes priority over run");
 }
 
 /* 测试空中冲刺限制：冷却结束也不能在同一次离地中再次空中冲刺。 */
@@ -138,6 +168,8 @@ int main(void)
     TestJump();
     TestCrouch();
     TestDash();
+    TestCrouchDash();
+    TestRun();
     TestAirDash();
     TestBoundariesAndTime();
     printf("%d checks, %d failures\n", checks, failures);
