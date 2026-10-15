@@ -1,0 +1,2 @@
+# Windows批处理固定使用CRLF，避免中文注释在cmd中吞并下一行命令。
+*.cmd text eol=crlf

@@ -2,6 +2,8 @@
 
 双击根目录 **`run.cmd`** 即可构建最新代码并游玩。已构建程序在 `build/MX002.exe`；它从自身位置寻找资源，可以从其他工作目录启动，请保留 `build` 和 `图片` 的目录关系。首次克隆请先执行 `tools/setup.ps1` 安装工程内的官方构建依赖。
 
+启动器固定CRLF换行并先切换UTF-8代码页，兼容中文Windows；使用系统PowerShell完整路径。入口回归检查可运行 `powershell -NoProfile -ExecutionPolicy Bypass -File .\tests\launcher_tests.ps1`，它从传统中文代码页936和临时工作目录调用同一个`run.cmd --verify`，实际构建并启动游戏完成95项GPU检查。
+
 游戏现已接入 `diluc-redrawn-60` 的全部35组动作图集，每组60帧。包含三方向待机、慢走、跑步、跳跃、冲刺，八组转身，以及蹲起、起跳、站姿冲刺和蹲姿冲刺后站立的衔接。
 
 | 按键 | 功能 |

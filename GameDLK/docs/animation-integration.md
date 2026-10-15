@@ -52,3 +52,9 @@
 截图和原始GPU报告位于忽略目录`verification`，不提交构建与工具链二进制。正式35组图片及其他骨骼素材没有改动。自动验证覆盖确定性输入与绘制，不将其等同于真人按键手感或全帧美术一致性验收。
 
 不确定的读屏时序已核对[raylib 6.0官方图像实现](https://github.com/raysan5/raylib/blob/6.0/src/rtextures.c)及随官方发行包提供的`rlgl.h`：读屏前显式提交当前绘制批次，并在交换缓冲前捕获。
+
+## 双击入口后续修复
+
+用户反馈双击无法启动后，补测发现此前只直接测试了PowerShell和游戏，未覆盖Windows批处理解析。原`run.cmd`采用UTF-8中文注释和LF换行，在代码页936下可稳定复现注释末段与下一行`powershell.exe`拼成乱码命令。
+
+修复位置：`run.cmd:2`先切换UTF-8代码页，`run.cmd:4`使用系统PowerShell完整路径，`run.cmd:10`将命令参数传给游戏；`.gitattributes:2`固定所有CMD文件采用CRLF；`tests/launcher_tests.ps1:1`从代码页936及临时工作目录运行真实入口，检查退出码、游戏实际输出和新生成的95项GPU报告。该回归在修复前失败，修复后通过并完成95项GPU检查。
