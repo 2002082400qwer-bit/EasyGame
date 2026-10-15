@@ -16,6 +16,19 @@ function loadSharp() {
 
 const sharp = loadSharp(); // PNG解码、裁取、等比注册和GIF预览接口
 
+/** 计算新来源等比尺度；records为时间线，record为新段首姿，previous为前段末姿，isLoop表示循环。 */
+function sourceScaleFor(records, record, previous, isLoop) {
+  const mode = record.scaleMode ?? 'auto'; // 保留旧资源默认行为，分阶段重绘可明确指定交接方式
+  if (!['auto', 'previous', 'loop-start', 'native'].includes(mode)) throw new Error('INVALID_SCALE_MODE:' + mode);
+  if (mode === 'native') return 1; // 同规格分段保持原绘图倍率，不能将姿态的屈膝高度当成人体尺寸
+  const closeLoop = mode === 'loop-start' || (mode === 'auto' && isLoop); // 只有闭合段才将末姿与循环首姿配准
+  const endpoint = closeLoop ? records[0] : previous; // 中间段沿用前段末姿，防止空中蹲姿被放大到站姿高度
+  const nextAnchor = closeLoop ? records.filter(item => item.source === record.source).at(-1) : record; // item为同来源姿态，闭合段取末姿，其余段取首姿
+  const targetHeight = (endpoint.figure.bottom - endpoint.figure.top + 1) / (endpoint.info.height / endpoint.sourceRows) * endpoint.sourceScale; // 目标已注册轮廓相对高度
+  const anchorHeight = (nextAnchor.figure.bottom - nextAnchor.figure.top + 1) / (nextAnchor.info.height / nextAnchor.sourceRows); // 新段锚点轮廓相对高度
+  return targetHeight / anchorHeight;
+}
+
 /** 检出完整独立人物；pixels为RGBA，width/height为尺寸，expected为真实原图帧数，columns为原图列数，alphaThreshold为核心透明度。 */
 function detectFigures(pixels, width, height, expected = 60, columns = COLUMNS, alphaThreshold = 128) {
   if (pixels.length !== width * height * 4) throw new Error('INVALID_RGBA');
@@ -248,10 +261,10 @@ async function registerFrame(pixels, labels, figure, index, width, height, basel
   return sharp({ create: { width: SIZE, height: SIZE, channels: 4, background: '#00000000' } }).composite([{ input: resized, left: targetLeft, top: targetTop }]).png().toBuffer();
 }
 
-/** 导出一组真实重绘素材；root为资源根目录，clip为动作计划，source为实际生成原图路径。 */
-async function packClip(root, clip, source) {
-  let layout = { sources: [{ image: path.basename(source), expected: FRAME_COUNT }] }; // 默认一张原图包含60帧，不自动填重复帧
-  try { layout = JSON.parse(await fs.readFile(path.join(root, 'raw', `${clip.id}-source-layout.json`), 'utf8')); }
+/** 导出真实重绘组；root为资源根目录，clip为动作计划，source为原图路径，layoutOverride为可选内存清单并与资源一起事务提交。 */
+async function packClip(root, clip, source, layoutOverride) {
+  let layout = layoutOverride ?? { sources: [{ image: path.basename(source), expected: FRAME_COUNT }] }; // 新发布用内存清单，旧CLI默认读取原有清单
+  try { if (layoutOverride === undefined) layout = JSON.parse(await fs.readFile(path.join(root, 'raw', `${clip.id}-source-layout.json`), 'utf8')); }
   catch (error) { // 可选真实源图帧选择清单的读取错误
     if (error.code !== 'ENOENT') throw error;
   }
@@ -268,10 +281,16 @@ async function packClip(root, clip, source) {
     const sourceRecord = { image: `raw/${entry.image}`, sha256: hash(await fs.readFile(sourcePath)), nativeWidth: decoded.info.width, nativeHeight: decoded.info.height, actualFigures: detected.figures.length, selectedIndices: selected, rows: detected.rows, rowCounts: detected.rowCounts, method: 'image_gen fresh redraw; no interpolation or repeated-frame padding' }; // 保留真实新绘来源及选帧依据
     sources.push(sourceRecord);
     for (const sourceIndex of selected) { // 当前选择的真实原图人物序号
-      records.push({ data: decoded.data, info: decoded.info, labels: detected.labels, figure: detected.figures[sourceIndex], sourceIndex, sourceRows: detected.rows, source: sourceRecord.image });
+      records.push({ data: decoded.data, info: decoded.info, labels: detected.labels, figure: detected.figures[sourceIndex], sourceIndex, sourceRows: detected.rows, source: sourceRecord.image, scaleMode: entry.scaleMode });
     }
   }
   if (records.length !== FRAME_COUNT) throw new Error(`FRAME_COUNT: 实际选择${records.length}帧，要求60；禁止重复补齐`);
+  if (layout.frameOrder !== undefined) {
+    const order = layout.frameOrder; // 明确指定已有实绘姿态的播放顺序，不产生任何新像素或重复帧
+    if (!Array.isArray(order) || order.length !== FRAME_COUNT || new Set(order).size !== FRAME_COUNT || order.some(index => !Number.isInteger(index) || index < 0 || index >= FRAME_COUNT)) throw new Error('INVALID_FRAME_ORDER'); // index为原时间线位置
+    const ordered = order.map(index => records[index]); // index所指原始来源及姿态按新时间线排列
+    records.splice(0, records.length, ...ordered);
+  }
   if (!/^[a-zA-Z0-9_-]+$/.test(clip.id)) throw new Error('INVALID_CLIP_ID');
   const outputRoot = path.join(root, '.staging', `${clip.id}-${crypto.randomBytes(6).toString('hex')}`); // 整组验证之前只写暂存目录
   assertInside(root, outputRoot);
@@ -293,11 +312,7 @@ async function packClip(root, clip, source) {
   for (const record of records) { // 当前按正式时间线排列的实绘帧
     if (record.source !== currentSource) {
       if (previous && !stabilizeHeight) {
-        const endpoint = isLoop ? records[0] : previous; // 循环末段对齐循环首姿，非循环对齐前段交接姿
-        const nextAnchor = isLoop ? records.filter(item => item.source === record.source).at(-1) : record; // item为同来源的实际新绘帧；循环使用最后姿态，非循环使用首姿
-        const targetHeight = (endpoint.figure.bottom - endpoint.figure.top + 1) / (endpoint.info.height / endpoint.sourceRows) * endpoint.sourceScale; // 交接目标的已注册相对轮廓高度
-        const anchorHeight = (nextAnchor.figure.bottom - nextAnchor.figure.top + 1) / (nextAnchor.info.height / nextAnchor.sourceRows); // 新源图交接锚点的相对轮廓高度
-        sourceScale = targetHeight / anchorHeight;
+        sourceScale = sourceScaleFor(records, record, previous, isLoop);
       }
       currentSource = record.source;
     }
@@ -352,6 +367,12 @@ async function packClip(root, clip, source) {
   await fs.mkdir(path.join(outputRoot, 'metadata'), { recursive: true });
   await fs.writeFile(path.join(outputRoot, 'metadata', `${clip.id}.json`), JSON.stringify(result, null, 2));
   const targets = [`frames/${clip.id}`, atlasImage, `atlases/${clip.id}.json`, previewImage, `metadata/${clip.id}.json`]; // 只有整组通过后才替换的明确资源路径
+  if (layoutOverride !== undefined) {
+    const layoutFile = `raw/${clip.id}-source-layout.json`; // 需要与正式帧保持同一版本的来源清单
+    await fs.mkdir(path.join(outputRoot, 'raw'), { recursive: true });
+    await fs.writeFile(path.join(outputRoot, layoutFile), JSON.stringify(layout, null, 2));
+    targets.push(layoutFile);
+  }
   if (loop) targets.push(`previews/${clip.id}-seam.gif`);
   await commitStaged(root, outputRoot, targets);
   return result;
@@ -393,5 +414,5 @@ async function main(argv) {
   console.log(JSON.stringify({ id: clip.id, frameCount: result.frameCount, verification: result.verification }));
 }
 
-module.exports = { detectFigures, includeSoftEdges, packClip, frameDifference, commitStaged, previewDelays, encodeAtlas };
+module.exports = { detectFigures, includeSoftEdges, packClip, frameDifference, commitStaged, previewDelays, encodeAtlas, sourceScaleFor };
 if (require.main === module) main(process.argv.slice(2)).catch(error => { console.error(error.message); process.exitCode = 1; }); // error为导出或验证失败原因

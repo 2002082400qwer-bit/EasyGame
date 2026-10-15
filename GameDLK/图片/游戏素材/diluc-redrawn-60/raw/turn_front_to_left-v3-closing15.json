@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-15",
+  "prompt": "Freshly draw EXACTLY FIFTEEN full-body isolated PNG sprites, FIVE columns x THREE rows, one continuous row-major sequence. Same referenced red ponytailed male, ornate black/red long coat, gloves/boots, same human anatomy, head size, costume and crisp anime style. Only the final15 subtle SETTLING frames of a turn that is ALREADY almost exactly LEFT-FACING SIDE profile. Reference1 is preceding44 LEFT profile, reference2 is destination LEFT profile. ALL fifteen figures must keep NOSE AND BOOTS pointing to IMAGE LEFT. Begin almost identical to reference1, gradually settle posture, ponytail and coat into reference2. Relaxed hands by thighs. Never face viewer, never turn back to three-quarter front, no walking. FIXED LEFT-FACING SIDE throughout all15. No stepping, no new turn. Every adjacent pose tiny change; do not restart between rows. Transparent RGBA, no background/floor/grid/labels/shadows/haze. Full hair, boots and all cloth inside each cell, wide blank margins and gaps, canvas1536x1024. Distinct real new drawings, no repetitions.",
+  "references": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\turn_front_to_left\\44.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_idle\\00.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-8e1b0f58-62df-411c-ab8d-f27bfbc96614.png",
+  "method": "image_gen fresh redraw; continuity revision"
+}

@@ -1,14 +1,14 @@
 {
   "id": "turn_front_to_left",
   "status": "packed",
+  "revision": "2026-10-15",
   "summary": {
-    "id": "turn_front_to_left",
     "frameCount": 60,
     "verification": {
       "sourceFigures": 63,
       "distinctPixelFrames": 60,
-      "seamDifference": 0.03723087790378265,
-      "seamLimit": 0.04850930397769978,
+      "seamDifference": 0.035706255838350846,
+      "seamLimit": 0.03887548325951874,
       "seamMetricPassed": true,
       "visualContinuityVerified": false
     }

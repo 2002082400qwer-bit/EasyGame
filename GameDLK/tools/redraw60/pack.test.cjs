@@ -4,8 +4,42 @@ const assert = require('node:assert/strict'); // 严格断言接口
 const fs = require('node:fs/promises'); // 回滚行为测试的文件接口
 const path = require('node:path'); // 测试目录路径接口
 const os = require('node:os'); // 当前系统临时目录接口
-const { detectFigures, includeSoftEdges, previewDelays, commitStaged, encodeAtlas } = require('./pack.cjs'); // 主体检测、播放时长、事务提交和无损图集函数
+const { detectFigures, includeSoftEdges, previewDelays, commitStaged, encodeAtlas, sourceScaleFor, packClip } = require('./pack.cjs'); // 主体检测、播放时长、事务提交、无损图集、分段尺度和真实打包函数
 const sharp = require('./deps.cjs').loadDependency('sharp'); // 验证实际PNG解码像素
+
+/** 构造尺度交接姿态；height为轮廓高度，cell为源图行高，source为来源，mode为交接方式。 */
+function scalePose(height, cell, source, mode) {
+  return { figure: { top: 0, bottom: height - 1 }, info: { height: cell }, sourceRows: 1, source, scaleMode: mode, sourceScale: 1 };
+}
+
+test('多段跳跃的中段按上一段交接姿态注册，不能放大到循环待机高度', () => {
+  const first = scalePose(180, 200, 'initial'); // 循环首帧的站立姿态
+  const previous = scalePose(90, 200, 'initial'); // 蓄力末帧的蹲姿
+  const next = scalePose(100, 400, 'airborne', 'previous'); // 下一段首帧蹲姿，原图行高不同
+  const end = scalePose(120, 400, 'airborne', 'previous'); // 下一段末帧已腾空，不能用于站姿尺度
+  assert.equal(sourceScaleFor([first, previous, next, end], next, previous, true), 1.8);
+});
+
+test('指定循环闭合段仍按末姿与初始待机匹配等比尺度', () => {
+  const first = scalePose(180, 200, 'initial'); // 循环首帧站立
+  const previous = scalePose(90, 200, 'initial'); // 上一段落地蹲姿
+  const next = scalePose(100, 400, 'recovery', 'loop-start'); // 起身段首姿
+  const end = scalePose(180, 400, 'recovery', 'loop-start'); // 起身段末姿
+  assert.equal(sourceScaleFor([first, previous, next, end], next, previous, true), 2);
+});
+
+test('交接尺度模式写错时拒绝导出，不能静默改变整段人物大小', () => {
+  const previous = scalePose(180, 200, 'initial'); // 合法前段末姿
+  const next = scalePose(100, 200, 'next', 'typo'); // 错误的源图交接设置
+  assert.throws(() => sourceScaleFor([previous, next], next, previous, true), /INVALID_SCALE_MODE/);
+});
+
+test('同规格分段不能因为屈膝和发梢高度不同而累计缩小人体', () => {
+  const previous = scalePose(250, 512, 'takeoff'); // 前段轮廓包含后扬头发与弯曲双腿
+  previous.sourceScale = 0.7;
+  const next = scalePose(360, 512, 'apex', 'native'); // 下一段人体同尺寸，但跳跃姿态改变轮廓高度
+  assert.equal(sourceScaleFor([previous, next], next, previous, true), 1);
+});
 
 /** 构造可数的透明测试图；count为人物数，edge决定首个人物是否被画布边缘裁切。 */
 function fixture(count = 60, edge = false) {
@@ -27,6 +61,35 @@ function fixture(count = 60, edge = false) {
   }
   return { pixels, width, height };
 }
+
+test('内存来源清单失败不改旧清单，成功后与正式资源一起提交', async () => {
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'redraw-layout-')); // 本测试独立临时根目录
+  const rawDirectory = path.join(directory, 'raw'); // 测试原图及已交付清单目录
+  const layoutPath = path.join(rawDirectory, 'phase-source-layout.json'); // 已交付的真实来源清单
+  const oldLayout = '{"sources":[{"image":"old-missing.png","expected":60}]}'; // 旧资源依赖，不能被失败发布覆盖
+  const inputPath = path.join(rawDirectory, 'input.png'); // 用实际PNG验证内存清单优先级
+  const layout = { sources: [{ image: 'input.png', expected: 60 }], frameOrder: Array.from({ length: 60 }, (_, index) => 59 - index) }; // 新清单明确指定60张实绘图的播放顺序，index为原时间线位置
+  try {
+    await fs.mkdir(rawDirectory);
+    await fs.writeFile(layoutPath, oldLayout);
+    const missing = fixture(59); // 实际只有59张，必须在发布前拒绝
+    await sharp(missing.pixels, { raw: { width: missing.width, height: missing.height, channels: 4 } }).png().toFile(inputPath);
+    await assert.rejects(packClip(directory, { id: 'phase', action: 'jump', loop: false }, inputPath, layout), /FRAME_COUNT/);
+    assert.equal(await fs.readFile(layoutPath, 'utf8'), oldLayout);
+    const complete = fixture(60); // 60张有不同颜色的真实输入，能够通过实际打包
+    await sharp(complete.pixels, { raw: { width: complete.width, height: complete.height, channels: 4 } }).png().toFile(inputPath);
+    const result = await packClip(directory, { id: 'phase', action: 'jump', loop: false }, inputPath, layout); // 实际导出的来源与播放序列
+    assert.equal(result.frames[0].sourceFrame, 59);
+    assert.equal(result.frames[59].sourceFrame, 0);
+    assert.deepEqual(JSON.parse(await fs.readFile(layoutPath, 'utf8')), layout);
+    assert.equal((await fs.readdir(path.join(directory, 'frames', 'phase'))).length, 60);
+    await assert.rejects(packClip(directory, { id: 'phase', action: 'jump', loop: false }, inputPath, { ...layout, frameOrder: Array(60).fill(0) }), /INVALID_FRAME_ORDER/);
+    assert.deepEqual(JSON.parse(await fs.readFile(layoutPath, 'utf8')), layout);
+  } finally {
+    if (!path.resolve(directory).startsWith(path.resolve(os.tmpdir()) + path.sep + 'redraw-layout-')) throw new Error('UNSAFE_TEST_DIRECTORY');
+    await fs.rm(directory, { recursive: true, force: true });
+  }
+});
 
 test('六十个完整人物必须精确检出并按行排序', () => {
   const input = fixture(); // 包含六十个独立人物的真实RGBA测试数据

@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-15",
+  "prompt": "Draw exactly TEN full-body isolated transparent RGBA sprites, FIVE columns x TWO rows, row-major sequence. Fixed strict LEFT-FACING orthographic SIDE view of the same red ponytailed male in black/red long coat, gloves/boots. Match identity/costume/linework/proportions and camera of references. ONLY AIRBORNE jump apex. Start extremely close to reference1: bent elbows and fists forward near chest, both knees tucked. In ten small increments knees draw a little closer while forearms lower gradually chest→waist→slightly behind hips by final pose. Hair billows upward then begins to settle, but all10 poses remain airborne with deeply bent knees. NO sudden backward arm snap, no landing or upright stance. Each adjacent pose tiny change. Second row continues first. Canvas1536x1024, generous transparent gaps between silhouettes,32px margin on all borders, complete boots/hair/cloth no overlaps. NO text/grid/background/shadow/haze. Only the specified short phase.",
+  "references": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\raw\\continuity-anchors\\side_jump-v3-takeoff\\anchor-9.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_jump\\30.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-6ab77d4b-3925-4d8b-baf4-8534aad25b0e.png",
+  "method": "image_gen fresh redraw; continuity revision"
+}

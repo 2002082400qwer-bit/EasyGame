@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-15",
+  "baselineCommit": "d30ca36722a44f3ea95e017b20e2f104336d2537",
+  "clips": [
+    {
+      "id": "front_jump",
+      "atlas": "atlases/front_jump.png",
+      "preview": "previews/front_jump.gif",
+      "sha256": "258ce4d097fd1ab71c7eed35c0ea1915ee74f6979ed5cbf79aa7145ac7595a65"
+    },
+    {
+      "id": "side_jump",
+      "atlas": "atlases/side_jump.png",
+      "preview": "previews/side_jump.gif",
+      "sha256": "a4c08b05df3cf5661db6f2ba30ea32ef176162835dcaa12f66e86f9e384c8453"
+    },
+    {
+      "id": "back_jump",
+      "atlas": "atlases/back_jump.png",
+      "preview": "previews/back_jump.gif",
+      "sha256": "4b2dc7b59bb94854ebe73cd5404c06fe8a0cb88eedefdb586efd74d839cf7f49"
+    },
+    {
+      "id": "back_crouch_to_stand",
+      "atlas": "atlases/back_crouch_to_stand.png",
+      "preview": "previews/back_crouch_to_stand.gif",
+      "sha256": "260354fbfd3e97a3b88d6b087f904f5521b5beb23da3eaff2515082584c1df4c"
+    },
+    {
+      "id": "front_dash",
+      "atlas": "atlases/front_dash.png",
+      "preview": "previews/front_dash.gif",
+      "sha256": "bb207f511d3475b83841ea5efcf613c783413ad823c22e1a7022dfe9083f8f41"
+    },
+    {
+      "id": "turn_front_to_left",
+      "atlas": "atlases/turn_front_to_left.png",
+      "preview": "previews/turn_front_to_left.gif",
+      "sha256": "a6dda31981a0ded404eacc9b180ead182cf11e8e5e551905b3934a9fbd42ffb0"
+    }
+  ]
+}

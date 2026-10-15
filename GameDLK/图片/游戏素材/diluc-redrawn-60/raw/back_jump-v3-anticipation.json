@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-15",
+  "prompt": "Fresh redraw for 2D game animation. EXACTLY TEN isolated full-body sprites in FIVE columns by TWO rows, row-major temporal order. Only ONE SHORT PHASE, NOT a whole jump. ONLY standing to deep takeoff crouch. Frame1 upright with hands relaxed by thighs; frames2-10 continuously bend both knees and lower hips, arms swing backward, ending deep loaded crouch. ALL feet remain planted. Never extend knees again, never jump, never recover, no upright pose after frame1.\nCamera is FIXED ORTHOGRAPHIC BACK VIEW, character facing away, back of head and coat always visible; no face or head-turn in ANY cell. Same red ponytailed male with black/red ornate long coat, gloves, boots. Both legs and both boots anatomically present, hands/arms close enough to fit cell. Preserve head size, body proportions, costume, crisp anime linework, color and lighting. Every next sprite only slightly advances this specified phase; row2 CONTINUES row1, never reset. Actual transparent RGBA alpha outside silhouette; NO opaque background, shadow, halo, floor, labels, grid or text. Plenty of transparent spacing between ALL sprites and at least32px blank canvas border; no touching coat/arms between adjacent characters. Canvas1536x1024. TEN distinct freshly drawn poses, do not copy or interpolate.",
+  "references": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\back_idle\\00.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\back_crouch_to_stand\\00.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-a7d254b8-a9a4-42f2-90d8-35490cd0e726.png",
+  "method": "image_gen fresh redraw; continuity revision"
+}

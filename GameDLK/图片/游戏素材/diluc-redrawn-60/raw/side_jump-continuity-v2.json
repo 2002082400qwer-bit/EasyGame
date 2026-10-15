@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-15",
+  "prompt": "Use case: identity-preserve. Asset type: 2D game animation sprite sheet. Freshly redraw the SAME red ponytailed male character in the reference PNGs, ornate black/red long coat, black gloves and boots, no weapons. EXACTLY SIXTY separated FULL BODY sprites in TEN columns by SIX rows. Row-major temporal order, entire sheet is ONE SINGLE JUMP, not six jumps. Transparent RGBA, no labels/grid/shadows. Fixed LEFT-FACING orthographic SIDE view in ALL 60 cells. Same anatomical body scale, same camera, feet baseline and cell center, complete hair and boots with blank margins. Crisp matching anime rendering. Narrow poses, no hand/cloth overlap between neighbors.\nTHE SIX ROWS HAVE DIFFERENT PHASES. Never restart the action at a row boundary:\nRow1 frames00-09: upright relaxed standing at00, knees continuously bend into the deepest launch crouch at09; NEVER straighten within row1.\nRow2 frames10-19: starts in exactly that deep crouch, extends hips/knees ONCE to push off; end airborne with both knees beginning to bend, arms driving up. No landing or standing reset.\nRow3 frames20-29: ALL AIRBORNE, knees tuck progressively for jump apex, arms near torso, hair rising. NO planted standing.\nRow4 frames30-39: ALL AIRBORNE DESCENDING, knees gradually untuck, legs reach down, arms lower; NO upright grounded idle.\nRow5 frames40-49: both boots touch down ONCE, knees compress to absorb landing, then slowly begin recovery. NO second jump.\nRow6 frames50-59: gradually straighten from landing bend to EXACT SAME relaxed upright LEFT side standing as reference1/initial00, hands by thighs and coat settles. Final59 directly precedes00 in looping motion.\nEach adjacent frame tiny change; same body dimensions/head size ALL rows. Preserve linework and clothing, no costume redesign, no recolored gradients. SIXTY genuinely different newly drawn poses. Output1536x1536 if possible.",
+  "references": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_jump\\00.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_jump\\17.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_jump\\30.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_jump\\49.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-33e75397-840f-4bb9-9f68-a96412784891.png",
+  "method": "image_gen fresh redraw; continuity revision"
+}

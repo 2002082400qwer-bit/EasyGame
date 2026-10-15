@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-15",
+  "scope": "35组完整图集复看，并修正6组主要姿态/阶段交接问题",
+  "atlasGroupsReviewed": 35,
+  "correctedGroups": [
+    "side_jump",
+    "front_jump",
+    "back_jump",
+    "back_crouch_to_stand",
+    "front_dash",
+    "turn_front_to_left"
+  ],
+  "checkedFramesPerCorrectedGroup": 60,
+  "checks": [
+    "单次跳跃按蓄力→蹬地→腾空→下降→落地→起身推进",
+    "背面起身不再整段回到深蹲；末段双臂逐渐放下",
+    "转左末15帧保持左侧面",
+    "正面冲刺末段接初始步态",
+    "同规格阶段不根据屈膝高度累计缩放人体",
+    "三方向下蹲冲刺末状态保留站立，相关组未改"
+  ],
+  "method": "内置image_gen重新绘制24张分段源图，来源JSON保存实际提示词；裁取、固定等比注册和真实姿态顺序调整，禁止插值及复制凑帧",
+  "formalChangedFrames": 270,
+  "formalTotalGroups": 35,
+  "formalTotalFrames": 2100,
+  "toolTests": 13,
+  "before": "qa/continuity-before/index.json",
+  "comparison": "qa/continuity-comparison.gif",
+  "codeLocations": "tools/redraw60/CHANGELOG.md",
+  "fullFrameByFrameVisualVerification": false,
+  "limitation": "已看完整姿态序列及阶段交接，仍有衣纹、头发和细小姿势绘制差异；不宣称所有帧逐像素美术一致。",
+  "rejectedDrafts": [
+    {
+      "image": "raw/side_jump-continuity-v2.png",
+      "reason": "整图重绘未达到60独立人物且仍有阶段重启，未作为正式来源"
+    }
+  ]
+}

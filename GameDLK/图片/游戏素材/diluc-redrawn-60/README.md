@@ -33,4 +33,17 @@
 
 打包工具使用Node.js与`sharp`。接口依据[sharp官方输出文档](https://sharp.pixelplumbing.com/api-output/#gif)；提示词全集位于工程`tools/redraw60/full-generation-plan.json`。旧8帧资源与另一个骨骼素材目录均独立保留。
 
-离线看PNG、GIF和网页无需安装工具。需要重新打包时，在工程`tools/redraw60`执行`npm install`安装锁定版本；当前环境也支持Codex捆绑依赖。`npm test`检查8项行为，`npm run audit`执行全量文件验收，`npm run preview-check`需要已安装Microsoft Edge。
+离线看PNG、GIF和网页无需安装工具。需要重新打包时，在工程`tools/redraw60`执行`npm install`安装锁定版本；当前环境也支持Codex捆绑依赖。`npm test`检查13项行为，`npm run audit`执行全量文件验收，`npm run preview-check`需要已安装Microsoft Edge。
+
+## 2026-10-15 连贯性修正
+
+- 三方向`jump`按蓄力、蹬地、顶点、下降、落地、起身六段各新绘10张，修正中途提前站直又重新起跳。
+- `back_crouch_to_stand`四段各新绘15张；按实绘姿态复核播放次序，将放下双臂的姿态集中在末段，修正起身中途重新回蹲。排序只改变真实帧的播放位置，不插值或复制图片。
+- `front_dash`和`turn_front_to_left`重绘末15张；前者衔接循环初始步态，后者全段维持左侧面，避免转回正面。
+- 同规格阶段使用固定等比倍率，避免按屈膝或头发高度累计缩小人体。旧版打包默认行为保留。
+- `qa/continuity-comparison.gif`为三方向跳跃正常速度的修正前后对照，左旧右新。六组旧图集、GIF和元数据在`qa/continuity-before`保留。
+- 修改工具的行为检查包含来源清单与素材一起事务提交；发布失败不会留下新清单对应旧帧的混合状态。
+
+重新组装三方向跳跃或背面起身：`node tools/redraw60/continuity-build.cjs <动作id>`默认只生成候选；检查后加`--publish`替换正式组。其余两组的实际来源与选择以`raw/<动作id>-source-layout.json`为准，仍用原`pack.cjs pack`入口重现。新提示词保存于`raw/*-v3-*.json`，代码位置在工程`tools/redraw60/CHANGELOG.md`。
+
+视觉检查覆盖35张完整图集以及修正组的全部姿态、阶段交接和关键接缝。复杂衣纹与头发仍存在少量帧间绘制差异，数值通过不表示每个美术细节都已逐像素一致。

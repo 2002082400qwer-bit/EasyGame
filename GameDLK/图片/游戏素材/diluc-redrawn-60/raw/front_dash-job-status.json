@@ -1,14 +1,14 @@
 {
   "id": "front_dash",
   "status": "packed",
+  "revision": "2026-10-15",
   "summary": {
-    "id": "front_dash",
     "frameCount": 60,
     "verification": {
       "sourceFigures": 63,
       "distinctPixelFrames": 60,
-      "seamDifference": 0.03184588416545949,
-      "seamLimit": 0.08352479924573328,
+      "seamDifference": 0.02820464090584179,
+      "seamLimit": 0.04923760966382076,
       "seamMetricPassed": true,
       "visualContinuityVerified": false
     }

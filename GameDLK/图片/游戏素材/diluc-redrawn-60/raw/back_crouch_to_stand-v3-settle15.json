@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-15",
+  "prompt": "Exactly FIFTEEN newly drawn full-body transparent RGBA sprites in FIVE columns x THREE rows. Only one SHORT section of standing up from crouch, not the entire action. Reference1 is START, reference2 is END. Nearly upright to fully relaxed UPRIGHT standing with straight knees, hands by thighs, ponytail and coat settling. Every next pose a tiny improvement toward standing; never crouch down. Frame1 must closely match reference1, frame15 closely match reference2; spread the change smoothly across all15 frames, row2 continues row1 and row3 continues row2. Fixed BACK VIEW, facing away throughout, no face visible, no walking or turning. Same red ponytailed male, ornate black/red long coat, boots/gloves, exact character HEAD SIZE and anatomical body dimensions consistent even while knees bend. Match costume/linework/style of references. Use constant camera scale; do not enlarge crouching bodies to fill cells.1536x1024 canvas with 5x3 generous cells, maximum upright silhouette260px, each complete hair/boots/coat inside blank margins, no touching neighbors. No grid/labels/text/background/shadow/haze/glow.",
+  "references": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\raw\\continuity-anchors\\back-rise\\anchor-2.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\raw\\continuity-anchors\\back-rise\\anchor-0.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-9dfcb14a-7f77-4e2b-a38c-16dc3e4771f9.png",
+  "method": "image_gen fresh redraw; continuity revision"
+}

@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-15",
+  "prompt": "Freshly draw EXACTLY FIFTEEN full-body isolated PNG sprites, FIVE columns x THREE rows, one continuous row-major sequence. Same referenced red ponytailed male, ornate black/red long coat, gloves/boots, same human anatomy, head size, costume and crisp anime style. CLOSING 15 frames of FRONT VIEW in-place dash cycle. Reference1 is preceding pose44: lean forward, compact bent arms, one thigh forward. First pose tiny continuation from it. Reference2 is final destination00: progressively return arm swing, leg cadence, head lean, hair and coat to a pose immediately preceding reference2. Last pose must match reference2's BODY SCALE, arm locations and leg phase. No upright idle, no extra dash launch, no crouch. One smooth 15-frame cadence bridge, not a complete new cycle. Fixed FRONT view toward viewer. Every adjacent pose tiny change; do not restart between rows. Transparent RGBA, no background/floor/grid/labels/shadows/haze. Full hair, boots and all cloth inside each cell, wide blank margins and gaps, canvas1536x1024. Distinct real new drawings, no repetitions.",
+  "references": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\front_dash\\44.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\front_dash\\00.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-21c3bf78-2190-4d48-a16c-c7a4828ffae7.png",
+  "method": "image_gen fresh redraw; continuity revision"
+}

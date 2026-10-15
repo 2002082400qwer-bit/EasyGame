@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-15",
+  "prompt": "Draw exactly TEN full-body isolated transparent RGBA sprites, FIVE columns x TWO rows, row-major sequence. Fixed strict LEFT-FACING orthographic SIDE view of the same red ponytailed male in black/red long coat, gloves/boots. Match identity/costume/linework/proportions and camera of references. ONLY recovery from the DEEPEST landing squat to relaxed standing. Reference1 is immediately PRECEDING pose: frame1 must match its deep low crouch, both knees nearly fully folded, one hand low near knee, head low forward. Ten newly drawn incremental poses straighten knees/hips steadily with NO idle hold until final sprite. Final10 exact upright reference2, hands by thighs, ponytail down. Keep same head size and body length as both references, no shrink at first frame. Each adjacent pose tiny change. Second row continues first. Canvas1536x1024, generous transparent gaps between silhouettes,32px margin on all borders, complete boots/hair/cloth no overlaps. NO text/grid/background/shadow/haze. Only the specified short phase.",
+  "references": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\raw\\continuity-anchors\\side_jump-v3-landing\\anchor-9.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\raw\\continuity-anchors\\side_jump-v3-anticipation\\anchor-0.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-cc521aa9-21f8-4ae5-a002-51de7cd5b8c1.png",
+  "method": "image_gen fresh redraw; continuity revision"
+}

@@ -1,14 +1,14 @@
 {
   "id": "front_jump",
   "status": "packed",
+  "revision": "2026-10-15",
   "summary": {
-    "id": "front_jump",
     "frameCount": 60,
     "verification": {
-      "sourceFigures": 75,
+      "sourceFigures": 60,
       "distinctPixelFrames": 60,
-      "seamDifference": 0.023439743235587757,
-      "seamLimit": 0.07585020246730004,
+      "seamDifference": 0.023790121404816126,
+      "seamLimit": 0.07161416561445415,
       "seamMetricPassed": true,
       "visualContinuityVerified": false
     }

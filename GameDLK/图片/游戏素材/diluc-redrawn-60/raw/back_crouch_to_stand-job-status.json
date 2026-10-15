@@ -1,14 +1,14 @@
 {
   "id": "back_crouch_to_stand",
   "status": "packed",
+  "revision": "2026-10-15",
   "summary": {
-    "id": "back_crouch_to_stand",
     "frameCount": 60,
     "verification": {
-      "sourceFigures": 71,
+      "sourceFigures": 60,
       "distinctPixelFrames": 60,
-      "seamDifference": 0.07349852940706805,
-      "seamLimit": 0.038531183192199676,
+      "seamDifference": 0.07071706112601447,
+      "seamLimit": 0.07247219674984859,
       "seamMetricPassed": true,
       "visualContinuityVerified": false
     }

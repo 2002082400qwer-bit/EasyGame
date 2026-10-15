@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-15",
+  "prompt": "Fresh redraw for 2D game animation. EXACTLY TEN isolated full-body sprites in FIVE columns by TWO rows, row-major temporal order. Only ONE SHORT PHASE, NOT a whole jump. ONLY final DESCENT to deep LANDING compression. Frame1 knees bent with boots immediately above ground, frame2-4 both boots settle touching the baseline, frames5-10 knees bend deeper to absorb impact, hips lower, arms lower forward. Lastframe deep landing squat ready to stand. NEVER straighten to standing, never launch upward again, no second jump.\nCamera is FIXED ORTHOGRAPHIC FRONT VIEW, character facing viewer in every cell. Same red ponytailed male with black/red ornate long coat, gloves, boots. Both legs and both boots anatomically present, hands/arms close enough to fit cell. Preserve head size, body proportions, costume, crisp anime linework, color and lighting. Every next sprite only slightly advances this specified phase; row2 CONTINUES row1, never reset. Actual transparent RGBA alpha outside silhouette; NO opaque background, shadow, halo, floor, labels, grid or text. Plenty of transparent spacing between ALL sprites and at least32px blank canvas border; no touching coat/arms between adjacent characters. Canvas1536x1024. TEN distinct freshly drawn poses, do not copy or interpolate.",
+  "references": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\front_crouch_to_stand\\00.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-b63747ae-7f45-45d6-8dc5-5d30be9e8f4a.png",
+  "method": "image_gen fresh redraw; continuity revision"
+}

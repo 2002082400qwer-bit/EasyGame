@@ -22,3 +22,19 @@
 提示词在`full-generation-plan.json`、`right-turn-prompts.json`、`visual-corrections.json`及素材`raw/*.json`保存。实际正式来源以每组`metadata/*.json`为准。
 
 独立代码复核：8项测试和35组auditClip通过；56个实际来源段的尺度为有限正数，未发现可复现重大代码缺陷。检查覆盖工具和文件结构，视觉检查证据见`qa`，不等同于全帧美术细节逐像素验收。
+
+# 2026-10-15 连贯性修正位置
+
+| 文件位置 | 修改内容 |
+|---|---|
+| [pack.cjs:20](E:/Aproject/MX002/tools/redraw60/pack.cjs:20) | 显式分段尺度模式；同规格原图使用native，避免按屈膝轮廓累计缩小人体 |
+| [pack.cjs:265](E:/Aproject/MX002/tools/redraw60/pack.cjs:265) | 接受内存来源清单，验证前不覆盖已交付清单 |
+| [pack.cjs:288](E:/Aproject/MX002/tools/redraw60/pack.cjs:288) | 验证并应用0到59的完整播放排列，只重排真实新绘姿态 |
+| [pack.cjs:371](E:/Aproject/MX002/tools/redraw60/pack.cjs:371) | 来源清单与帧、图集及元数据同一事务提交和回滚 |
+| [pack.test.cjs:10](E:/Aproject/MX002/tools/redraw60/pack.test.cjs:10) | 分段模式、固定尺度及错误参数测试 |
+| [pack.test.cjs:65](E:/Aproject/MX002/tools/redraw60/pack.test.cjs:65) | 真实PNG验证失败保留旧清单、成功同时提交、播放排列及重复序号拒绝 |
+| [continuity-build.cjs:9](E:/Aproject/MX002/tools/redraw60/continuity-build.cjs:9) | 三方向六阶段跳跃及背面四阶段起身，默认隔离候选，明确参数才发布 |
+| [continuity-plan.json:1](E:/Aproject/MX002/tools/redraw60/continuity-plan.json:1) | 阶段计划、原提交和人工复核的真实姿态播放顺序 |
+| [continuity-compare.cjs:9](E:/Aproject/MX002/tools/redraw60/continuity-compare.cjs:9) | 三方向跳跃旧版/新版同帧排版，验证60页及1000毫秒实际GIF |
+
+原C控制器未改。本轮只修改素材、打包和检查工具；13项行为测试通过。来源清单的事务边界问题已按独立复审修复，并增加实际PNG回归检查。

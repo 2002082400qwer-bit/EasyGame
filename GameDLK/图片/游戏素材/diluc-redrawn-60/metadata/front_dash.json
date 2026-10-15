@@ -718,10 +718,10 @@
     {
       "index": 45,
       "image": "frames/front_dash/45.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 0,
-      "sha256": "898dc9a4cdba6ac514d9feed2722eb6b9139031caaecc863338b96756266a4fe",
-      "pixelSha256": "5fc3f4534b2d25c2c542ba57cd2d179debffd510eb419be73b21f8bfd046f64c",
+      "sha256": "a2e7c9cff139fc9c154a79c3f35bc1a5bf315745580cb9359d0968e5116810f1",
+      "pixelSha256": "772f8e64efa71d4a1c0aadb690201080ff74ec66e39848cea1604727898578dc",
       "rect": {
         "x": 2304,
         "y": 768,
@@ -732,10 +732,10 @@
     {
       "index": 46,
       "image": "frames/front_dash/46.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 1,
-      "sha256": "c5757b66e5f42525e17b7ead753ab5e73f057d41fd342e5bf4902a4e448a40cd",
-      "pixelSha256": "ac2bf5847974e7f3222a8497c266b42b50474a6d987310d68bc3588b3b34ca62",
+      "sha256": "c1ea5996c5e2147b8378eaf720590df18d9dcc13a78c05cffd15ddfba733db13",
+      "pixelSha256": "3142aaf4dfd6c8b6d0deb37b7c29a6d7b1c1afbb959733bc6db4201ba0016761",
       "rect": {
         "x": 2560,
         "y": 768,
@@ -746,10 +746,10 @@
     {
       "index": 47,
       "image": "frames/front_dash/47.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 2,
-      "sha256": "294b898d89ee7bf9ccdb554c562dac34f1d28c834df5d4badd0b07f338e10002",
-      "pixelSha256": "944c23d8fc50af9e5135b678f80608efd5f8e0fa793ea6a932f628beb54a1f97",
+      "sha256": "56fd24059c82f97980c714169bcb0f3a0998534cda90fa3d17a4069d2691d517",
+      "pixelSha256": "8d61b8cfd8b163323d7477b711bb1391504782453ee62c8b00c76e9fc015861e",
       "rect": {
         "x": 2816,
         "y": 768,
@@ -760,10 +760,10 @@
     {
       "index": 48,
       "image": "frames/front_dash/48.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 3,
-      "sha256": "c4d01e1495c3d367a743abd6066a924ccfce27167f59f80d3fdd5daa56e6c76f",
-      "pixelSha256": "f5d267386a0a36ff75a8e14e4f9f4aaaa3c3a68cfae33dbe6350bb8ff5cf7846",
+      "sha256": "d6f554d604e60bef3e738616f145cf55657d147ce01ff72d940fb61b4b393904",
+      "pixelSha256": "bc92214a66f98556b951b4d7ec6a802966c9e71515d22b0a835db990a6d9b273",
       "rect": {
         "x": 0,
         "y": 1024,
@@ -774,10 +774,10 @@
     {
       "index": 49,
       "image": "frames/front_dash/49.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 4,
-      "sha256": "04fc3f6583ce8d787018d08a07289eed1efca036a2d475053cca8ff0efd7e566",
-      "pixelSha256": "5d9f2fc896bdaca4c349ebd2ab8fe7770bd91413bbd811a6175a9705f622f777",
+      "sha256": "059403bd487df7587b215fba20bcbc53e192d2747f4021ff22e9b804860d0b81",
+      "pixelSha256": "8f8bb07e0e8b594b921cc9c056371296ca6cf6629c0840646e2f81b680a47065",
       "rect": {
         "x": 256,
         "y": 1024,
@@ -788,10 +788,10 @@
     {
       "index": 50,
       "image": "frames/front_dash/50.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 5,
-      "sha256": "ec49dc7d644e73760667ef0220c2700082fb3d98249fef5da489888cdaf9d392",
-      "pixelSha256": "06902bafdd4b2e7f801230bc7cf4af841c308f9cdaa18adf4d625d9a9a6d5c36",
+      "sha256": "1469e16ae40e09da11850cb56ce7a49a6edbc1e93d398a2274281274ca2e9d80",
+      "pixelSha256": "496cf9a0cd74f699ac6492eb967e3061264df4b332003a3a46e8ddc954abae14",
       "rect": {
         "x": 512,
         "y": 1024,
@@ -802,10 +802,10 @@
     {
       "index": 51,
       "image": "frames/front_dash/51.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 6,
-      "sha256": "e6785b7e424a5a2b504d30fba11d6685f399c0e0f975b02d3d0df224492d731c",
-      "pixelSha256": "bf59b03c9d0b4488803c3893bbb4ff076867fc38c7611a5f2424b1a3f039edc1",
+      "sha256": "b83acda80cdd835f92cfc762b2a4ee0440f27eb8f4e2a2580b5e15dfe45ca7c2",
+      "pixelSha256": "31f97554a071701044fb14c313a14bf3b0072236e84b096c4d36868fadb6342b",
       "rect": {
         "x": 768,
         "y": 1024,
@@ -816,10 +816,10 @@
     {
       "index": 52,
       "image": "frames/front_dash/52.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 7,
-      "sha256": "286c67995f51cf1d476da18ae3dca7ec0f75f38b5305c1dc8cb4b61fadc8291f",
-      "pixelSha256": "573132235aac5720190082133f36bc1ca1164b3d43b11372c3515c57f5c34ef7",
+      "sha256": "2f2f574a5ae7cd375bc6c30dfdcad84c3f98dd03a43171926c0c581a13c89e82",
+      "pixelSha256": "d6584c0d3b28b1b2ccaf4e052a73028bcb64e9d97a545a945d683efb13ec95bc",
       "rect": {
         "x": 1024,
         "y": 1024,
@@ -830,10 +830,10 @@
     {
       "index": 53,
       "image": "frames/front_dash/53.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 8,
-      "sha256": "f61d5f6e2cfc4281a0f8f26b71e12a12599403fe54f2d6381333f788f193746f",
-      "pixelSha256": "851d41dd912011c444571f7ef265b95c35e9cd7165e8c705fc2c976f4bf2ff06",
+      "sha256": "f5d7a12dfd67d73c3de30b36b40bbb49f6b6529b1279362e59749e04edcb626e",
+      "pixelSha256": "d7add478b6ff9ddcbeffafd7cb54b0cd0ce064c95f9dee8dba8085a41e917882",
       "rect": {
         "x": 1280,
         "y": 1024,
@@ -844,10 +844,10 @@
     {
       "index": 54,
       "image": "frames/front_dash/54.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 9,
-      "sha256": "1476e7c899d4b273a5909468a26bfc014d4dcc9122bc086a82b531ecf77c2768",
-      "pixelSha256": "4afa26a8b863b1584a8ab4ff1c4d08265978acc4531ca802f8af8289fd9cc7d8",
+      "sha256": "47c7f7bc29a6fcd540edc5f142d66403e7e27482ab3536beb1998fe6f850979f",
+      "pixelSha256": "5ca2866bce332123ff1ece7cfed7e5b0ca4111bce0037d92ad95ff6eed854a8a",
       "rect": {
         "x": 1536,
         "y": 1024,
@@ -858,10 +858,10 @@
     {
       "index": 55,
       "image": "frames/front_dash/55.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 10,
-      "sha256": "6910efedd58777b2e1d47d7ff487cbc53f78c3315c32a024ab997afc9396b620",
-      "pixelSha256": "122d82748b3601a3fe7148959fc55db87f02bbe5fa22c9a502fa840d242134d7",
+      "sha256": "1ffc311c072705bc2ac8e87347c8b45938c47541ba782b53caddc9ed282b9295",
+      "pixelSha256": "7113d2566e523328a51ae586149453e7bcd064a485569c92aee92c7d858e5e4a",
       "rect": {
         "x": 1792,
         "y": 1024,
@@ -872,10 +872,10 @@
     {
       "index": 56,
       "image": "frames/front_dash/56.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 11,
-      "sha256": "7385c7bffd6dabc5ed42eebc4dadeb105fd0eb51970ffce20e99decddc2ea151",
-      "pixelSha256": "a7bc1e538e778241945512853dccae109ab07de35b48c2c3ab215a3843ad47cd",
+      "sha256": "2a035d7b9d61ce73d8da6e313b4914cf97524ff28675416db0764955071d9975",
+      "pixelSha256": "5c31ac82ab982271bdd73923ab9dd544dd4f5a7ac7d72208292f87c6380127af",
       "rect": {
         "x": 2048,
         "y": 1024,
@@ -886,10 +886,10 @@
     {
       "index": 57,
       "image": "frames/front_dash/57.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 12,
-      "sha256": "a6faedf036d78ebdc1da66de1a423608ace44550c2195144e5eb5c080b54cff6",
-      "pixelSha256": "8a9d7092c03ff5b0f253bda2e9f84a9cd8f3211777252e765216201d68c7db4e",
+      "sha256": "d91d1fea91cf8bc0a1779dce5a7cf5e290c8ce839ac9588a906019711634ebef",
+      "pixelSha256": "594e2ab5e645740c4762f50d114738b2579751857538019c129101f42bbb6675",
       "rect": {
         "x": 2304,
         "y": 1024,
@@ -900,10 +900,10 @@
     {
       "index": 58,
       "image": "frames/front_dash/58.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 13,
-      "sha256": "7f8911d4d56b091fc9f325c7f3f517577bd8e062e9d3e23b6af0bccce2813a39",
-      "pixelSha256": "cb9c88a8eee2bacf2ca14c42f2c9ee2e9015b42d6e6c2dbdccb306bdc22e154b",
+      "sha256": "2259e0970a9388da747ccef5f824a72a5715107e87c77daff01408041e1fd7e3",
+      "pixelSha256": "d55119ef310240302379a92ddc3577487121e38df778cbbcc21a83f3dc799c47",
       "rect": {
         "x": 2560,
         "y": 1024,
@@ -914,10 +914,10 @@
     {
       "index": 59,
       "image": "frames/front_dash/59.png",
-      "sourceImage": "raw/front_dash-closing15.png",
+      "sourceImage": "raw/front_dash-v3-closing15.png",
       "sourceFrame": 14,
-      "sha256": "d41125ad06efb9c791297552546a22e484911bf4738e417ca651d133003e075a",
-      "pixelSha256": "6a1214132eefee1b6723a41781cba33a921a6b39ff3aa2c8b1190ca29a580659",
+      "sha256": "59e28f78ff87f5f22c31b7ed7cbd8e6491c861cef75f55e40efb5f5906f9d98f",
+      "pixelSha256": "64bc9e7ae1703d03bb9fe5ae4ec27845cfd2ddfaaa0281cf5ff5dba63f48b70f",
       "rect": {
         "x": 2816,
         "y": 1024,
@@ -990,8 +990,8 @@
       "method": "image_gen fresh redraw; no interpolation or repeated-frame padding"
     },
     {
-      "image": "raw/front_dash-closing15.png",
-      "sha256": "9709f5cac1acb3e277b49725a7e681d76e518fac06b5fd6a4a28f9603747133a",
+      "image": "raw/front_dash-v3-closing15.png",
+      "sha256": "81adc5a5f537e8dcf6b195bb67d2849b091c9f0484ab55d4a7710d8f87d6b57c",
       "nativeWidth": 1536,
       "nativeHeight": 1024,
       "actualFigures": 15,
@@ -1024,8 +1024,8 @@
   "verification": {
     "sourceFigures": 63,
     "distinctPixelFrames": 60,
-    "seamDifference": 0.03184588416545949,
-    "seamLimit": 0.08352479924573328,
+    "seamDifference": 0.02820464090584179,
+    "seamLimit": 0.04923760966382076,
     "seamMetricPassed": true,
     "visualContinuityVerified": false
   }

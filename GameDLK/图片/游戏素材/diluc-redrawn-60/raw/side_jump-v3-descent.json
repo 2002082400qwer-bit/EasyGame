@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-15",
+  "prompt": "Freshly redraw exactly TEN isolated FULL BODY sprites, FIVE columns by TWO rows. Transparent RGBA cutouts. One SHORT PHASE of a 2D game jump, row2 continues row1. ONLY airborne APEX to late DESCENT. ALL TEN sprites already airborne. Frame1 compact knees high, frame2-10 gradually lower and extend the shins toward ground for imminent landing, arms gradually lower for balance, hair up then behind. Frame10 boots just about to touch down, knees still bent. NEVER stand relaxed or crouch planted; never jump again.\nLEFT-FACING strict SIDE orthographic view ALL TEN. References give SAME red ponytailed male, black/red ornate long coat, black gloves and boots. Preserve anatomical HEAD SIZE and character proportions, costume details, linework, color, lighting and camera; never resize body through the sequence. All ten freshly drawn and distinct. Frame1 is start of this phase, frame10 its stated end, every adjacent pose tiny incremental progression. No other phases, no extra jumps. Generously spaced 5x2 cells on1536x1024, each complete silhouette with32px blank border, wide transparent gaps, no touching hair/coat between sprites. No labels/grid/background/shadows/haze/glow.",
+  "references": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_jump\\30.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_jump\\49.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-82fff332-0a09-428a-85a3-bfd3f1bbe829.png",
+  "method": "image_gen fresh redraw; continuity revision"
+}

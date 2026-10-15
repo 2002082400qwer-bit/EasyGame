@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-15",
+  "prompt": "Fresh redraw for a coherent 2D GAME jump animation. Exactly TEN isolated full-body sprites, FIVE columns by TWO rows, reading LEFT TO RIGHT then second row. This is ONLY a short phase of a jump, NOT an entire jump. ONLY standing to deep takeoff crouch. Frame1 upright with hands relaxed by thighs; frames2-10 continuously bend both knees and lower hips, arms swing backward, ending deep loaded crouch. ALL feet remain planted. Never extend knees again, never jump, never recover, no upright pose after frame1.\nSame LEFT-FACING strict orthographic SIDE view in ALL TEN poses; reference locks character identity and approximate poses. Red ponytail, ornate black/red long coat, black gloves/boots. Same head and body size, arms close to body, consistent linework, lighting and costume. Each adjacent sprite advances the stated action in small increments; second row continues first row, never resets. Transparent RGBA, no text/grid/floor/shadow. Both rows centered in generously spaced 5x2 cells, full hair/boots and trailing coat completely inside canvas with wide clear margins, no touching sprites. At least32 blank pixels all outer borders. Canvas1536x1024. Only10 sprites, freshly drawn distinct poses, not copies.",
+  "references": [
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_jump\\00.png",
+    "E:\\Aproject\\MX002\\图片\\游戏素材\\diluc-redrawn-60\\frames\\side_jump\\17.png"
+  ],
+  "source": "C:\\Users\\GT0061\\.codex\\generated_images\\01a12f39-c75f-7270-ab8a-5cc1003ac7ea\\exec-e13e81cb-0198-49d5-9ea1-bb6ee5cce3b7.png",
+  "method": "image_gen fresh redraw; continuity revision"
+}

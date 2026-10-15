@@ -40,5 +40,17 @@
   ],
   "formalPngs": 2100,
   "failed": [],
-  "fullFrameByFrameVisualVerification": false
+  "fullFrameByFrameVisualVerification": false,
+  "lastRevision": {
+    "date": "2026-10-15",
+    "correctedGroups": [
+      "side_jump",
+      "front_jump",
+      "back_jump",
+      "back_crouch_to_stand",
+      "front_dash",
+      "turn_front_to_left"
+    ],
+    "report": "qa/continuity-review.json"
+  }
 }
