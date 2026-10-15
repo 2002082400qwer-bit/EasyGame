@@ -5,7 +5,8 @@
   "description": "60帧重绘素材的裁取、图集、预览与真实性校验工具",
   "engines": { "node": ">=24" },
   "scripts": {
-    "test": "node --test pack.test.cjs",
+    "test": "node --test pack.test.cjs gait.check.test.cjs",
+    "gait-check": "node gait.check.cjs",
     "audit": "node audit.cjs",
     "contact": "node contact.cjs",
     "preview-check": "node preview.check.cjs"

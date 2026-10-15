@@ -1,5 +1,5 @@
 window.SPRITE_BUNDLE = {
-  "generatedAt": "2026-10-15T05:46:51.109Z",
+  "generatedAt": "2026-10-15T08:32:04.490Z",
   "expectedGroups": 35,
   "verifiedGroups": 35,
   "verifiedPngs": 2100,
@@ -15,7 +15,7 @@ window.SPRITE_BUNDLE = {
       "atlasVerified": true,
       "previewMilliseconds": 1000,
       "suggestedFps": 60,
-      "seamDifference": 0.02406748741234964,
+      "seamDifference": 0.0359952475647908,
       "seamMetricPassed": true,
       "visualContinuityVerified": false,
       "atlas": "atlases/side_slow_walk.png",

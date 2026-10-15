@@ -47,3 +47,11 @@
 重新组装三方向跳跃或背面起身：`node tools/redraw60/continuity-build.cjs <动作id>`默认只生成候选；检查后加`--publish`替换正式组。其余两组的实际来源与选择以`raw/<动作id>-source-layout.json`为准，仍用原`pack.cjs pack`入口重现。新提示词保存于`raw/*-v3-*.json`，代码位置在工程`tools/redraw60/CHANGELOG.md`。
 
 视觉检查覆盖35张完整图集以及修正组的全部姿态、阶段交接和关键接缝。复杂衣纹与头发仍存在少量帧间绘制差异，数值通过不表示每个美术细节都已逐像素一致。
+
+## 侧面慢走交替腿修复
+
+`side_slow_walk`重新绘制完整60帧，四段各十五张：近侧接触到过腿、远侧过腿到接触、远侧接触到过腿、近侧过腿到接触。相反接触参考、四张新绘来源保存在`raw/side_slow_walk-v4-*.png`和`raw/side_slow_walk-v5-*.png`；实际选帧及提示词集合见工程`tools/redraw60/gait-plan.json`，正式来源清单为`raw/side_slow_walk-source-layout.json`。未插值、重复或镜像凑帧。
+
+新00装饰近侧靴在前；30朴素远侧靴在前、装饰近侧靴在后；15与45为不同腿过腿。旧图集、GIF和元数据保留在`qa/gait-v4-before`；一秒完整循环对照为`qa/gait-v4-comparison.gif`，关键姿联系图为`qa/gait-v4-keyframes.png`。这些为源帧对照，游戏待机、慢走、转身实际按208像素核心站高等比绘制。
+
+复现导出：`node tools/redraw60/gait-build.cjs`默认只生成候选，复核后加`--publish`。`node tools/redraw60/gait.check.cjs`检查两个半周期脚部跨度都明显收拢，拒绝空区域；它不能单独判定解剖左右腿身份，仍须看关键帧与完整循环。

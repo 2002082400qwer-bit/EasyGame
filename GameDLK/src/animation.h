@@ -8,6 +8,7 @@
 #define ANIMATION_TURN_DURATION 0.16f // 每次九十度转身播放秒数
 #define ANIMATION_CROUCH_DURATION 0.18f // 完整下蹲或起身播放秒数
 #define ANIMATION_RECOVERY_DURATION 0.12f // 蹲姿冲刺结束后的站立恢复秒数
+#define ANIMATION_STANDING_PIXELS 208.0f // 转身与普通站立统一的核心轮廓高度
 
 typedef enum ActorView {
     VIEW_FRONT, // 正面
@@ -55,5 +56,9 @@ int AnimationClip(ActorView view, ActorMotion motion);
 const char *AnimationClipName(int clip);
 /* 查询朝向标签：view为朝向，返回窗口使用的英文名称。 */
 const char *AnimationViewName(ActorView view);
+/* 量取真实帧高：rgba为图集RGBA字节，width/height为图集尺寸，frame为十二列图集帧号。 */
+float AnimationContentHeight(const unsigned char *rgba, int width, int height, int frame);
+/* 查询绘制倍率：clip为图集编号，content_height为真实不透明轮廓高度；归一待机、慢走及转身。 */
+float AnimationRenderScale(int clip, float content_height);
 
 #endif

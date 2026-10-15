@@ -1,0 +1,117 @@
+{
+  "date": "2026-10-15",
+  "id": "side_slow_walk",
+  "sources": [
+    {
+      "image": "side_slow_walk-v4-near-contact-to-pass.png",
+      "expected": 15,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "scaleMode": "native",
+      "phase": "near-contact-to-pass"
+    },
+    {
+      "image": "side_slow_walk-v5-far-pass-to-contact.png",
+      "expected": 15,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "scaleMode": "native",
+      "phase": "far-pass-to-contact"
+    },
+    {
+      "image": "side_slow_walk-v5-far-contact-to-pass.png",
+      "expected": 15,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "scaleMode": "native",
+      "phase": "far-contact-to-pass"
+    },
+    {
+      "image": "side_slow_walk-v5-near-pass-to-contact.png",
+      "expected": 15,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "scaleMode": "native",
+      "phase": "near-pass-to-contact"
+    }
+  ],
+  "reference": "frames/side_idle/00.png",
+  "generationTool": "built-in image_gen",
+  "promptSet": {
+    "shared": "Same red ponytailed black/red coat character; orthographic LEFT profile;15 distinct new drawings in5columns x3rows; walk in place; fixed scale and foot ground; visible knees/boots; opposing arm swing; transparent alpha; no labels/background/shadows; do not reset at rows.",
+    "phases": [
+      "Near foot forward contact to near stance under hip and far bent knee passing",
+      "Far bent knee swings forward to far foot leading contact and near leg trailing",
+      "Far foot forward contact to far stance under hip and near bent knee passing",
+      "Near bent knee swings forward to near foot leading heel approaching contact"
+    ],
+    "oppositeIdentityLock": "At opposite contact NEAR decorated boot is RIGHT/BACK with raised heel and FAR plain darker boot LEFT/FRONT heel planted; near hand swings LEFT/forward. Never move decorations between legs. At next passing NEAR decorated boot is the lifted swing foot and FAR plain boot the grounded support. Then decorated leg reaches LEFT/forward to original near contact. Image generation used the explicit opposite reference and original contact reference for quarters B/C/D."
+  },
+  "constraints": [
+    "60 distinct fresh images, no interpolation, no copied or mirrored frames",
+    "0 and30 opposite anatomical lead legs;15 and45 opposite passing poses",
+    "4 phase drawings are registered at shared feet and standing height, alpha0 RGB discarded"
+  ],
+  "oppositeContactReference": "raw/side_slow_walk-v5-opposite-contact-reference.png",
+  "review": "First draft rejected after independent review could not distinguish opposite leg identity; B/C/D redrawn from explicit opposite-contact reference. Kept only15new drawings perphase, no repeated/interpolated/mirrored frames."
+}

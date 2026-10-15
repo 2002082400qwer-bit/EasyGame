@@ -28,6 +28,35 @@ const char *AnimationViewName(ActorView view)
     return views[view];
 }
 
+/* 量取帧轮廓：rgba为原像素，width/height为图集尺寸，frame为六十帧编号。 */
+float AnimationContentHeight(const unsigned char *rgba, int width, int height, int frame)
+{
+    if (rgba == NULL || frame < 0 || frame >= ANIMATION_FRAME_COUNT || width <= 0 || height <= 0) return 0.0f;
+    const int left = frame % 12 * 256; // 当前帧在十二列图集中的起始横坐标
+    const int top = frame / 12 * 256; // 当前帧在图集中的起始纵坐标
+    if (left + 256 > width || top + 256 > height) return 0.0f;
+    int first = 256; // 核心不透明轮廓的最高行
+    int last = -1; // 核心不透明轮廓的最低行
+    for (int y = 0; y < 256; ++y) { // 当前帧内部的纵坐标
+        for (int x = 0; x < 256; ++x) { // 当前帧内部的横坐标
+            const size_t offset = ((size_t)(top + y) * width + left + x) * 4 + 3; // 当前RGBA像素的透明度偏移
+            if (rgba[offset] < 128) continue;
+            if (y < first) first = y;
+            if (y > last) last = y;
+        }
+    }
+    return last >= first ? (float)(last - first + 1) : 0.0f;
+}
+
+/* 查询站姿绘制倍率：clip为动作编号，content_height为实测核心高度；蹲跳等姿态不能按站高放大。 */
+float AnimationRenderScale(int clip, float content_height)
+{
+    const bool turn = clip >= 27 && clip < ANIMATION_CLIP_COUNT; // 八组站立转身动作
+    const bool standing = clip >= 0 && clip < 27 && (clip % 9 == MOTION_IDLE || clip % 9 == MOTION_WALK); // 三方向待机与慢走，与转身保持共同站姿尺度
+    if ((turn || standing) && content_height > 0.0f) return ANIMATION_STANDING_PIXELS / content_height;
+    return 1.0f;
+}
+
 /* 初始化动画：animation为输出状态，view为初始朝向。 */
 void AnimationInit(ActorAnimation *animation, ActorView view)
 {

@@ -18,6 +18,7 @@ if (!$report.passed -or $report.atlasCount -ne 35 -or $report.checks -ne 95 -or 
 foreach ($scene in $report.scenes) { # 当前图集或动作验证记录
     if (!$scene.passed -or $scene.frame -lt 0 -or $scene.frame -gt 59) { throw ('场景断言失败：' + $scene.name) }
     if ($scene.name.StartsWith('atlas-') -and $scene.frame -ne 29) { throw '图集截图与报告必须使用相同帧号。' }
+    if ($scene.clip.StartsWith('turn_') -and [Math]::Abs($scene.renderHeight - 208) -gt 0.01) { throw '转身人物高度没有保持站立尺度。' }
     $screenshot = Join-Path $verificationRoot ($scene.name + '.png') # 对应该记录的真实GPU截图
     if (!(Test-Path -LiteralPath $screenshot) -or (Get-Item -LiteralPath $screenshot).Length -lt 100) {
         throw ('截图缺失或为空：' + $scene.name)

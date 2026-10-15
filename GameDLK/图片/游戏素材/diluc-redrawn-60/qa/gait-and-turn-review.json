@@ -1,0 +1,244 @@
+{
+  "date": "2026-10-15",
+  "issues": [
+    "standing turn shrinks when switching atlases",
+    "walk keeps one anatomical leading foot"
+  ],
+  "standing": {
+    "canonicalCorePixels": 208,
+    "method": "measure each actual RGBA frame at alpha>=128; scale idle/walk/turn uniformly; scale foot origin with destination",
+    "allTurnFramesChecked": 480,
+    "gpuCases": [
+      {
+        "name": "atlas-turn_front_to_left",
+        "frame": 29,
+        "contentHeight": 184,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "atlas-turn_left_to_front",
+        "frame": 29,
+        "contentHeight": 181,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "atlas-turn_front_to_right",
+        "frame": 29,
+        "contentHeight": 193,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "atlas-turn_right_to_front",
+        "frame": 29,
+        "contentHeight": 186,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "atlas-turn_back_to_left",
+        "frame": 29,
+        "contentHeight": 174,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "atlas-turn_left_to_back",
+        "frame": 29,
+        "contentHeight": 204,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "atlas-turn_back_to_right",
+        "frame": 29,
+        "contentHeight": 185,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "atlas-turn_right_to_back",
+        "frame": 29,
+        "contentHeight": 182,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "turn_front_to_left",
+        "frame": 27,
+        "contentHeight": 183,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "turn_left_to_front",
+        "frame": 27,
+        "contentHeight": 182,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "turn_front_to_right",
+        "frame": 27,
+        "contentHeight": 195,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "turn_right_to_front",
+        "frame": 27,
+        "contentHeight": 185,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "turn_back_to_left",
+        "frame": 27,
+        "contentHeight": 174,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "turn_left_to_back",
+        "frame": 27,
+        "contentHeight": 205,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "turn_back_to_right",
+        "frame": 27,
+        "contentHeight": 184,
+        "renderHeight": 208,
+        "passed": true
+      },
+      {
+        "name": "turn_right_to_back",
+        "frame": 27,
+        "contentHeight": 181,
+        "renderHeight": 208,
+        "passed": true
+      }
+    ]
+  },
+  "gait": {
+    "freshFrames": 60,
+    "actualSources": [
+      {
+        "image": "raw/side_slow_walk-v4-near-contact-to-pass.png",
+        "actualFigures": 15,
+        "selectedIndices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "sha256": "49a651627778fe30d96d012c727f53ae1c101d51e6cda5bd56795614ee83ebb3"
+      },
+      {
+        "image": "raw/side_slow_walk-v5-far-pass-to-contact.png",
+        "actualFigures": 15,
+        "selectedIndices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "sha256": "9bb11c1e8e13c4030b376ba419dd6d1011c8c5b37488f1aa2c864d77aa8268c2"
+      },
+      {
+        "image": "raw/side_slow_walk-v5-far-contact-to-pass.png",
+        "actualFigures": 15,
+        "selectedIndices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "sha256": "cf64934823697def835a47e1d419d28b839443e57d2bcc00722eb82b95ec34b8"
+      },
+      {
+        "image": "raw/side_slow_walk-v5-near-pass-to-contact.png",
+        "actualFigures": 15,
+        "selectedIndices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "sha256": "d45b997e91d80b11662851de4d2c59d660f9188a7284dbf58dec4b625bd2b4eb"
+      }
+    ],
+    "generationTool": "built-in image_gen",
+    "oppositeContactReference": "raw/side_slow_walk-v5-opposite-contact-reference.png",
+    "keyPoseReview": {
+      "15": "decorated near leg supports; far leg passes",
+      "30": "plain far leg leads; decorated near leg trails",
+      "45": "decorated near leg swings/lifts; far leg supports",
+      "00": "decorated near leg leads"
+    },
+    "independentVisualReview": "accepted final candidate; previous first draft rejected because leg identities were ambiguous",
+    "seamDifference": 0.0359952475647908,
+    "seamLimit": 0.05678259663360234,
+    "spanChecks": "both half-cycles contain visible narrowing; rejects empty region; does not claim anatomical identification"
+  },
+  "verification": {
+    "physicsAssertions": 32,
+    "animationAssertions": 3173,
+    "toolTests": 14,
+    "totalGroups": 35,
+    "totalPngs": 2100,
+    "gpuChecks": 95,
+    "passed": true,
+    "launcher": "actual run.cmd --verify from CP936 and TEMP"
+  },
+  "codeLocations": "docs/animation-integration.md",
+  "promptSet": "tools/redraw60/gait-plan.json",
+  "limitations": "key pose and cycle continuity reviewed; small cloth/hair drawing differences remain; pixel uniqueness alone does not prove anatomical gait"
+}

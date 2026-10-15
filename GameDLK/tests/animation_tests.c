@@ -1,6 +1,7 @@
 #include "animation.h"
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 static int checks = 0; // 动画断言总数
 static int failures = 0; // 动画断言失败数
@@ -130,7 +131,28 @@ static void TestDirectionalActions(void)
     }
 }
 
-/* 测试入口：验证资源名唯一、三方向全部动作、转向与镜像规则，无命令行参数。 */
+/* 验证转身真实轮廓统一：不同来源的原图高度差异不能变成游戏中的缩小。 */
+static void TestRenderScale(void)
+{
+    const float heights[] = {173, 185, 184, 193, 205, 181, 181, 186}; // 八组原画实际测出的典型核心高度
+    for (int index = 0; index < 8; ++index) { // 当前转向资源编号
+        Check(fabsf(heights[index] * AnimationRenderScale(27 + index, heights[index]) - 208.0f) < 0.01f, "all turn atlases preserve standing height");
+    }
+    Check(AnimationRenderScale(3, 140) == 1.0f, "jump crouching pose is not enlarged to standing height");
+    Check(AnimationRenderScale(27, 0) == 1.0f, "empty frame cannot cause division by zero");
+    Check(fabsf(176.0f * AnimationRenderScale(AnimationClip(VIEW_LEFT, MOTION_WALK), 176.0f) - 208.0f) < 0.01f, "wide-coat walk source preserves standing body scale");
+    Check(fabsf(205.0f * AnimationRenderScale(AnimationClip(VIEW_LEFT, MOTION_IDLE), 205.0f) - 208.0f) < 0.01f, "idle and turn share a common standing scale");
+    Check(AnimationRenderScale(AnimationClip(VIEW_LEFT, MOTION_RISE), 100.0f) == 1.0f, "crouching is not stretched into standing");
+    static unsigned char pixels[256 * 256 * 4]; // 真实RGBA合成图，用于检查透明边缘不参与高度测量
+    memset(pixels, 0, sizeof(pixels));
+    pixels[(20 * 256 + 120) * 4 + 3] = 255;
+    pixels[(219 * 256 + 120) * 4 + 3] = 255;
+    pixels[(5 * 256 + 120) * 4 + 3] = 20;
+    Check(AnimationContentHeight(pixels, 256, 256, 0) == 200.0f, "content height measures opaque body instead of canvas or alpha fringe");
+    Check(AnimationContentHeight(pixels, 256, 256, 1) == 0.0f, "invalid atlas frame does not read outside pixels");
+}
+
+/* 测试入口：验证资源名唯一、三方向全部动作、转向、镜像和实际绘制尺度，无命令行参数。 */
 int main(void)
 {
     for (int clip = 0; clip < ANIMATION_CLIP_COUNT; ++clip) { // 当前图集索引
@@ -144,6 +166,7 @@ int main(void)
     TestActions(VIEW_BACK);
     TestTurns();
     TestDirectionalActions();
+    TestRenderScale();
     printf("Animation: %d checks, %d failures\n", checks, failures);
     return failures ? 1 : 0;
 }

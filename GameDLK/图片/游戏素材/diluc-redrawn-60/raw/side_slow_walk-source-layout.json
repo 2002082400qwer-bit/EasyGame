@@ -1,0 +1,96 @@
+{
+  "sources": [
+    {
+      "image": "side_slow_walk-v4-near-contact-to-pass.png",
+      "expected": 15,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "scaleMode": "native",
+      "phase": "near-contact-to-pass"
+    },
+    {
+      "image": "side_slow_walk-v5-far-pass-to-contact.png",
+      "expected": 15,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "scaleMode": "native",
+      "phase": "far-pass-to-contact"
+    },
+    {
+      "image": "side_slow_walk-v5-far-contact-to-pass.png",
+      "expected": 15,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "scaleMode": "native",
+      "phase": "far-contact-to-pass"
+    },
+    {
+      "image": "side_slow_walk-v5-near-pass-to-contact.png",
+      "expected": 15,
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "scaleMode": "native",
+      "phase": "near-pass-to-contact"
+    }
+  ]
+}

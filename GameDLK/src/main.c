@@ -22,6 +22,7 @@
 
 typedef struct Sprites {
     Texture2D textures[TEXTURE_CACHE_SIZE]; // 最近使用的图集纹理，最多约六十MiB显存
+    float heights[TEXTURE_CACHE_SIZE][ANIMATION_FRAME_COUNT]; // 每张图集各帧实际核心高度，防止不同转向原画尺度变化
     int clips[TEXTURE_CACHE_SIZE]; // 每个缓存槽对应的图集编号
     unsigned long stamps[TEXTURE_CACHE_SIZE]; // 每个槽最近一次访问的序号
     unsigned long clock; // 单调递增的缓存访问计数
@@ -87,8 +88,8 @@ static bool ValidateAtlases(void)
     return true;
 }
 
-/* 解码并上传PNG：name为资源名称，返回有效纹理或零值；实际解码时再次验证尺寸。 */
-static Texture2D ReadAtlas(const char *name)
+/* 解码并上传PNG：name为资源名称，heights接收六十帧核心高度；返回有效纹理或零值。 */
+static Texture2D ReadAtlas(const char *name, float *heights)
 {
     FILE *file = OpenAtlas(name); // 通过中文路径打开的PNG文件
     if (file == NULL) return (Texture2D){0};
@@ -105,6 +106,10 @@ static Texture2D ReadAtlas(const char *name)
     free(bytes);
     Texture2D texture = {0}; // 返回给渲染器的图集纹理
     if (image.data != NULL && image.width == 3072 && image.height == 1280) {
+        ImageFormat(&image, PIXELFORMAT_UNCOMPRESSED_R8G8B8A8);
+        for (int frame = 0; frame < ANIMATION_FRAME_COUNT; ++frame) { // 当前需要量取核心高度的真实帧
+            heights[frame] = AnimationContentHeight(image.data, image.width, image.height, frame);
+        }
         texture = LoadTextureFromImage(image);
         if (texture.id != 0) {
             SetTextureFilter(texture, TEXTURE_FILTER_BILINEAR);
@@ -128,7 +133,7 @@ static Texture2D GetAtlas(Sprites *sprites, int clip)
     }
     if (sprites->textures[slot].id != 0) UnloadTexture(sprites->textures[slot]);
     const char *name = AnimationClipName(clip); // 待上传的资源名称
-    sprites->textures[slot] = ReadAtlas(name);
+    sprites->textures[slot] = ReadAtlas(name, sprites->heights[slot]);
     sprites->clips[slot] = clip;
     sprites->stamps[slot] = ++sprites->clock;
     if (sprites->textures[slot].id == 0) {
@@ -136,6 +141,15 @@ static Texture2D GetAtlas(Sprites *sprites, int clip)
         sprites->failed = true;
     }
     return sprites->textures[slot];
+}
+
+/* 获取已绘制资源的真实帧高：sprites为缓存，clip/frame为当前图集和帧号；不重复加载纹理。 */
+static float CachedHeight(const Sprites *sprites, int clip, int frame)
+{
+    for (int index = 0; index < TEXTURE_CACHE_SIZE; ++index) { // 当前缓存槽
+        if (sprites->textures[index].id != 0 && sprites->clips[index] == clip) return sprites->heights[index][frame];
+    }
+    return 0.0f;
 }
 
 /* 绘制辅助文字：text为内容，x/y为左上坐标，size为像素字号，color为字色。 */
@@ -187,8 +201,9 @@ static void DrawActor(Sprites *sprites, const Player *player, const ActorAnimati
     if (texture.id == 0) return;
     Rectangle source = {(float)(frame % ATLAS_COLUMNS * FRAME_SIZE), (float)(frame / ATLAS_COLUMNS * FRAME_SIZE), FRAME_SIZE, FRAME_SIZE}; // 十二列五行图集源矩形
     if (animation->mirror) source.width = -source.width;
-    const Rectangle destination = {player->x + offset, player->y, FRAME_SIZE, FRAME_SIZE}; // 以脚底锚点定位的目标矩形
-    const Vector2 origin = {FRAME_SIZE * 0.5f, FRAME_SIZE * 0.92f}; // 素材清单指定的共同脚底锚点
+    const float scale = AnimationRenderScale(animation->clip, CachedHeight(sprites, animation->clip, frame)); // 待机、慢走及转向按核心高度等比归一，蹲跳保持原姿态
+    const Rectangle destination = {player->x + offset, player->y, FRAME_SIZE * scale, FRAME_SIZE * scale}; // 以脚底锚点定位的等比目标矩形
+    const Vector2 origin = {FRAME_SIZE * 0.5f * scale, FRAME_SIZE * 0.92f * scale}; // 缩放时同时缩放脚底锚点，不能产生脚底位移
     DrawTexturePro(texture, source, destination, origin, 0.0f, Fade(WHITE, opacity));
 }
 
@@ -297,12 +312,14 @@ static void Simulate(Player *player, ActorAnimation *animation, PlayerInput inpu
     }
 }
 
-/* 写入单个GPU验证结果：report为文件，count为已有记录数，name为名称，animation为绘制状态，passed为断言结果。 */
-static void ReportScene(FILE *report, int *count, const char *name, const ActorAnimation *animation, bool passed)
+/* 写入GPU结果：report为文件，count为记录数，name为名称，animation为绘制状态，passed为结果，sprites为帧高缓存。 */
+static void ReportScene(FILE *report, int *count, const char *name, const ActorAnimation *animation, bool passed, const Sprites *sprites)
 {
-    fprintf(report, "%s{\"name\":\"%s\",\"clip\":\"%s\",\"frame\":%d,\"mirror\":%s,\"passed\":%s}",
+    const float height = CachedHeight(sprites, animation->clip, animation->frame); // 实际已上传图集的核心像素高度
+    const float scale = AnimationRenderScale(animation->clip, height); // 与绘制角色相同的等比倍率
+    fprintf(report, "%s{\"name\":\"%s\",\"clip\":\"%s\",\"frame\":%d,\"contentHeight\":%.3f,\"renderHeight\":%.3f,\"mirror\":%s,\"passed\":%s}",
         *count > 0 ? "," : "", name, AnimationClipName(animation->clip), animation->frame,
-        animation->mirror ? "true" : "false", passed ? "true" : "false");
+        height, height * scale, animation->mirror ? "true" : "false", passed ? "true" : "false");
     ++*count;
     printf("GPU scene %s: %s\n", name, passed ? "PASS" : "FAIL");
 }
@@ -351,8 +368,15 @@ static int Verify(Sprites *sprites)
             const bool captured = DrawFrame(sprites, &player, &animation, true, 0.0f, index == 1 ? name : NULL); // 真实绘制并截取中间帧
             if (index == 1) { saved = captured; snapshot = animation; }
         }
-        const bool passed = saved && !sprites->failed; // 实际解码、GPU上传、三帧绘制与截图检查结果
-        ReportScene(report, &count, name, &snapshot, passed);
+        bool sized = true; // 六十帧转身都必须保持站立核心高度
+        if (clip >= 27) {
+            for (int frame = 0; frame < ANIMATION_FRAME_COUNT; ++frame) { // 当前实际转身帧
+                const float height = CachedHeight(sprites, clip, frame); // 当前帧的真实核心像素高度
+                sized = sized && height > 0.0f && fabsf(height * AnimationRenderScale(clip, height) - ANIMATION_STANDING_PIXELS) < 0.01f;
+            }
+        }
+        const bool passed = saved && !sprites->failed && sized; // 解码、上传、首中末绘制、截图与全部转身帧尺度结果
+        ReportScene(report, &count, name, &snapshot, passed, sprites);
         all_passed = all_passed && passed;
     }
     const ActorView views[] = {VIEW_FRONT, VIEW_LEFT, VIEW_BACK, VIEW_RIGHT}; // 检查三个原画方向以及右侧镜像
@@ -374,7 +398,7 @@ static int Verify(Sprites *sprites)
             const bool passed = player.action == scene->expected && animation.clip == AnimationClip(views[direction], scene->motion) &&
                 animation.frame >= 0 && animation.frame < 60 && animation.mirror == (views[direction] == VIEW_RIGHT) &&
                 !sprites->failed && saved; // 状态、实际资源、镜像、有效帧和截图共同通过
-            ReportScene(report, &count, name, &animation, passed);
+            ReportScene(report, &count, name, &animation, passed, sprites);
             all_passed = all_passed && passed;
         }
     }
@@ -393,7 +417,7 @@ static int Verify(Sprites *sprites)
         const ActorAnimation snapshot = animation; // 保存与截图一致的报告状态
         Simulate(&player, &animation, (PlayerInput){0}, 40);
         passed = passed && animation.view == targets[index] && animation.clip == AnimationClip(targets[index], MOTION_IDLE);
-        ReportScene(report, &count, name, &snapshot, passed);
+        ReportScene(report, &count, name, &snapshot, passed, sprites);
         all_passed = all_passed && passed;
     }
     fprintf(report, "],\"checks\":%d,\"passed\":%s}\n", count, all_passed ? "true" : "false");
