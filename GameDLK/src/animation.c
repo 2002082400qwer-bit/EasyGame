@@ -120,6 +120,9 @@ static bool Turn(ActorAnimation *animation, float dt)
 void AnimationUpdate(ActorAnimation *animation, const Player *player, float dt)
 {
     if (dt <= 0.0f) return;
+    if (player->action == ACTION_DASH && animation->previous != ACTION_DASH) {
+        animation->dash_crouch_start = animation->crouch_pose;
+    }
     animation->action_time = animation->previous == player->action ? animation->action_time + dt : 0.0f;
     animation->previous = player->action;
     if ((animation->requested == VIEW_LEFT || animation->requested == VIEW_RIGHT) &&

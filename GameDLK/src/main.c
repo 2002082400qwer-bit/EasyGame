@@ -4,30 +4,21 @@
 #define APP_WIDTH 1280 // 固定逻辑画布宽度
 #define APP_HEIGHT 720 // 固定逻辑画布高度
 #define FIXED_STEP (1.0f / 120.0f) // 每次角色物理更新的秒数
-#define FRAME_SIZE 256 // 角色图集单帧的像素尺寸
 #define PATH_CAPACITY 32768 // Windows宽字符路径缓冲区容量
-#define ATLAS_COLUMNS 12 // 六十帧图集的列数
-#define TEXTURE_CACHE_SIZE 4 // 按需保留四张图集，控制显存占用
 
 #include <windows.h>
 #include "raylib.h"
 #include "rlgl.h"
 #include "player.h"
 #include "animation.h"
+#include "skeletal_renderer.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <wchar.h>
 
-typedef struct Sprites {
-    Texture2D textures[TEXTURE_CACHE_SIZE]; // 最近使用的图集纹理，最多约六十MiB显存
-    float heights[TEXTURE_CACHE_SIZE][ANIMATION_FRAME_COUNT]; // 每张图集各帧实际核心高度，防止不同转向原画尺度变化
-    int clips[TEXTURE_CACHE_SIZE]; // 每个缓存槽对应的图集编号
-    unsigned long stamps[TEXTURE_CACHE_SIZE]; // 每个槽最近一次访问的序号
-    unsigned long clock; // 单调递增的缓存访问计数
-    bool failed; // 解码或纹理上传失败后停止游戏并返回错误
-} Sprites;
+typedef SkeletalRenderer Sprites; // 实时固定拆件资源，沿用场景绘制参数名称
 
 typedef struct VerifyScene {
     const char *name; // 截图与报告使用的场景名称
@@ -59,97 +50,6 @@ static bool FindRoot(void)
         *slash = L'\0';
     }
     return true;
-}
-
-/* 打开新图集：name为ASCII资源名，返回文件；宽字符路径保证中文目录可以读取。 */
-static FILE *OpenAtlas(const char *name)
-{
-    wchar_t path[PATH_CAPACITY]; // PNG完整文件路径
-    swprintf(path, PATH_CAPACITY, L"%ls\\图片\\游戏素材\\diluc-redrawn-60\\atlases\\%hs.png", root, name);
-    return _wfopen(path, L"rb");
-}
-
-/* 检查完整资源清单：启动时逐个检查PNG签名和3072乘1280尺寸，缺失时报告具体名称。 */
-static bool ValidateAtlases(void)
-{
-    const unsigned char signature[] = {137, 80, 78, 71, 13, 10, 26, 10}; // PNG标准签名
-    for (int clip = 0; clip < ANIMATION_CLIP_COUNT; ++clip) { // 待检查的图集编号
-        const char *name = AnimationClipName(clip); // 图集文件名
-        FILE *file = OpenAtlas(name); // 当前资源文件
-        unsigned char header[24] = {0}; // PNG签名、IHDR类型及宽高
-        const bool read = file != NULL && fread(header, 1, sizeof(header), file) == sizeof(header); // 是否读到完整头部
-        if (file != NULL) fclose(file);
-        if (!read || memcmp(header, signature, 8) != 0 || memcmp(header + 12, "IHDR", 4) != 0 ||
-            memcmp(header + 16, "\x00\x00\x0c\x00\x00\x00\x05\x00", 8) != 0) {
-            fprintf(stderr, "Missing or invalid 3072x1280 atlas: %s.png\n", name);
-            return false;
-        }
-    }
-    return true;
-}
-
-/* 解码并上传PNG：name为资源名称，heights接收六十帧核心高度；返回有效纹理或零值。 */
-static Texture2D ReadAtlas(const char *name, float *heights)
-{
-    FILE *file = OpenAtlas(name); // 通过中文路径打开的PNG文件
-    if (file == NULL) return (Texture2D){0};
-    if (fseek(file, 0, SEEK_END) != 0) { fclose(file); return (Texture2D){0}; }
-    const long size = ftell(file); // 图集文件字节数
-    rewind(file);
-    if (size <= 0 || size > 16000000) { fclose(file); return (Texture2D){0}; }
-    unsigned char *bytes = malloc((size_t)size); // 图片解码前的压缩字节缓冲区
-    if (bytes == NULL) { fclose(file); return (Texture2D){0}; }
-    const size_t read_size = fread(bytes, 1, (size_t)size, file); // 实际读取的字节数
-    fclose(file);
-    if (read_size != (size_t)size) { free(bytes); return (Texture2D){0}; }
-    Image image = LoadImageFromMemory(".png", bytes, (int)size); // raylib内存解码后的图片
-    free(bytes);
-    Texture2D texture = {0}; // 返回给渲染器的图集纹理
-    if (image.data != NULL && image.width == 3072 && image.height == 1280) {
-        ImageFormat(&image, PIXELFORMAT_UNCOMPRESSED_R8G8B8A8);
-        for (int frame = 0; frame < ANIMATION_FRAME_COUNT; ++frame) { // 当前需要量取核心高度的真实帧
-            heights[frame] = AnimationContentHeight(image.data, image.width, image.height, frame);
-        }
-        texture = LoadTextureFromImage(image);
-        if (texture.id != 0) {
-            SetTextureFilter(texture, TEXTURE_FILTER_BILINEAR);
-            SetTextureWrap(texture, TEXTURE_WRAP_CLAMP);
-        }
-    }
-    if (image.data != NULL) UnloadImage(image);
-    return texture;
-}
-
-/* 获取图集缓存：sprites为缓存状态，clip为资源编号；满时释放最久未访问的图集。 */
-static Texture2D GetAtlas(Sprites *sprites, int clip)
-{
-    int slot = 0; // 需要复用的缓存槽
-    for (int index = 0; index < TEXTURE_CACHE_SIZE; ++index) { // 检查已有纹理及最久未访问槽
-        if (sprites->textures[index].id != 0 && sprites->clips[index] == clip) {
-            sprites->stamps[index] = ++sprites->clock;
-            return sprites->textures[index];
-        }
-        if (sprites->stamps[index] < sprites->stamps[slot]) slot = index;
-    }
-    if (sprites->textures[slot].id != 0) UnloadTexture(sprites->textures[slot]);
-    const char *name = AnimationClipName(clip); // 待上传的资源名称
-    sprites->textures[slot] = ReadAtlas(name, sprites->heights[slot]);
-    sprites->clips[slot] = clip;
-    sprites->stamps[slot] = ++sprites->clock;
-    if (sprites->textures[slot].id == 0) {
-        fprintf(stderr, "Could not decode/upload sprite atlas: %s.png\n", name);
-        sprites->failed = true;
-    }
-    return sprites->textures[slot];
-}
-
-/* 获取已绘制资源的真实帧高：sprites为缓存，clip/frame为当前图集和帧号；不重复加载纹理。 */
-static float CachedHeight(const Sprites *sprites, int clip, int frame)
-{
-    for (int index = 0; index < TEXTURE_CACHE_SIZE; ++index) { // 当前缓存槽
-        if (sprites->textures[index].id != 0 && sprites->clips[index] == clip) return sprites->heights[index][frame];
-    }
-    return 0.0f;
 }
 
 /* 绘制辅助文字：text为内容，x/y为左上坐标，size为像素字号，color为字色。 */
@@ -190,21 +90,13 @@ static void DrawStage(float time)
     }
     Label("TRAINING GROUND", 38, 557, 13, muted);
     Label("0 m", 46, 635, 12, muted);
-    Label("SIDE VIEW  /  FIXED 120 Hz", 1006, 635, 12, muted);
+    Label("LIVE BONES  /  FIXED 120 Hz", 1006, 635, 12, muted);
 }
 
-/* 绘制角色单层：sprites为缓存，player为物理，animation为选帧，opacity为透明度，offset为横向偏移。 */
+/* 实时绘制角色：sprites为48拆件，player/animation为状态，opacity/offset为残影参数。 */
 static void DrawActor(Sprites *sprites, const Player *player, const ActorAnimation *animation, float opacity, float offset)
 {
-    const int frame = animation->frame; // 当前六十帧动画的帧序号
-    const Texture2D texture = GetAtlas(sprites, animation->clip); // 当前动作图集，按需加载
-    if (texture.id == 0) return;
-    Rectangle source = {(float)(frame % ATLAS_COLUMNS * FRAME_SIZE), (float)(frame / ATLAS_COLUMNS * FRAME_SIZE), FRAME_SIZE, FRAME_SIZE}; // 十二列五行图集源矩形
-    if (animation->mirror) source.width = -source.width;
-    const float scale = AnimationRenderScale(animation->clip, CachedHeight(sprites, animation->clip, frame)); // 待机、慢走及转向按核心高度等比归一，蹲跳保持原姿态
-    const Rectangle destination = {player->x + offset, player->y, FRAME_SIZE * scale, FRAME_SIZE * scale}; // 以脚底锚点定位的等比目标矩形
-    const Vector2 origin = {FRAME_SIZE * 0.5f * scale, FRAME_SIZE * 0.92f * scale}; // 缩放时同时缩放脚底锚点，不能产生脚底位移
-    DrawTexturePro(texture, source, destination, origin, 0.0f, Fade(WHITE, opacity));
+    SkeletalRendererDraw(sprites, player, animation, opacity, offset);
 }
 
 /* 绘制角色及碰撞框：sprites为缓存，player为物理，animation为动画，debug控制碰撞显示。 */
@@ -235,12 +127,12 @@ static void KeyCard(const char *key, const char *description, int x, int y, int 
     Label(description, x + width - MeasureText(description, 14) - 13, y + 14, 14, muted);
 }
 
-/* 绘制操作面板：player提供物理，animation提供图集及帧号，debug为碰撞框开关。 */
+/* 绘制操作面板：player提供物理，animation提供逻辑动作及阶段，debug为碰撞框开关。 */
 static void DrawHud(const Player *player, const ActorAnimation *animation, bool debug)
 {
     Label("MX002", 38, 27, 17, mint);
     Label("DILUC / MOVEMENT LAB", 38, 53, 28, paper);
-    Label("C + RAYLIB   /   35 ANIMATIONS x 60 FRAMES", 39, 92, 13, muted);
+    Label("LIVE SKELETON  /  48 PARTS  /  35 STATES", 39, 92, 13, muted);
     DrawRectangleRounded((Rectangle){895, 26, 347, 158}, 0.10f, 5, panel);
     Label("CURRENT ACTION", 916, 45, 12, muted);
     Label(PlayerActionName(player->action), 914, 68, 33, accent);
@@ -251,7 +143,7 @@ static void DrawHud(const Player *player, const ActorAnimation *animation, bool 
     if (ready > 0) DrawRectangleRounded((Rectangle){978, 124, 150 * ready, 10}, 0.6f, 6, mint);
     Label(player->dash_cooldown > 0 ? TextFormat("%.2fs", player->dash_cooldown) : "READY", 1147, 121, 14, paper);
     Label(AnimationViewName(animation->view), 916, 152, 12, muted);
-    Label(TextFormat("FRAME %02d / 59", animation->frame), 1114, 152, 12, muted);
+    Label(TextFormat("POSE %02d", animation->frame), 1114, 152, 12, muted);
     KeyCard("A / D", "WALK", 38, 127, 188);
     KeyCard("SPACE", "JUMP", 238, 127, 188);
     KeyCard("S / DOWN", "CROUCH", 438, 127, 198);
@@ -312,19 +204,19 @@ static void Simulate(Player *player, ActorAnimation *animation, PlayerInput inpu
     }
 }
 
-/* 写入GPU结果：report为文件，count为记录数，name为名称，animation为绘制状态，passed为结果，sprites为帧高缓存。 */
-static void ReportScene(FILE *report, int *count, const char *name, const ActorAnimation *animation, bool passed, const Sprites *sprites)
+/* 写入实时GPU结果：report/count为报告，name为场景，animation/player为截图时状态，sprites为已加载部件。 */
+static void ReportScene(FILE *report, int *count, const char *name, const ActorAnimation *animation, bool passed, const Sprites *sprites, const Player *player)
 {
-    const float height = CachedHeight(sprites, animation->clip, animation->frame); // 实际已上传图集的核心像素高度
-    const float scale = AnimationRenderScale(animation->clip, height); // 与绘制角色相同的等比倍率
-    fprintf(report, "%s{\"name\":\"%s\",\"clip\":\"%s\",\"frame\":%d,\"contentHeight\":%.3f,\"renderHeight\":%.3f,\"mirror\":%s,\"passed\":%s}",
+    SkeletalLayer layers[2]; // 与本次截图对应的真实骨骼姿势
+    const int layer_count = SkeletalEvaluate(player, animation, layers); // 本场景一层或转向两层
+    fprintf(report, "%s{\"name\":\"%s\",\"clip\":\"%s\",\"frame\":%d,\"standingReferenceHeight\":208,\"layers\":%d,\"loadedParts\":%u,\"mirror\":%s,\"passed\":%s}",
         *count > 0 ? "," : "", name, AnimationClipName(animation->clip), animation->frame,
-        height, height * scale, animation->mirror ? "true" : "false", passed ? "true" : "false");
+        layer_count, sprites->texture_count, animation->mirror ? "true" : "false", passed ? "true" : "false");
     ++*count;
     printf("GPU scene %s: %s\n", name, passed ? "PASS" : "FAIL");
 }
 
-/* 执行真实GPU验证：sprites为缓存；检查全部图集、三方向动作链及八组转向，并输出截图和报告。 */
+/* 执行真实GPU验证：sprites为缓存；检查全部逻辑姿态、三方向动作链及八组转向，并输出截图和报告。 */
 static int Verify(Sprites *sprites)
 {
     wchar_t directory[PATH_CAPACITY]; // 验证产物输出目录
@@ -351,32 +243,27 @@ static int Verify(Sprites *sprites)
     };
     bool all_passed = true; // 所有动作、截图与报告写入是否成功
     int count = 0; // 已记录的GPU检查数量
-    fprintf(report, "{\"raylib\":\"%s\",\"atlasCount\":35,\"framesPerAtlas\":60,\"textureCacheLimit\":4,\"scenes\":[", RAYLIB_VERSION);
-    for (int clip = 0; clip < ANIMATION_CLIP_COUNT; ++clip) { // 逐个解码上传并实际绘制的图集编号
+    fprintf(report, "{\"raylib\":\"%s\",\"renderer\":\"live-skeleton\",\"logicalStateCount\":35,\"resourceCount\":48,\"textureBytes\":%llu,\"scenes\":[", RAYLIB_VERSION, sprites->texture_bytes);
+    for (int clip = 0; clip < ANIMATION_CLIP_COUNT; ++clip) { // 逐个实际绘制的逻辑动作编号
         Player player; // 本场景独立的角色状态
-        ActorAnimation animation; // 直接检查源图集首、中、末帧的绘制状态
+        ActorAnimation animation; // 直接检查逻辑动作首、中、末阶段的绘制状态
         PlayerInit(&player, &world);
         AnimationInit(&animation, VIEW_LEFT);
         animation.clip = clip;
-        char name[128]; // 当前图集验证截图名称
-        snprintf(name, sizeof(name), "atlas-%s", AnimationClipName(clip));
+        char name[128]; // 当前逻辑姿态验证截图名称
+        snprintf(name, sizeof(name), "pose-%s", AnimationClipName(clip));
         bool saved = false; // 中间帧截图是否成功
         ActorAnimation snapshot = animation; // 与中间帧截图保持一致的报告状态
         const int frames[] = {0, 29, 59}; // 需要实际绘制的帧序号
         for (int index = 0; index < 3; ++index) { // 当前首中末帧检查序号
             animation.frame = frames[index];
+            animation.action_time = animation.frame / 60.0f;
+            animation.crouch_pose = 1 - animation.frame / 59.0f;
             const bool captured = DrawFrame(sprites, &player, &animation, true, 0.0f, index == 1 ? name : NULL); // 真实绘制并截取中间帧
             if (index == 1) { saved = captured; snapshot = animation; }
         }
-        bool sized = true; // 六十帧转身都必须保持站立核心高度
-        if (clip >= 27) {
-            for (int frame = 0; frame < ANIMATION_FRAME_COUNT; ++frame) { // 当前实际转身帧
-                const float height = CachedHeight(sprites, clip, frame); // 当前帧的真实核心像素高度
-                sized = sized && height > 0.0f && fabsf(height * AnimationRenderScale(clip, height) - ANIMATION_STANDING_PIXELS) < 0.01f;
-            }
-        }
-        const bool passed = saved && !sprites->failed && sized; // 解码、上传、首中末绘制、截图与全部转身帧尺度结果
-        ReportScene(report, &count, name, &snapshot, passed, sprites);
+        const bool passed = saved && !sprites->failed && sprites->texture_count == 48; // 真实部件加载、绘制与截图共同通过
+        ReportScene(report, &count, name, &snapshot, passed, sprites, &player);
         all_passed = all_passed && passed;
     }
     const ActorView views[] = {VIEW_FRONT, VIEW_LEFT, VIEW_BACK, VIEW_RIGHT}; // 检查三个原画方向以及右侧镜像
@@ -398,7 +285,7 @@ static int Verify(Sprites *sprites)
             const bool passed = player.action == scene->expected && animation.clip == AnimationClip(views[direction], scene->motion) &&
                 animation.frame >= 0 && animation.frame < 60 && animation.mirror == (views[direction] == VIEW_RIGHT) &&
                 !sprites->failed && saved; // 状态、实际资源、镜像、有效帧和截图共同通过
-            ReportScene(report, &count, name, &animation, passed, sprites);
+            ReportScene(report, &count, name, &animation, passed, sprites, &player);
             all_passed = all_passed && passed;
         }
     }
@@ -417,7 +304,7 @@ static int Verify(Sprites *sprites)
         const ActorAnimation snapshot = animation; // 保存与截图一致的报告状态
         Simulate(&player, &animation, (PlayerInput){0}, 40);
         passed = passed && animation.view == targets[index] && animation.clip == AnimationClip(targets[index], MOTION_IDLE);
-        ReportScene(report, &count, name, &snapshot, passed, sprites);
+        ReportScene(report, &count, name, &snapshot, passed, sprites, &player);
         all_passed = all_passed && passed;
     }
     fprintf(report, "],\"checks\":%d,\"passed\":%s}\n", count, all_passed ? "true" : "false");
@@ -425,13 +312,10 @@ static int Verify(Sprites *sprites)
     return all_passed ? 0 : 3;
 }
 
-/* 释放图集：sprites为已经部分或全部加载的资源，各纹理仅释放一次。 */
+/* 释放固定拆件：sprites为全部或部分加载的资源，各纹理只释放一次。 */
 static void UnloadSprites(Sprites *sprites)
 {
-    for (int index = 0; index < TEXTURE_CACHE_SIZE; ++index) { // 待释放的缓存槽
-        if (sprites->textures[index].id != 0) UnloadTexture(sprites->textures[index]);
-        sprites->textures[index] = (Texture2D){0};
-    }
+    SkeletalRendererUnload(sprites);
 }
 
 /* 程序入口：argc为参数数量，argv为参数列表；--verify执行隐藏窗口GPU验证。 */
@@ -439,15 +323,14 @@ int main(int argc, char **argv)
 {
     const bool verify = argc > 1 && strcmp(argv[1], "--verify") == 0; // 是否执行自动截图验证
     if (!FindRoot()) { fprintf(stderr, "Cannot locate project root.\n"); return 2; }
-    if (!ValidateAtlases()) return 2;
     SetTraceLogLevel(LOG_WARNING);
     SetConfigFlags(FLAG_MSAA_4X_HINT | (verify ? FLAG_WINDOW_HIDDEN : FLAG_VSYNC_HINT));
     InitWindow(APP_WIDTH, APP_HEIGHT, "MX002 | C + raylib Movement Lab");
     if (!IsWindowReady()) { fprintf(stderr, "Cannot create graphics window.\n"); return 2; }
     const char *limit_text = getenv("MX002_FPS_LIMIT"); // 手动性能验证时可选的渲染帧率限制
     SetTargetFPS(verify ? 240 : (limit_text ? atoi(limit_text) : 120));
-    Sprites sprites = {0}; // 三十五组图集共享的按需纹理缓存
-    GetAtlas(&sprites, AnimationClip(VIEW_LEFT, MOTION_IDLE));
+    Sprites sprites = {0}; // 三方向各16部件的固定纹理集合
+    SkeletalRendererLoad(&sprites, root);
     if (sprites.failed) {
         UnloadSprites(&sprites);
         CloseWindow();
@@ -460,7 +343,7 @@ int main(int argc, char **argv)
         return result;
     }
     Player player; // 当前可操控角色
-    ActorAnimation animation; // 当前角色的六十帧动画与转向状态
+    ActorAnimation animation; // 当前角色的逻辑动作与转向状态
     PlayerInit(&player, &world);
     AnimationInit(&animation, VIEW_LEFT);
     float accumulator = 0.0f; // 尚未用于物理更新的渲染时间累计

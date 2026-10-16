@@ -37,6 +37,7 @@ typedef struct ActorAnimation {
     float turn_time; // 当前转向已播放秒数
     float action_time; // 当前物理动作的累计动画时间
     float crouch_pose; // 下蹲程度，零为站立，一为完全下蹲
+    float dash_crouch_start; // 冲刺开始前的实际视觉蹲深，避免半蹲起冲突然变成深蹲
     float recovery; // 蹲姿冲刺的剩余站立恢复时间
     PlayerAction previous; // 上次更新时的物理动作
     int clip; // 当前绘制图集编号

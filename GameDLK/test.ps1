@@ -13,3 +13,13 @@ $animationExecutable = Join-Path $projectRoot 'build\animation_tests.exe' # 独�
 if ($LASTEXITCODE -ne 0) { throw '动画测试编译失败。' }
 & $animationExecutable
 if ($LASTEXITCODE -ne 0) { throw '动画行为测试失败。' }
+$skeletonExecutable = Join-Path $projectRoot 'build\skeleton_tests.exe' # 不依赖图片或GPU的骨骼数学测试
+& $compilerPath -std=c99 -Wall -Wextra -Werror -O2 -static -I (Join-Path $projectRoot 'src') (Join-Path $projectRoot 'tests\skeleton_tests.c') (Join-Path $projectRoot 'src\skeleton.c') -lm -o $skeletonExecutable
+if ($LASTEXITCODE -ne 0) { throw '骨骼数学测试编译失败。' }
+& $skeletonExecutable
+if ($LASTEXITCODE -ne 0) { throw '骨骼数学测试失败。' }
+$actorExecutable = Join-Path $projectRoot 'build\skeletal_actor_tests.exe' # 原35状态到实时姿势的适配回归
+& $compilerPath -std=c99 -Wall -Wextra -Werror -O2 -static -I (Join-Path $projectRoot 'src') (Join-Path $projectRoot 'tests\skeletal_actor_tests.c') (Join-Path $projectRoot 'src\skeletal_actor.c') (Join-Path $projectRoot 'src\skeleton.c') (Join-Path $projectRoot 'src\animation.c') (Join-Path $projectRoot 'src\player.c') -lm -o $actorExecutable
+if ($LASTEXITCODE -ne 0) { throw '实时动作适配测试编译失败。' }
+& $actorExecutable
+if ($LASTEXITCODE -ne 0) { throw '实时动作适配测试失败。' }
