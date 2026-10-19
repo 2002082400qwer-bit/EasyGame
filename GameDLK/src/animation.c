@@ -130,7 +130,7 @@ void AnimationUpdate(ActorAnimation *animation, const Player *player, float dt)
         const int facing = player->action == ACTION_DASH ? player->dash_direction : player->facing; // 冲刺固定朝向，其他动作跟随实际水平朝向
         animation->requested = facing < 0 ? VIEW_LEFT : VIEW_RIGHT;
     }
-    const bool immediate = player->action == ACTION_DASH || player->action == ACTION_JUMP ||
+    const bool immediate = player->move_intent != 0 || player->action == ACTION_DASH || player->action == ACTION_JUMP ||
         player->crouching || animation->crouch_pose > 0.0f || animation->recovery > 0.0f; // 需要立即响应、不能等待站姿转身的动作
     if (immediate && (animation->requested == VIEW_LEFT || animation->requested == VIEW_RIGHT)) {
         animation->view = animation->requested;

@@ -38,8 +38,11 @@ int MotionPreview(SkeletalRenderer *renderer, const wchar_t *root)
     MotionInit(&motion, &player, &animation);
     bool passed = true; // 全部真实帧是否成功保存
     for (int frame = 0; frame < 432; ++frame) { // 7.2秒60FPS对照，动作按120Hz推进
+        if (frame == 300) AnimationFace(&animation, VIEW_FRONT);
+        if (frame == 310) AnimationFace(&animation, VIEW_BACK);
+        if (frame == 320) AnimationFace(&animation, VIEW_LEFT);
         for (int tick = 0; tick < 2; ++tick) { // 每个显示帧有两个物理步
-            PlayerInput input = {.move = frame >= 30 && frame < 210 && frame != 125 ? -1 : frame >= 330 && frame < 390 ? 1 : 0,
+            PlayerInput input = {.move = frame >= 30 && frame < 210 && frame != 125 ? -1 : frame >= 330 && frame < 420 ? (((frame - 330) / 15) % 2 ? -1 : 1) : 0,
                 .run = (frame >= 90 && frame < 125) || frame == 126 || (frame >= 145 && frame < 210) || frame >= 330, .jump = frame == 150 && tick == 0,
                 .dash = (frame == 180 || frame == 270) && tick == 0, .crouch = frame >= 240 && frame < 300}; // 起步、走跑、跳冲、停止、蹲冲、反向跑
             PlayerUpdate(&player, input, &world, 1.0f / 120);
@@ -51,8 +54,8 @@ int MotionPreview(SkeletalRenderer *renderer, const wchar_t *root)
         BeginDrawing();
         ClearBackground((Color){13, 20, 31, 255});
         DrawText("SAME INPUT / SAME PHYSICS / SAME 48 PARTS", 250, 30, 24, WHITE);
-        DrawText("BEFORE: RESTART + RIGID", 50, 90, 22, (Color){245, 140, 120, 255});
-        DrawText("AFTER: CONTINUOUS + SOFT", 690, 90, 22, (Color){112, 217, 184, 255});
+        DrawText("BASE KEY POSES", 50, 90, 22, (Color){245, 140, 120, 255});
+        DrawText("REWORKED RUN + REVERSALS", 690, 90, 22, (Color){112, 217, 184, 255});
         DrawLine(640, 80, 640, 660, (Color){75, 90, 100, 255});
         for (int panel = 0; panel < 2; ++panel) { // 两边各自以跟随镜头观察同一真实位移
             const float physical_x = panel ? visual.x : player.x; // 与对应姿态一致的镜头位置
@@ -68,7 +71,7 @@ int MotionPreview(SkeletalRenderer *renderer, const wchar_t *root)
             SkeletalRendererDraw(renderer, &drawing, &animation, 1, 0);
         }
         DrawText(TextFormat("%5.2fs   %s", frame / 60.0f, PlayerActionName(player.action)), 40, 665, 22, WHITE);
-        DrawText("WALK > RUN > RESTART > WALK > JUMP > AIR DASH > CROUCH DASH > REVERSE RUN", 40, 145, 16, (Color){155, 180, 195, 255});
+        DrawText("WALK / RUN / JUMP-DASH / CROUCH-DASH / VIEW KEYS / RAPID LEFT-RIGHT", 40, 145, 16, (Color){155, 180, 195, 255});
         passed = Capture(root, frame) && passed && !renderer->failed;
         EndDrawing();
         fprintf(report, "{\"frame\":%d,\"action\":\"%s\",\"clip\":%d,\"phase\":%.6f,\"runMix\":%.6f,\"layers\":%d,\"x\":%.6f,\"visualX\":%.6f,\"bend\":%.6f,\"passed\":%s}\n",

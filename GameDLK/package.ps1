@@ -1,4 +1,4 @@
-# 导出最小可运行骨骼版本；先执行build.ps1，包内只包含程序和48个固定拆件，无参数。
+﻿# 导出最小可运行骨骼版本；先执行build.ps1，包内只包含程序和48个固定拆件，无参数。
 $ErrorActionPreference = 'Stop' # 文件复制或压缩失败立即停止
 $projectRoot = $PSScriptRoot # 当前工程根目录
 $executable = Join-Path $projectRoot 'build/MX002.exe' # 已验证的游戏程序

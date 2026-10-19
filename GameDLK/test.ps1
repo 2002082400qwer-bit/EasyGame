@@ -28,3 +28,8 @@ $motionExecutable = Join-Path $projectRoot 'build\motion_tests.exe' # 真实输�
 if ($LASTEXITCODE -ne 0) { throw '连续动作测试编译失败。' }
 & $motionExecutable
 if ($LASTEXITCODE -ne 0) { throw '连续动作测试失败。' }
+$qualityExecutable = Join-Path $projectRoot 'build\action_quality_tests.exe' # 跑姿、移动反向与转向全宽回归
+& $compilerPath -std=c99 -Wall -Wextra -Werror -O2 -static -I (Join-Path $projectRoot 'src') (Join-Path $projectRoot 'tests\action_quality_tests.c') (Join-Path $projectRoot 'src\motion.c') (Join-Path $projectRoot 'src\skeletal_actor.c') (Join-Path $projectRoot 'src\skeleton.c') (Join-Path $projectRoot 'src\animation.c') (Join-Path $projectRoot 'src\player.c') -lm -o $qualityExecutable
+if ($LASTEXITCODE -ne 0) { throw '动作轮廓测试编译失败。' }
+& $qualityExecutable
+if ($LASTEXITCODE -ne 0) { throw '动作轮廓测试失败。' }

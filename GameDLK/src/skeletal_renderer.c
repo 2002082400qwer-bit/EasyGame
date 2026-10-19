@@ -114,9 +114,11 @@ void SkeletalRendererDraw(SkeletalRenderer *renderer, const Player *player, cons
             if (texture.id == 0) { renderer->failed = true; return; }
             const float width = bone->width * scale * layer->width_scale; // 横向转向压窄后的显示宽度
             const float height = bone->height * scale * layer->pose.scale[part]; // 纵向透视由骨骼姿势控制，不按姿态重新归一站高
+            const int slot = part == 3 ? 0 : part == 14 ? 1 : part == 15 ? 2 : -1; // 有反向投影根部偏移的柔性附件
+            const float shift_x = slot >= 0 ? layer->shift[slot][0] : 0, shift_y = slot >= 0 ? layer->shift[slot][1] : 0; // 已插值的根部偏移
             const Rectangle source = {0, 0, layer->mirror ? -(float)texture.width : (float)texture.width, (float)texture.height}; // 右侧普通动作只镜像一次
-            const Rectangle target = {player->x + offset + sign * (joints[part].x - 256) * scale * layer->width_scale,
-                player->y + (joints[part].y - 471) * scale, width, height}; // 以同一世界脚底定位关节
+            const Rectangle target = {player->x + offset + sign * (joints[part].x + shift_x - 256) * scale * layer->width_scale,
+                player->y + (joints[part].y + shift_y - 471) * scale, width, height}; // 以同一世界脚底定位关节
             const Vector2 origin = {(layer->mirror ? 1 - bone->pivot_x : bone->pivot_x) * width, bone->pivot_y * height}; // 纹理镜像后枢轴也必须反射
             if (part == 3 || part == 14 || part == 15) {
                 DrawFlexible(texture, target, origin, sign * joints[part].angle * RAD2DEG,

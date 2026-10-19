@@ -45,7 +45,7 @@ int SkeletalEvaluate(const Player *player, const ActorAnimation *animation, Skel
             Layer(index == 0 ? from[clip - 27] : to[clip - 27], &layers[index]);
             SkeletonSample(layers[index].view, SKELETON_IDLE, 0, true, &layers[index].pose);
             layers[index].opacity = index == 0 ? 1 - blend : blend;
-            layers[index].width_scale = 1 - .20f * sinf(ACTOR_PI * phase);
+            layers[index].width_scale = 1; // 固定原图宽度，禁止用压扁整个人模拟转身
         }
         return 2;
     }

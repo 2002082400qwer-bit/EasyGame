@@ -8,9 +8,13 @@ typedef struct MotionState {
     Player previous_player, player; // 与姿态对应的前后世界位置
     int count, previous_count, group; // 当前/前次层数及动作语义组
     float phase, run_mix, elapsed, duration; // 持久步态相位、跑步混合和过渡时间
+    float reverse_time, reverse_torso, reverse_head; // 反向时保留原世界倾身，再经过承重转入新方向
+    SkeletonJoint reverse_joints[16]; // 反向起点的屏幕投影关节，横坐标相对角色中心
+    float reverse_hands[2][2]; // 反向起点的两手末端投影位置
     float cloth[3], cloth_speed[3]; // 发梢与两片衣摆的阻尼角和角速度
     float foot_world[2]; // 两只支撑脚锁定的世界横坐标
     float takeoff_world[2], takeoff_y[2], takeoff_phase[2], foot_phase[2], contact_limit[2]; // 从实际二维离地点衔接摆腿，并记录每步接触比例
+    float swing_time[2], swing_duration[2], stance_time[2]; // 独立脚步计时，反向不能把完整抬腿压缩到周期末两帧
     bool swinging[2]; // 一次摆腿开始后直到相位回绕才允许再次落脚
     bool contact[2], initialized; // 上步接地标记及初始化标记
 } MotionState;
