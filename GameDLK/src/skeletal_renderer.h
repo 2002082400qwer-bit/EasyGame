@@ -3,6 +3,7 @@
 
 #include "raylib.h"
 #include "skeletal_actor.h"
+#include "motion.h"
 #include <wchar.h>
 
 typedef struct SkeletalRenderer {
@@ -10,6 +11,8 @@ typedef struct SkeletalRenderer {
     unsigned int texture_count; // 已成功上传的纹理数量
     unsigned long long texture_bytes; // 纹理RGBA像素占用字节数，不含驱动额外开销
     bool failed; // 部件加载或绘制失败标记
+    SkeletalLayer animated_layers[2]; // 主循环只读采样后交给GPU的连续姿态
+    int animated_count; // 大于零时使用连续姿态，静态资源验收仍可直接求指定姿势
 } SkeletalRenderer;
 
 /* 加载固定拆件：renderer接收纹理和状态，root为程序定位的工程根目录。 */

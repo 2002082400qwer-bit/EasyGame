@@ -12,6 +12,7 @@
 #include "player.h"
 #include "animation.h"
 #include "skeletal_renderer.h"
+#include "motion_preview.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -322,13 +323,14 @@ static void UnloadSprites(Sprites *sprites)
 int main(int argc, char **argv)
 {
     const bool verify = argc > 1 && strcmp(argv[1], "--verify") == 0; // 是否执行自动截图验证
+    const bool preview = argc > 1 && strcmp(argv[1], "--motion-preview") == 0; // 是否导出连续输入的GPU旧新对照
     if (!FindRoot()) { fprintf(stderr, "Cannot locate project root.\n"); return 2; }
     SetTraceLogLevel(LOG_WARNING);
-    SetConfigFlags(FLAG_MSAA_4X_HINT | (verify ? FLAG_WINDOW_HIDDEN : FLAG_VSYNC_HINT));
+    SetConfigFlags(FLAG_MSAA_4X_HINT | (verify || preview ? FLAG_WINDOW_HIDDEN : FLAG_VSYNC_HINT));
     InitWindow(APP_WIDTH, APP_HEIGHT, "MX002 | C + raylib Movement Lab");
     if (!IsWindowReady()) { fprintf(stderr, "Cannot create graphics window.\n"); return 2; }
     const char *limit_text = getenv("MX002_FPS_LIMIT"); // 手动性能验证时可选的渲染帧率限制
-    SetTargetFPS(verify ? 240 : (limit_text ? atoi(limit_text) : 120));
+    SetTargetFPS(verify || preview ? 240 : (limit_text ? atoi(limit_text) : 120));
     Sprites sprites = {0}; // 三方向各16部件的固定纹理集合
     SkeletalRendererLoad(&sprites, root);
     if (sprites.failed) {
@@ -342,10 +344,21 @@ int main(int argc, char **argv)
         CloseWindow();
         return result;
     }
+    if (preview) {
+        wchar_t directory[PATH_CAPACITY]; // 连续验证截图输出目录
+        swprintf(directory, PATH_CAPACITY, L"%ls/verification", root);
+        CreateDirectoryW(directory, NULL);
+        const int result = MotionPreview(&sprites, root); // 正式GPU渲染及逐帧记录结果
+        UnloadSprites(&sprites);
+        CloseWindow();
+        return result;
+    }
     Player player; // 当前可操控角色
     ActorAnimation animation; // 当前角色的逻辑动作与转向状态
     PlayerInit(&player, &world);
     AnimationInit(&animation, VIEW_LEFT);
+    MotionState motion; // 保存跨动作相位、惯性及相邻物理步姿势
+    MotionInit(&motion, &player, &animation);
     float accumulator = 0.0f; // 尚未用于物理更新的渲染时间累计
     float visual_time = 0.0f; // 背景视觉特效累计时间
     bool pending_jump = false; // 等待下一次物理更新消费的跳跃触发事件
@@ -362,6 +375,7 @@ int main(int argc, char **argv)
         if (IsKeyPressed(KEY_R)) {
             PlayerInit(&player, &world);
             AnimationInit(&animation, VIEW_LEFT);
+            MotionInit(&motion, &player, &animation);
             pending_jump = false;
             pending_dash = false;
             accumulator = 0.0f;
@@ -382,11 +396,14 @@ int main(int argc, char **argv)
             input.dash = pending_dash;
             PlayerUpdate(&player, input, &world, FIXED_STEP);
             AnimationUpdate(&animation, &player, FIXED_STEP);
+            MotionUpdate(&motion, &player, &animation, FIXED_STEP);
             pending_jump = false;
             pending_dash = false;
             accumulator -= FIXED_STEP;
         }
-        DrawFrame(&sprites, &player, &animation, debug, visual_time, NULL);
+        Player visual_player; // 使用物理余量插值世界位置，碰撞和输入仍由固定步决定
+        sprites.animated_count = MotionSample(&motion, accumulator / FIXED_STEP, &visual_player, sprites.animated_layers);
+        DrawFrame(&sprites, &visual_player, &animation, debug, visual_time, NULL);
     }
     UnloadSprites(&sprites);
     CloseWindow();

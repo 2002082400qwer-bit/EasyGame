@@ -10,6 +10,7 @@ typedef struct SkeletalLayer {
     bool mirror; // 是否将左侧绑定镜像为右侧
     float opacity; // 转向交叉过渡的不透明度
     float width_scale; // 转向仅压窄横向，竖直尺寸保持不变
+    float bend[3]; // 发梢与左右衣摆的连续网格弯曲量，静态检查时为零
 } SkeletalLayer;
 
 /* 求实时姿势：player提供物理计时，animation提供原35逻辑动作，layers接收至多两层。 */

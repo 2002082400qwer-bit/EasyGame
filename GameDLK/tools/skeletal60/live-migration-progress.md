@@ -9,7 +9,8 @@ Ruling: 沿用此前明确授权同步EasyGame/main/GameDLK，完成后直接发
 
 Task 1: complete — 数学、紧凑导出、69711项数学断言及Python独立基准核对通过。
 Task 2: complete — 35状态实时适配、48件GPU绘制和入口替换完成；895项适配检查通过。
-Task 3: validation_complete — 真实启动器95场景、正式95场景、仅48件隔离95场景、缺失/损坏分支与12张实际截图测量通过；最小运行包约3.70 MiB。交付说明已写，待本地/远程提交回执。
+Task 3: complete — 真实启动器95场景、正式95场景、仅48件隔离95场景、缺失/损坏分支与12张实际截图测量通过；最小运行包约3.70 MiB。交付说明、上下文、本地/远程提交和正常启动均完成。
 
 Review: 独立数学与渲染复审均完成。已修复极小负循环进度越界、半蹲起冲误用深蹲两项Important；回归先失败后通过，复审关闭。无剩余Critical/Important。
 Evidence: docs/live-skeleton-migration.md；verification/skeletal-resource-report.json、skeletal-visual-report.json；build/MX002-skeletal-runtime.zip。
+Published: 本地功能提交2e0afc3；远程ff4cea7089e28e3e86d30b1baaa131db05687ad3，ls-remote确认。发布前整棵GameDLK与本地功能提交树均为3d3afd8c30c75dff0433ddc1c652f4521db2c5b5。游戏PID19112，Responding=true。本文件完成回执在本地额外提交，功能与验收说明均已发布。

@@ -16,6 +16,8 @@ $compileArguments = @( # 游戏编译及静态链接参数
     (Join-Path $projectRoot 'src\animation.c'),
     (Join-Path $projectRoot 'src\skeleton.c'), (Join-Path $projectRoot 'src\skeletal_actor.c'),
     (Join-Path $projectRoot 'src\skeletal_renderer.c'),
+    (Join-Path $projectRoot 'src\motion.c'),
+    (Join-Path $projectRoot 'src\motion_preview.c'),
     '-L', (Join-Path $raylibRoot 'lib'), '-lraylib', '-lopengl32', '-lgdi32', '-lwinmm',
     '-o', (Join-Path $buildDirectory 'MX002.exe')
 )

@@ -23,3 +23,8 @@ $actorExecutable = Join-Path $projectRoot 'build\skeletal_actor_tests.exe' # 原
 if ($LASTEXITCODE -ne 0) { throw '实时动作适配测试编译失败。' }
 & $actorExecutable
 if ($LASTEXITCODE -ne 0) { throw '实时动作适配测试失败。' }
+$motionExecutable = Join-Path $projectRoot 'build\motion_tests.exe' # 真实输入的连续动作、接地和只读渲染回归
+& $compilerPath -std=c99 -Wall -Wextra -Werror -O2 -static -I (Join-Path $projectRoot 'src') (Join-Path $projectRoot 'tests\motion_tests.c') (Join-Path $projectRoot 'src\motion.c') (Join-Path $projectRoot 'src\skeletal_actor.c') (Join-Path $projectRoot 'src\skeleton.c') (Join-Path $projectRoot 'src\animation.c') (Join-Path $projectRoot 'src\player.c') -lm -o $motionExecutable
+if ($LASTEXITCODE -ne 0) { throw '连续动作测试编译失败。' }
+& $motionExecutable
+if ($LASTEXITCODE -ne 0) { throw '连续动作测试失败。' }

@@ -1,6 +1,8 @@
 #include "skeletal_renderer.h"
+#include "rlgl.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #define PART_PATH_CAPACITY 32768 // 支持中文工程的宽字符文件路径容量
 #define PART_MAX_BYTES 8000000 // 固定拆件压缩文件的最大允许字节数
@@ -69,11 +71,34 @@ void SkeletalRendererUnload(SkeletalRenderer *renderer)
     renderer->texture_count = 0;
 }
 
+/* 绘制柔性拆件：texture为原图，target/origin/angle为绑定变换，bend为尾部弯曲，mirror为反射，color为透明度。 */
+static void DrawFlexible(Texture2D texture, Rectangle target, Vector2 origin, float angle, float bend, bool mirror, Color color)
+{
+    const float cosine = cosf(angle * DEG2RAD), sine = sinf(angle * DEG2RAD); // 关节旋转的正余弦
+    const float corners[4][2] = {{0, 0}, {0, 1}, {1, 1}, {1, 0}}; // 与raylib纹理四边形一致的绕序
+    rlSetTexture(texture.id);
+    rlBegin(RL_QUADS);
+    rlColor4ub(color.r, color.g, color.b, color.a);
+    rlNormal3f(0, 0, 1);
+    for (int row = 0; row < 10; ++row) { // 十段纵向网格保持纹理连续，根部不变形
+        for (int corner = 0; corner < 4; ++corner) { // 当前条带四个顶点
+            const float u = corners[corner][0], v = (row + corners[corner][1]) / 10.0f; // 原图连续UV
+            float point[2]; // 变形后相对关节的局部坐标
+            MotionRibbon(u, v, target.width, target.height, origin.x / target.width, origin.y / target.height, mirror ? -bend : bend, point);
+            rlTexCoord2f(mirror ? 1 - u : u, v);
+            rlVertex2f(target.x + cosine * point[0] - sine * point[1], target.y + sine * point[0] + cosine * point[1]);
+        }
+    }
+    rlEnd();
+    rlSetTexture(0);
+}
+
 /* 按实时骨骼绘制：renderer为纹理集合，player/animation为世界与动作，opacity/offset为残影参数。 */
 void SkeletalRendererDraw(SkeletalRenderer *renderer, const Player *player, const ActorAnimation *animation, float opacity, float offset)
 {
     SkeletalLayer layers[2]; // 普通动作一层，短转向最多两个视角层
-    const int count = SkeletalEvaluate(player, animation, layers); // 当前逻辑状态的实时骨骼姿态
+    const int count = renderer->animated_count > 0 ? renderer->animated_count : SkeletalEvaluate(player, animation, layers); // 正式运行使用持久连续姿态
+    if (renderer->animated_count > 0) for (int index = 0; index < count; ++index) layers[index] = renderer->animated_layers[index]; // 残影反复读取，不推进状态
     for (int index = 0; index < count; ++index) { // 当前视角层
         const SkeletalLayer *layer = &layers[index]; // 待合成的姿态及透明度
         if (layer->opacity <= 0) continue;
@@ -93,7 +118,10 @@ void SkeletalRendererDraw(SkeletalRenderer *renderer, const Player *player, cons
             const Rectangle target = {player->x + offset + sign * (joints[part].x - 256) * scale * layer->width_scale,
                 player->y + (joints[part].y - 471) * scale, width, height}; // 以同一世界脚底定位关节
             const Vector2 origin = {(layer->mirror ? 1 - bone->pivot_x : bone->pivot_x) * width, bone->pivot_y * height}; // 纹理镜像后枢轴也必须反射
-            DrawTexturePro(texture, source, target, origin, sign * joints[part].angle * RAD2DEG, Fade(WHITE, opacity * layer->opacity));
+            if (part == 3 || part == 14 || part == 15) {
+                DrawFlexible(texture, target, origin, sign * joints[part].angle * RAD2DEG,
+                    layer->bend[part == 3 ? 0 : part - 13], layer->mirror, Fade(WHITE, opacity * layer->opacity));
+            } else DrawTexturePro(texture, source, target, origin, sign * joints[part].angle * RAD2DEG, Fade(WHITE, opacity * layer->opacity));
         }
     }
 }
